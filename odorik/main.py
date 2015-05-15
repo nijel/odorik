@@ -163,13 +163,21 @@ class MobileData(Command):
             action='store_true',
             help='List all records (instead of printing summary)'
         )
+        parser.add_argument(
+            '--phone',
+            help='Limit listing to phone number'
+        )
         return parser
 
     def run(self):
         now = datetime.now()
+        phone = None
+        if self.args.phone:
+            phone = self.args.phone
         data_usage = self.odorik.mobile_data(
             datetime(now.year, now.month, 1),
-            now
+            now,
+            phone
         )
         if self.args.list:
             for item in data_usage:

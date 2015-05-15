@@ -54,3 +54,10 @@ class TestCommands(TestCase):
         register_uris()
         output = self.execute(['mobile-data'])
         self.assertTrue('price: 0.1484' in output)
+
+    @httpretty.activate
+    def test_data_number(self):
+        """Test getting data summary"""
+        register_uris()
+        output = self.execute(['mobile-data', '--phone', '123456789'])
+        self.assertTrue('price: 0.1484' in output)

@@ -27,11 +27,14 @@ subcommands are available:
 
     Prints current balance.
 
-.. option:: mobile-data [--list]
+.. option:: mobile-data [--list] [--phone NUMBER]
 
     Prints mobile data usage.
 
-    Optionally it can list all individual records.
+    It can list all individual records.
+
+    The result can be also limited to given phone number. Needs to be specified
+    as ``00420123456789``.
 
 Files
 +++++
