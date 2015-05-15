@@ -6,4 +6,6 @@
 
 Python module to work with Odorik API.
 
+See http://odorik.readthedocs.org/en/latest/ for module documentation.
+
 See http://www.odorik.cz/w/api for API documentation.
