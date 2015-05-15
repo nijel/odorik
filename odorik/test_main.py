@@ -68,3 +68,10 @@ class TestCommands(TestCase):
         register_uris()
         output = self.execute(['mobile-data', '--list'])
         self.assertTrue('0.1484' in output)
+
+    @httpretty.activate
+    def test_api(self):
+        """Test getting data list"""
+        register_uris()
+        output = self.execute(['api', 'sms/allowed_sender'])
+        self.assertTrue('Odorik.cz,5517,00420789123456' in output)

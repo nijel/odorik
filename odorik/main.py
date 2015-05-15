@@ -133,6 +133,30 @@ class Version(Command):
 
 
 @register_command
+class API(Command):
+    """
+    Performs API GET.
+    """
+    name = 'api'
+    description = "Performs API request"
+
+    @classmethod
+    def add_parser(cls, subparser):
+        """
+        Creates parser for command line.
+        """
+        parser = super(API, cls).add_parser(subparser)
+        parser.add_argument(
+            'path',
+            help='API request path'
+        )
+        return parser
+
+    def run(self):
+        self.println('{0}'.format(self.odorik.get(self.args.path)))
+
+
+@register_command
 class Balance(Command):
     """
     Prints balance.

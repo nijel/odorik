@@ -23,6 +23,10 @@ subcommands are available:
 
     Prints current version.
 
+.. option:: api PATH
+
+    Performs authenticated API call.
+
 .. option:: balance
 
     Prints current balance.
@@ -81,3 +85,10 @@ Prints current mobile data usage:
     bytes_down: 87039672
     bytes_up: 24554035
     price: 0
+
+Generic API usage:
+
+.. code-block:: sh
+
+    $ odorik api sms/allowed_sender
+    Odorik.cz,5517,00420789123456
