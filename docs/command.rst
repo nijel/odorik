@@ -1,5 +1,5 @@
-SUSEAPI command line interface
-==============================
+Odorik command line interface
+=============================
 
 .. program:: odorik
 
