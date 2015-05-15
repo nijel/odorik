@@ -23,7 +23,7 @@ from unittest import TestCase
 from StringIO import StringIO
 
 import odorik
-from odorik.main import get_parser, main
+from odorik.main import main
 
 
 class TestCommands(TestCase):
