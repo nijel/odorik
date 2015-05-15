@@ -57,6 +57,12 @@ class Odorik(object):
             args['password'] = self.password
         return args
 
+    @staticmethod
+    def _check_response(response):
+        """Checks whether response is valid"""
+        if response.startswith('error '):
+            raise OdorikException(response)
+
     def post(self, path, args=None):
         """Performs GET request on the API."""
         args = self._fill_args(args)
@@ -84,7 +90,9 @@ class Odorik(object):
 
     def balance(self):
         """Gets current balance"""
-        return float(self.get('balance'))
+        response = self.get('balance')
+        self._check_response(response)
+        return float(response)
 
     def mobile_data(self, from_date, to_date, number=None):
         """Gets data usage in given period."""
@@ -103,6 +111,5 @@ class Odorik(object):
             'sms',
             {'sender': sender, 'recipient': recipient, 'message': message}
         )
-        if response.startswith('error '):
-            raise OdorikException(response)
+        self._check_response(response)
         return response
