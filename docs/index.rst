@@ -6,6 +6,8 @@
 Welcome to Odorik's documentation!
 ==================================
 
+This is Python module which wraps Odorik API <http://www.odorik.cz/w/api>.
+
 Contents:
 
 .. toctree::
