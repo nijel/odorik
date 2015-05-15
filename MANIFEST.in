@@ -1,0 +1,11 @@
+include README.md
+include LICENSE
+include MANIFEST.in
+include NEWS.md
+include requirements.txt
+include requirements-test.txt
+include odorik/*.py
+include docs/Makefile
+include docs/make.bat
+include docs/conf.py
+include docs/*.rst

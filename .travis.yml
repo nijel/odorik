@@ -1,0 +1,31 @@
+language: python
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+  - "pypy"
+  - "pypy3"
+sudo: false
+cache:
+  directories:
+    - $HOME/.cache/pip
+# commands to install dependencies
+install: 
+  - pip install -r requirements.txt
+  - pip install -r requirements-test.txt
+# commands to run tests
+script: 
+  - py.test --cov=odorik
+  - pep8 odorik
+  - pylint --reports=n --rcfile=pylint.rc odorik
+  - pyflakes odorik
+after_script:
+  - coveralls
+  - codecov
+  - ocular --data-file ".coverage" --config-file ".coveragerc"
+# trigger Buildtime Trend Service to parse Travis CI log
+notifications:
+  webhooks:
+    - https://buildtimetrend.herokuapp.com/travis

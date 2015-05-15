@@ -1,0 +1,9 @@
+pep8
+coveralls
+codecov
+pylint
+HTTPretty
+pytest
+pytest-cov
+pyflakes
+scrutinizer-ocular

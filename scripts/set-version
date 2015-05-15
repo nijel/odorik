@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+
+if [ -z "$1" ] ; then
+    echo 'Usage: ./scripts/set-version VERSION'
+    exit 1
+fi
+
+sed -i "s/^__version__ =.*/__version__ = '$1'/" odorik/__init__.py
+
+# Update docs/changes.md
+tmp=`mktemp`
+cp NEWS.md $tmp
+cat > NEWS.md <<EOT
+Changes
+=======
+
+$1
+----
+
+EOT
+cat $tmp >> NEWS.md
+rm $tmp
+
+git commit -m "Setting version to $1" odorik/__init__.py NEWS.md

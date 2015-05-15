@@ -1,0 +1,5 @@
+test-warnings: yes
+strictness: veryhigh
+autodetect: yes
+ignore-paths:
+    - docs
