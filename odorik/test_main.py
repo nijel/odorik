@@ -31,7 +31,8 @@ from odorik.test_odorik import register_uris
 
 class TestCommands(TestCase):
     """Test command line interface"""
-    def execute(self, args):
+    @staticmethod
+    def execute(args):
         """Execute command and return output."""
         output = StringIO()
         main(args=args, stdout=output, settings={})
