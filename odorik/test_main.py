@@ -24,6 +24,7 @@ from unittest import TestCase
 from io import StringIO, BytesIO
 import httpretty
 import json
+import sys
 
 import odorik
 from odorik.main import main
@@ -35,7 +36,7 @@ class TestCommands(TestCase):
     @staticmethod
     def execute(args, binary=False):
         """Execute command and return output."""
-        if binary:
+        if binary and sys.version_info < (3, 0):
             output = BytesIO()
         else:
             output = StringIO()
