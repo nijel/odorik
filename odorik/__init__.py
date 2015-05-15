@@ -76,7 +76,7 @@ class Odorik(object):
         url = '{0}{1}?{2}'.format(
             self.url,
             path,
-            urlencode(args).encode('utf-8')
+            urlencode(args)
         )
         request = urlopen(url)
         return request.read().decode('utf-8')
