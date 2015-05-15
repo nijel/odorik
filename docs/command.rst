@@ -84,7 +84,7 @@ Prints current mobile data usage:
 
 .. code-block:: sh
 
-    $ odorik mobile-data
+    $ odorik mobile-data --phone 00420789123456
     bytes_total: 111593707
     bytes_down: 87039672
     bytes_up: 24554035
