@@ -10,8 +10,8 @@ sed -i "s/^__version__ =.*/__version__ = '$1'/" odorik/__init__.py
 
 # Update docs/changes.md
 tmp=`mktemp`
-cp NEWS.md $tmp
-cat > NEWS.md <<EOT
+cp docs/news.rst $tmp
+cat > docs/news.rst <<EOT
 Changes
 =======
 
@@ -19,7 +19,7 @@ $1
 ----
 
 EOT
-cat $tmp >> NEWS.md
+sed '1D;2D;3D' >> docs/news.rst < $tmp
 rm $tmp
 
-git commit -m "Setting version to $1" odorik/__init__.py NEWS.md
+git commit -m "Setting version to $1" odorik/__init__.py docs/news.rst

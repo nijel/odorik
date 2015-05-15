@@ -14,6 +14,7 @@ Contents:
     python.rst
     command.rst
     develop.rst
+    news.rst
 
 
 Indices and tables
