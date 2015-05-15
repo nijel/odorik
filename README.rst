@@ -13,8 +13,16 @@ Python module for Odorik API
     :target: http://codecov.io/github/nijel/odorik?branch=master
     :alt: Code coverage
 
-Python module to work with Odorik API.
+Documentation
+-------------
 
 See http://odorik.readthedocs.org/en/latest/ for module documentation.
 
 See http://www.odorik.cz/w/api for API documentation.
+
+Installation
+------------
+
+Use pip to install::
+
+    pip install odorik
