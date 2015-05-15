@@ -94,7 +94,7 @@ class OdorikTest(TestCase):
         )
 
     @httpretty.activate
-    def test_data_number(self):
+    def test_data_invalid(self):
         """Test getting balance"""
         register_uris()
         self.assertRaises(
