@@ -17,6 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+"""Test command line interface"""
 
 from unittest import TestCase
 from StringIO import StringIO
@@ -26,7 +27,9 @@ from odorik.main import get_parser, main
 
 
 class TestCommands(TestCase):
+    """Test command line interface"""
     def test_version(self):
+        """Test version printing"""
         output = StringIO()
         main(
             args=['version'],
