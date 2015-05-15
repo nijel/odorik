@@ -16,7 +16,7 @@ Changes
 =======
 
 $1
-----
+---
 
 EOT
 sed '1D;2D;3D' >> docs/news.rst < $tmp
