@@ -62,7 +62,7 @@ class Odorik(object):
         """Performs GET request on the API."""
         args = self._fill_args(args)
         url = '{0}{1}'.format(self.url, path)
-        request = urlopen(url, urlencode(args))
+        request = urlopen(url, urlencode(args).encode('utf-8'))
         return request.read().decode('utf-8')
 
     def get(self, path, args=None):
@@ -71,7 +71,7 @@ class Odorik(object):
         url = '{0}{1}?{2}'.format(
             self.url,
             path,
-            urlencode(args)
+            urlencode(args).encode('utf-8')
         )
         request = urlopen(url)
         return request.read().decode('utf-8')
