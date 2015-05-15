@@ -25,6 +25,10 @@ from odorik import Odorik, OdorikException
 from decimal import Decimal
 import httpretty
 import datetime
+try:
+    from urlparse import parse_qs
+except ImportError:
+    from urllib.parse import parse_qs
 
 
 DATA_BODY = (
@@ -32,6 +36,14 @@ DATA_BODY = (
     '"bytes_down":3768,"bytes_total":155434,"price":0.1484,' +
     '"price_per_mb":1.0,"phone_number":"00420799799799"}]'
 )
+
+
+def sms_response(request, uri, headers):
+    """httpretty SMS sending response generator"""
+    params = parse_qs(request.body)
+    if params['sender'][0] == '5517':
+        return (200, headers, 'successfully_sent 132.44')
+    return (200, headers, 'error unsupported_recipient')
 
 
 def register_uris():
@@ -61,6 +73,11 @@ def register_uris():
         httpretty.GET,
         'https://www.odorik.cz/api/v1/sms/allowed_sender',
         body='Odorik.cz,5517,00420789123456'
+    )
+    httpretty.register_uri(
+        httpretty.POST,
+        'https://www.odorik.cz/api/v1/sms',
+        body=sms_response,
     )
 
 
@@ -110,4 +127,25 @@ class OdorikTest(TestCase):
             datetime.datetime.now(),
             datetime.datetime.now(),
             'INVALID'
+        )
+
+    @httpretty.activate
+    def test_sms(self):
+        """Test sending SMS"""
+        register_uris()
+        Odorik().send_sms(
+            '00420789123456',
+            'text'
+        )
+
+    @httpretty.activate
+    def test_sms_invalid(self):
+        """Test sending SMS"""
+        register_uris()
+        self.assertRaises(
+            OdorikException,
+            Odorik().send_sms,
+            '00420789123456',
+            'text',
+            '123456',
         )

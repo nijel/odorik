@@ -40,6 +40,10 @@ subcommands are available:
     The result can be also limited to given phone number. Needs to be specified
     as ``00420789123456``.
 
+.. option:: send-sms [--sender SENDER] recipient message
+
+    Sends a SMS message.
+
 Files
 +++++
 
@@ -85,6 +89,12 @@ Prints current mobile data usage:
     bytes_down: 87039672
     bytes_up: 24554035
     price: 0
+
+Sending message:
+
+.. code-block:: sh
+
+    $ odorik send-sms 00420789123456 "Ahoj, jak se mas?"
 
 Generic API usage:
 

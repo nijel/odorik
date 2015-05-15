@@ -222,6 +222,43 @@ class MobileData(Command):
             self.println('price: {0}'.format(price))
 
 
+@register_command
+class SendSMS(Command):
+    """
+    Sends SMS.
+    """
+    name = 'send-sms'
+    description = "Sends a SMS message"
+
+    @classmethod
+    def add_parser(cls, subparser):
+        """
+        Creates parser for command line.
+        """
+        parser = super(SendSMS, cls).add_parser(subparser)
+        parser.add_argument(
+            'recipient',
+            help='Recipient number'
+        )
+        parser.add_argument(
+            'message',
+            help='Message text'
+        )
+        parser.add_argument(
+            '--sender',
+            default='5517',
+            help='Sender number'
+        )
+        return parser
+
+    def run(self):
+        self.odorik.send_sms(
+            self.args.recipient,
+            self.args.message,
+            self.args.sender,
+        )
+
+
 def main(settings=None, stdout=None, args=None):
     """
     Execution entry point.

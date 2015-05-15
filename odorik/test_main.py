@@ -72,7 +72,17 @@ class TestCommands(TestCase):
 
     @httpretty.activate
     def test_api(self):
-        """Test getting data list"""
+        """Test API operation"""
         register_uris()
         output = self.execute(['api', 'sms/allowed_sender'])
         self.assertTrue('Odorik.cz,5517,00420789123456' in output)
+
+    @httpretty.activate
+    def test_send_sms(self):
+        """Test sending SMS"""
+        register_uris()
+        output = self.execute([
+            'send-sms',
+            '00420789123456',
+            'text'
+        ])

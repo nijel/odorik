@@ -48,14 +48,26 @@ class Odorik(object):
         self.password = password
         self.url = url
 
-    def get(self, path, args=None):
-        """Performs GET request on the API."""
+    def _fill_args(self, args):
+        """Fills in args"""
         if args is None:
             args = {}
         if 'user' not in args:
             args['user'] = self.user
         if 'password' not in args:
             args['password'] = self.password
+        return args
+
+    def post(self, path, args=None):
+        """Performs GET request on the API."""
+        args = self._fill_args(args)
+        url = '{0}{1}'.format(self.url, path)
+        request = urlopen(url, urlencode(args))
+        return request.read().decode('utf-8')
+
+    def get(self, path, args=None):
+        """Performs GET request on the API."""
+        args = self._fill_args(args)
         url = '{0}{1}?{2}'.format(
             self.url,
             path,
@@ -85,3 +97,13 @@ class Odorik(object):
             url,
             {'from': from_date.isoformat(), 'to': to_date.isoformat()}
         )
+
+    def send_sms(self, recipient, message, sender='5517'):
+        """Sends a SMS message."""
+        response = self.post(
+            'sms',
+            {'sender': sender, 'recipient': recipient, 'message': message}
+        )
+        if response.startswith('error '):
+            raise OdorikException(response)
+        return response
