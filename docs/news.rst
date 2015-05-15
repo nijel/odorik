@@ -2,7 +2,9 @@ Changes
 =======
 
 0.2
-----
+---
+
+* Documentation improvements.
 
 0.1
 ---
