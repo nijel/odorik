@@ -58,6 +58,10 @@ class Odorik(object):
         request = urlopen(url)
         return request.read().decode('utf-8')
 
+    def get_json(self, path, args=None):
+        """JSON parser on top of get"""
+        return json.loads(self.get(path, args))
+
     def balance(self):
         """Gets current balance"""
         return Decimal(self.get('balance'))
@@ -68,9 +72,7 @@ class Odorik(object):
             url = 'sim_cards/mobile_data.json'
         else:
             url = 'sim_cards/{0}/mobile_data.json'.format(number)
-        return json.loads(
-            self.get(
-                url,
-                {'from': from_date.isoformat(), 'to': to_date.isoformat()}
-            )
+        return self.get_json(
+            url,
+            {'from': from_date.isoformat(), 'to': to_date.isoformat()}
         )
