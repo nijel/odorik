@@ -55,6 +55,7 @@ class OdorikConfig(RawConfigParser):
         self.add_section('odorik')
         self.set('odorik', 'user', '')
         self.set('odorik', 'password', '')
+        self.set('odorik', 'url', odorik.API_URL)
 
     def load(self):
         """
@@ -90,6 +91,11 @@ class Command(object):
             self.stdout = sys.stdout
         else:
             self.stdout = stdout
+        self.odorik = odorik.Odorik(
+            config.get('odorik', 'user'),
+            config.get('odorik', 'password'),
+            config.get('odorik', 'url'),
+        )
 
     @classmethod
     def add_parser(cls, subparser):
@@ -123,6 +129,18 @@ class Version(Command):
 
     def run(self):
         self.println(odorik.__version__)
+
+
+@register_command
+class Balance(Command):
+    """
+    Prints balance.
+    """
+    name = 'balance'
+    description = "Prints current balance"
+
+    def run(self):
+        self.println('{0}'.format(self.odorik.balance()))
 
 
 def main(settings=None, stdout=None, args=None):

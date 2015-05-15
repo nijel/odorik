@@ -20,4 +20,41 @@
 """Odorik API library"""
 from __future__ import unicode_literals
 
+try:
+    from urllib import urlencode, urlopen
+except ImportError:
+    from urllib.parse import urlencode
+    from urllib.request import urlopen
+
+from decimal import Decimal
+
 __version__ = '0.1'
+
+API_URL = 'https://www.odorik.cz/api/v1/'
+
+
+class Odorik(object):
+    """Odorik API object."""
+    def __init__(self, user='', password='', url=API_URL):
+        """Creates the object, storing user and API password."""
+        self.user = user
+        self.password = password
+        self.url = url
+
+    def get(self, path, **args):
+        """Performs GET request on the API."""
+        if not 'user' in args:
+            args['user'] = self.user
+        if not 'password' in args:
+            args['password'] = self.password
+        url = '{0}{1}?{2}'.format(
+            self.url,
+            path,
+            urlencode(args)
+        )
+        request = urlopen(url)
+        return request.read()
+
+    def balance(self):
+        """Gets current balance"""
+        return Decimal(self.get('balance'))

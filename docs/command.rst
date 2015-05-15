@@ -23,6 +23,10 @@ subcommands are available:
 
     Prints current version.
 
+.. option:: balance
+
+    Prints current balance.
+
 Files
 +++++
 
@@ -51,3 +55,10 @@ Print current program version:
 
     $ odorik version
     0.1
+
+Print current user balance:
+
+.. code-block:: sh
+
+    $ odorik balance
+    123.45

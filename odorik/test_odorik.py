@@ -17,36 +17,30 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-"""Test command line interface"""
+"""Test the module."""
 
 from unittest import TestCase
-from io import StringIO
+from odorik import Odorik
+from decimal import Decimal
 import httpretty
 
-import odorik
-from odorik.main import main
-from odorik.test_odorik import register_uris
+
+def register_uris():
+    """Register URIs for httpretty."""
+    httpretty.register_uri(
+        httpretty.GET,
+        'https://www.odorik.cz/api/v1/balance',
+        body='123.45'
+    )
 
 
-class TestCommands(TestCase):
-    """Test command line interface"""
-    def execute(self, args):
-        """Execute command and return output."""
-        output = StringIO()
-        main(
-            args=args,
-            stdout=output
-        )
-        return output.getvalue()
-
-    def test_version(self):
-        """Test version printing"""
-        output = self.execute(['version'])
-        self.assertTrue(odorik.__version__ in output)
-
+class OdorikTest(TestCase):
+    """Testing of Odorik class"""
     @httpretty.activate
     def test_balance(self):
         """Test getting balance"""
         register_uris()
-        output = self.execute(['balance'])
-        self.assertTrue('123.45' in output)
+        self.assertEqual(
+            Odorik().balance(),
+            Decimal('123.45')
+        )
