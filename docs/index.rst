@@ -14,6 +14,8 @@ You can install the module from PyPI:
 
     pip install odorik
 
+The project is being developed on GitHub: <https://github.com/nijel/odorik>
+
 Contents:
 
 .. toctree::
