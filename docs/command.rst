@@ -27,6 +27,12 @@ subcommands are available:
 
     Prints current balance.
 
+.. option:: mobile-data [--list]
+
+    Prints mobile data usage.
+
+    Optionally it can list all individual records.
+
 Files
 +++++
 
@@ -62,3 +68,13 @@ Print current user balance:
 
     $ odorik balance
     123.45
+
+Prints current mobile data usage:
+
+.. code-block:: sh
+
+    $ odorik mobile-data
+    bytes_total: 111593707
+    bytes_down: 87039672
+    bytes_up: 24554035
+    price: 0

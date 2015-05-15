@@ -23,6 +23,14 @@ from unittest import TestCase
 from odorik import Odorik
 from decimal import Decimal
 import httpretty
+import datetime
+
+
+DATA_BODY = (
+    '[{"id":133,"date":"2013-07-11T14:43:59Z","bytes_up":151666,' +
+    '"bytes_down":3768,"bytes_total":155434,"price":0.1484,' +
+    '"price_per_mb":1.0,"phone_number":"00420799799799"}]'
+)
 
 
 def register_uris():
@@ -31,6 +39,16 @@ def register_uris():
         httpretty.GET,
         'https://www.odorik.cz/api/v1/balance',
         body='123.45'
+    )
+    httpretty.register_uri(
+        httpretty.GET,
+        'https://www.odorik.cz/api/v1/sim_cards/mobile_data.json',
+        body=DATA_BODY
+    )
+    httpretty.register_uri(
+        httpretty.GET,
+        'https://www.odorik.cz/api/v1/sim_cards/123456789/mobile_data.json',
+        body=DATA_BODY
     )
 
 
@@ -43,4 +61,29 @@ class OdorikTest(TestCase):
         self.assertEqual(
             Odorik().balance(),
             Decimal('123.45')
+        )
+
+    @httpretty.activate
+    def test_data(self):
+        """Test getting balance"""
+        register_uris()
+        self.assertEqual(
+            len(Odorik().mobile_data(
+                datetime.datetime.now(),
+                datetime.datetime.now(),
+            )),
+            1
+        )
+
+    @httpretty.activate
+    def test_data_number(self):
+        """Test getting balance"""
+        register_uris()
+        self.assertEqual(
+            len(Odorik().mobile_data(
+                datetime.datetime.now(),
+                datetime.datetime.now(),
+                '123456789'
+            )),
+            1
         )

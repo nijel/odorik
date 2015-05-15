@@ -27,6 +27,7 @@ except ImportError:
     from urllib.request import urlopen
 
 from decimal import Decimal
+import json
 
 __version__ = '0.1'
 
@@ -41,8 +42,10 @@ class Odorik(object):
         self.password = password
         self.url = url
 
-    def get(self, path, **args):
+    def get(self, path, args=None):
         """Performs GET request on the API."""
+        if args is None:
+            args = {}
         if 'user' not in args:
             args['user'] = self.user
         if 'password' not in args:
@@ -58,3 +61,16 @@ class Odorik(object):
     def balance(self):
         """Gets current balance"""
         return Decimal(self.get('balance'))
+
+    def mobile_data(self, from_date, to_date, number=None):
+        """Gets data usage in given period."""
+        if number is None:
+            url = 'sim_cards/mobile_data.json'
+        else:
+            url = 'sim_cards/{0}/mobile_data.json'.format(number)
+        return json.loads(
+            self.get(
+                url,
+                {'from': from_date.isoformat(), 'to': to_date.isoformat()}
+            )
+        )

@@ -26,6 +26,7 @@ from __future__ import unicode_literals
 import sys
 from xdg.BaseDirectory import load_config_paths
 from argparse import ArgumentParser
+from datetime import datetime
 try:
     from configparser import RawConfigParser
 except ImportError:
@@ -141,6 +142,52 @@ class Balance(Command):
 
     def run(self):
         self.println('{0}'.format(self.odorik.balance()))
+
+
+@register_command
+class MobileData(Command):
+    """
+    Prints data usage.
+    """
+    name = 'mobile-data'
+    description = "Prints mobile data usage"
+
+    @classmethod
+    def add_parser(cls, subparser):
+        """
+        Creates parser for command line.
+        """
+        parser = super(MobileData, cls).add_parser(subparser)
+        parser.add_argument(
+            '--list',
+            action='store_true',
+            help='List all records (instead of printing summary)'
+        )
+        return parser
+
+    def run(self):
+        now = datetime.now()
+        data_usage = self.odorik.mobile_data(
+            datetime(now.year, now.month, 1),
+            now
+        )
+        if self.args.list:
+            for item in data_usage:
+                self.println(item)
+        else:
+            bytes_total = 0
+            bytes_down = 0
+            bytes_up = 0
+            price = 0
+            for item in data_usage:
+                bytes_total += item['bytes_total']
+                bytes_down += item['bytes_down']
+                bytes_up += item['bytes_up']
+                price += item['price']
+            self.println('bytes_total: {0}'.format(bytes_total))
+            self.println('bytes_down: {0}'.format(bytes_down))
+            self.println('bytes_up: {0}'.format(bytes_up))
+            self.println('price: {0}'.format(price))
 
 
 def main(settings=None, stdout=None, args=None):
