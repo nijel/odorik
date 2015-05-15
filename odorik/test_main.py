@@ -21,8 +21,9 @@
 from __future__ import unicode_literals
 
 from unittest import TestCase
-from io import StringIO
+from io import StringIO, BytesIO
 import httpretty
+import json
 
 import odorik
 from odorik.main import main
@@ -32,9 +33,12 @@ from odorik.test_odorik import register_uris
 class TestCommands(TestCase):
     """Test command line interface"""
     @staticmethod
-    def execute(args):
+    def execute(args, binary=False):
         """Execute command and return output."""
-        output = StringIO()
+        if binary:
+            output = BytesIO()
+        else:
+            output = StringIO()
         main(args=args, stdout=output, settings={})
         return output.getvalue()
 
@@ -42,6 +46,17 @@ class TestCommands(TestCase):
         """Test version printing"""
         output = self.execute(['version'])
         self.assertTrue(odorik.__version__ in output)
+
+    def test_version_json(self):
+        """Test version printing"""
+        output = self.execute(['--format', 'json', 'version'], True)
+        values = json.loads(output)
+        self.assertEqual({'version': odorik.__version__}, values)
+
+    def test_version_csv(self):
+        """Test version printing"""
+        output = self.execute(['--format', 'csv', 'version'], True)
+        self.assertTrue('version,0.2' in output)
 
     @httpretty.activate
     def test_balance(self):
@@ -69,6 +84,27 @@ class TestCommands(TestCase):
         """Test getting data list"""
         register_uris()
         output = self.execute(['mobile-data', '--list'])
+        self.assertTrue('0.1484' in output)
+
+    @httpretty.activate
+    def test_data_list_json(self):
+        """Test getting data list"""
+        register_uris()
+        output = self.execute(
+            ['--format', 'json', 'mobile-data', '--list'],
+            True
+        )
+        values = json.loads(output)
+        self.assertEqual(len(values), 1)
+
+    @httpretty.activate
+    def test_data_list_csv(self):
+        """Test getting data list"""
+        register_uris()
+        output = self.execute(
+            ['--format', 'csv', 'mobile-data', '--list'],
+            True
+        )
         self.assertTrue('0.1484' in output)
 
     @httpretty.activate

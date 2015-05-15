@@ -5,6 +5,7 @@ Changes
 ---
 
 * Documentation improvements.
+* Added support for json and csv output.
 
 0.1
 ---

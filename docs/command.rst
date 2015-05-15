@@ -19,6 +19,10 @@ This module also installs :program:`odorik` program, which allows you to
 easily access some of the functionality from command line. Currently following
 subcommands are available:
 
+.. option:: --format [csv|json|text]
+
+    Specify output format.
+
 .. option:: version
 
     Prints current version.
@@ -102,3 +106,20 @@ Generic API usage:
 
     $ odorik api sms/allowed_sender
     Odorik.cz,5517,00420789123456
+
+Machine readable output formats:
+
+.. code-block:: sh
+
+    $ odorik --format json mobile-data
+    {
+      "bytes_total": 111593707,
+      "bytes_down": 87039672,
+      "bytes_up": 24554035,
+      "price": 0.008
+    }
+    $ odorik --format csv mobile-data
+    bytes_total,111593707
+    bytes_down,87039672
+    bytes_up,24554035
+    price,0.008

@@ -24,6 +24,8 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 import sys
+import json
+import csv
 from xdg.BaseDirectory import load_config_paths
 from argparse import ArgumentParser
 from datetime import datetime
@@ -70,6 +72,12 @@ def get_parser():
     Creates argument parser.
     """
     parser = ArgumentParser()
+    parser.add_argument(
+        '--format',
+        default='text',
+        choices=('text', 'csv', 'json'),
+        help='Output format to use'
+    )
     subparser = parser.add_subparsers(dest="cmd")
 
     for command in COMMANDS:
@@ -113,6 +121,36 @@ class Command(object):
         """
         print(line, file=self.stdout)
 
+    def print(self, value):
+        """
+        Prints value.
+        """
+        header = None
+        if isinstance(value, list):
+            header = list(value[0].keys())
+
+        if self.args.format == 'json':
+            json.dump(value, self.stdout, indent=2)
+
+        elif self.args.format == 'csv':
+            if header:
+                writer = csv.DictWriter(self.stdout, header)
+                writer.writeheader()
+                for row in value:
+                    writer.writerow(row)
+            else:
+                writer = csv.writer(self.stdout)
+                for key, data in value.items():
+                    writer.writerow((key, data))
+
+        else:
+            if header:
+                for item in value:
+                    self.println('{0}'.format(item))
+            else:
+                for key, data in value.items():
+                    self.println('{0}: {1}'.format(key, data))
+
     def run(self):
         """
         Main execution of the command.
@@ -129,7 +167,7 @@ class Version(Command):
     description = "Prints program version"
 
     def run(self):
-        self.println(odorik.__version__)
+        self.print({'version': odorik.__version__})
 
 
 @register_command
@@ -165,7 +203,7 @@ class Balance(Command):
     description = "Prints current balance"
 
     def run(self):
-        self.println('{0}'.format(self.odorik.balance()))
+        self.print({'balance': self.odorik.balance()})
 
 
 @register_command
@@ -204,8 +242,7 @@ class MobileData(Command):
             phone
         )
         if self.args.list:
-            for item in data_usage:
-                self.println('{0}'.format(item))
+            self.print(data_usage)
         else:
             bytes_total = 0
             bytes_down = 0
@@ -216,10 +253,12 @@ class MobileData(Command):
                 bytes_down += item['bytes_down']
                 bytes_up += item['bytes_up']
                 price += item['price']
-            self.println('bytes_total: {0}'.format(bytes_total))
-            self.println('bytes_down: {0}'.format(bytes_down))
-            self.println('bytes_up: {0}'.format(bytes_up))
-            self.println('price: {0}'.format(price))
+            self.print({
+                'bytes_total': bytes_total,
+                'bytes_down': bytes_down,
+                'bytes_up': bytes_up,
+                'price':  price,
+            })
 
 
 @register_command
