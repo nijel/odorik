@@ -34,6 +34,12 @@ __version__ = '0.1'
 API_URL = 'https://www.odorik.cz/api/v1/'
 
 
+class OdorikException(Exception):
+    """
+    Generic error.
+    """
+
+
 class Odorik(object):
     """Odorik API object."""
     def __init__(self, user='', password='', url=API_URL):
@@ -60,7 +66,10 @@ class Odorik(object):
 
     def get_json(self, path, args=None):
         """JSON parser on top of get"""
-        return json.loads(self.get(path, args))
+        result = json.loads(self.get(path, args))
+        if isinstance(result, dict) and 'errors' in result:
+            raise OdorikException(result['errors'])
+        return result
 
     def balance(self):
         """Gets current balance"""

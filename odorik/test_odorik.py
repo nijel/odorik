@@ -20,7 +20,7 @@
 """Test the module."""
 
 from unittest import TestCase
-from odorik import Odorik
+from odorik import Odorik, OdorikException
 from decimal import Decimal
 import httpretty
 import datetime
@@ -49,6 +49,11 @@ def register_uris():
         httpretty.GET,
         'https://www.odorik.cz/api/v1/sim_cards/123456789/mobile_data.json',
         body=DATA_BODY
+    )
+    httpretty.register_uri(
+        httpretty.GET,
+        'https://www.odorik.cz/api/v1/sim_cards/INVALID/mobile_data.json',
+        body='{"errors":["nonexisting_public_number"]}'
     )
 
 
@@ -86,4 +91,16 @@ class OdorikTest(TestCase):
                 '123456789'
             )),
             1
+        )
+
+    @httpretty.activate
+    def test_data_number(self):
+        """Test getting balance"""
+        register_uris()
+        self.assertRaises(
+            OdorikException,
+            Odorik().mobile_data,
+            datetime.datetime.now(),
+            datetime.datetime.now(),
+            'INVALID'
         )
