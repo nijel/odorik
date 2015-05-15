@@ -26,7 +26,6 @@ except ImportError:
     from urllib.parse import urlencode
     from urllib.request import urlopen
 
-from decimal import Decimal
 import json
 
 __version__ = '0.2'
@@ -85,7 +84,7 @@ class Odorik(object):
 
     def balance(self):
         """Gets current balance"""
-        return Decimal(self.get('balance'))
+        return float(self.get('balance'))
 
     def mobile_data(self, from_date, to_date, number=None):
         """Gets data usage in given period."""

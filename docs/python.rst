@@ -47,9 +47,9 @@
     
     .. method:: balance()
 
-        :rtype: Decimal
+        :rtype: float
 
-        Returns current balance as Decimal object.
+        Returns current balance.
 
     .. method:: mobile_data(from_date, to_date, number=None)
 

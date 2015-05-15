@@ -22,7 +22,6 @@ from __future__ import unicode_literals
 
 from unittest import TestCase
 from odorik import Odorik, OdorikException
-from decimal import Decimal
 import httpretty
 import datetime
 try:
@@ -88,9 +87,9 @@ class OdorikTest(TestCase):
     def test_balance(self):
         """Test getting balance"""
         register_uris()
-        self.assertEqual(
+        self.assertAlmostEqual(
             Odorik().balance(),
-            Decimal('123.45')
+            123.45
         )
 
     @httpretty.activate
