@@ -33,10 +33,7 @@ class TestCommands(TestCase):
     def execute(self, args):
         """Execute command and return output."""
         output = StringIO()
-        main(
-            args=args,
-            stdout=output
-        )
+        main(args=args, stdout=output)
         return output.getvalue()
 
     def test_version(self):
