@@ -81,8 +81,9 @@ class TestCommands(TestCase):
     def test_send_sms(self):
         """Test sending SMS"""
         register_uris()
-        self.execute([
+        output = self.execute([
             'send-sms',
             '00420789123456',
             'text'
         ])
+        self.assertEquals('', output)
