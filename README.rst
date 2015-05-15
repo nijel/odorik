@@ -13,6 +13,10 @@ Python module for Odorik API
     :target: http://codecov.io/github/nijel/odorik?branch=master
     :alt: Code coverage
 
+.. image:: https://img.shields.io/pypi/dm/odorik.svg
+    :target: https://pypi.python.org/pypi/odorik
+    :alt: PyPI package
+
 Documentation
 -------------
 
