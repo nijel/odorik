@@ -8,6 +8,12 @@ Welcome to Odorik's documentation!
 
 This is Python module which wraps Odorik API <http://www.odorik.cz/w/api>.
 
+You can install the module from PyPI:
+
+.. code-block:: sh
+
+    pip install odorik
+
 Contents:
 
 .. toctree::
