@@ -56,7 +56,7 @@ class Odorik(object):
             urlencode(args)
         )
         request = urlopen(url)
-        return request.read()
+        return request.read().decode('utf-8')
 
     def balance(self):
         """Gets current balance"""
