@@ -30,3 +30,21 @@ Installation
 Use pip to install::
 
     pip install odorik
+
+Command line utility
+--------------------
+
+The module comes with handy command line utility::
+
+    $ odorik balance
+    123.45
+
+    $ odorik mobile-data --phone 00420789123456
+    bytes_total: 111593707
+    bytes_down: 87039672
+    bytes_up: 24554035
+    price: 0
+
+    $ odorik send-sms 00420789123456 "Ahoj, jak se mas?"
+
+See http://odorik.readthedocs.org/en/latest/command.html for more information.
