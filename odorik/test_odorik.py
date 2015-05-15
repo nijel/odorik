@@ -40,7 +40,7 @@ DATA_BODY = (
 
 def sms_response(request, uri, headers):
     """httpretty SMS sending response generator"""
-    params = parse_qs(request.body)
+    params = parse_qs(request.body.decode('utf-8'))
     print(uri, request.body, params)
     if params['sender'][0] == '5517':
         return (200, headers, 'successfully_sent 132.44')
