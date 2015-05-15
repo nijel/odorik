@@ -21,11 +21,15 @@
 Command line interface for odorik.
 '''
 from __future__ import print_function
+from __future__ import unicode_literals
 
 import sys
 from xdg.BaseDirectory import load_config_paths
 from argparse import ArgumentParser
-from ConfigParser import RawConfigParser
+try:
+    from configparser import RawConfigParser
+except ImportError:
+    from ConfigParser import RawConfigParser
 
 import odorik
 

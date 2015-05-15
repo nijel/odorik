@@ -18,5 +18,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 """Odorik API library"""
+from __future__ import unicode_literals
 
 __version__ = '0.1'

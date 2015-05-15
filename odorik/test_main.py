@@ -20,10 +20,7 @@
 """Test command line interface"""
 
 from unittest import TestCase
-try:
-    from io import StringIO
-except ImportError:
-    from StringIO import StringIO
+from io import StringIO
 
 import odorik
 from odorik.main import main
