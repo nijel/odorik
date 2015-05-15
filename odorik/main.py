@@ -181,7 +181,7 @@ class MobileData(Command):
         )
         if self.args.list:
             for item in data_usage:
-                self.println(item)
+                self.println('{0}'.format(item))
         else:
             bytes_total = 0
             bytes_down = 0
