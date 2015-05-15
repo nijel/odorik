@@ -44,13 +44,6 @@ setup(
         'odorik',
     ],
     package_dir={'odorik': 'odorik'},
-    package_data={'odorik': [
-        'testdata/*.xml',
-        'testdata/maintained/opensuse',
-        'testdata/maintained/sles',
-        'testdata/maintained/_svn/*',
-        'testdata/maintained/.svn-entries'
-    ]},
     long_description=LONG_DESCRIPTION,
     install_requires=REQUIRES,
     classifiers=[
