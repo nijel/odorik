@@ -43,9 +43,9 @@ class Odorik(object):
 
     def get(self, path, **args):
         """Performs GET request on the API."""
-        if not 'user' in args:
+        if 'user' not in args:
             args['user'] = self.user
-        if not 'password' in args:
+        if 'password' not in args:
             args['password'] = self.password
         url = '{0}{1}?{2}'.format(
             self.url,
