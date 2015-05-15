@@ -10,6 +10,9 @@
     Base class for all exceptions.
 
 
+:class:`Odorik`
+---------------
+
 .. class:: Odorik(user, password, url=None)
 
     Access class to the API, define user, password and optionally API URL.
