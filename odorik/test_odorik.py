@@ -133,9 +133,12 @@ class OdorikTest(TestCase):
     def test_sms(self):
         """Test sending SMS"""
         register_uris()
-        Odorik().send_sms(
-            '00420789123456',
-            'text'
+        self.assertEquals(
+            Odorik().send_sms(
+                '00420789123456',
+                'text'
+            ),
+            'successfully_sent 132.44'
         )
 
     @httpretty.activate
