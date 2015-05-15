@@ -10,7 +10,8 @@ Contents:
 
 .. toctree::
     :maxdepth: 2
-    
+
+    python.rst
     command.rst
     develop.rst
 
