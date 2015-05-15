@@ -47,7 +47,8 @@ def register_uris():
     )
     httpretty.register_uri(
         httpretty.GET,
-        'https://www.odorik.cz/api/v1/sim_cards/123456789/mobile_data.json',
+        'https://www.odorik.cz/api/v1/sim_cards/'
+        '00420789123456/mobile_data.json',
         body=DATA_BODY
     )
     httpretty.register_uri(
@@ -93,7 +94,7 @@ class OdorikTest(TestCase):
             len(Odorik().mobile_data(
                 datetime.datetime.now(),
                 datetime.datetime.now(),
-                '123456789'
+                '00420789123456'
             )),
             1
         )

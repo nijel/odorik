@@ -57,7 +57,7 @@
         :type from_date: datetime.datetime
         :param to_date: Ending date
         :type to_date: datetime.datetime
-        :param number: Phone number in form of 00420123456789
+        :param number: Phone number in form of 00420789123456
         :type number: string
         :rtype: list
 
