@@ -14,6 +14,7 @@
 ---------------
 
 .. class:: Odorik(user, password, url=None)
+
     :param user: User ID
     :type user: string
     :param password: API password
