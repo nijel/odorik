@@ -24,7 +24,7 @@ import os
 
 VERSION = __import__('odorik').__version__
 
-with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
+with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     LONG_DESCRIPTION = readme.read()
 
 REQUIRES = open('requirements.txt').read().split()
