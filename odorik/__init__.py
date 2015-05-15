@@ -29,7 +29,7 @@ except ImportError:
 from decimal import Decimal
 import json
 
-__version__ = '0.1'
+__version__ = '0.2'
 
 API_URL = 'https://www.odorik.cz/api/v1/'
 
