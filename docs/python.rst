@@ -14,6 +14,12 @@
 ---------------
 
 .. class:: Odorik(user, password, url=None)
+    :param user: User ID
+    :type user: string
+    :param password: API password
+    :type password: string
+    :param url: API server URL, if not specified default is used
+    :type url: string
 
     Access class to the API, define user, password and optionally API URL.
 
