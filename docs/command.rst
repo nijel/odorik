@@ -87,9 +87,9 @@ subcommands are available:
 Files
 +++++
 
-~/.config/odorik
+:file:`~/.config/odorik`
     User configuration file
-/etc/xdg/odorik
+:file:`/etc/xdg/odorik`
     Global configration file
 
 The program follows XDG specification, so you can adjust placement of config files
