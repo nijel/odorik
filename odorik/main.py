@@ -188,10 +188,22 @@ class API(Command):
             'path',
             help='API request path'
         )
+        parser.add_argument(
+            '--param',
+            action='append',
+            help='Parameter to append to the call'
+        )
         return parser
 
     def run(self):
-        self.println('{0}'.format(self.odorik.get(self.args.path)))
+        params = {}
+        for param in self.args.param:
+            if not '=' in param:
+                raise Exception('Please specify --param as key=value')
+            key, value = param.split('=', 1)
+            params[key] = value
+        result = self.odorik.get(self.args.path, params)
+        self.println('{0}'.format(result))
 
 
 @register_command
