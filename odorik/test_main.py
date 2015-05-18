@@ -93,6 +93,15 @@ class TestSettings(TestCase):
         config.load(TEST_CONFIG)
         self.assertEqual(config.get('odorik', 'url'), 'https://example.net/')
 
+    def test_argv(self):
+        backup = sys.argv
+        try:
+            sys.argv = ['odorik', 'version']
+            output = execute(None)
+            self.assertIn('version: {0}'.format(odorik.__version__), output)
+        finally:
+            sys.argv = backup
+
 
 class TestOutput(TestCase):
     """Test output formatting"""
