@@ -63,13 +63,13 @@ class TestSettings(TestCase):
     def test_commandline(self):
         register_uris()
         output = execute(['--url', 'https://example.net/', 'balance'])
-        self.assertTrue('321.09' in output)
+        self.assertIn('321.09', output)
 
     @httpretty.activate
     def test_stdout(self):
         register_uris()
         output = execute(['balance'], stdout=True)
-        self.assertTrue('123.45' in output)
+        self.assertIn('123.45', output)
 
     @httpretty.activate
     def test_settings(self):
@@ -78,13 +78,13 @@ class TestSettings(TestCase):
             ['balance'],
             settings=(('odorik', 'url', 'https://example.net/'),)
         )
-        self.assertTrue('321.09' in output)
+        self.assertIn('321.09', output)
 
     @httpretty.activate
     def test_config(self):
         register_uris()
         output = execute(['--config', TEST_CONFIG, 'balance'], settings=False)
-        self.assertTrue('321.09' in output)
+        self.assertIn('321.09', output)
 
     def test_parsing(self):
         config = OdorikConfig()
@@ -109,7 +109,7 @@ class TestOutput(TestCase):
     def test_version_text(self):
         """Test version printing"""
         output = execute(['--format', 'text', 'version'])
-        self.assertTrue('version: {0}'.format(odorik.__version__) in output)
+        self.assertIn('version: {0}'.format(odorik.__version__), output)
 
     def test_version_json(self):
         """Test version printing"""
@@ -120,7 +120,7 @@ class TestOutput(TestCase):
     def test_version_csv(self):
         """Test version printing"""
         output = execute(['--format', 'csv', 'version'], True)
-        self.assertTrue('version,{0}'.format(odorik.__version__) in output)
+        self.assertIn('version,{0}'.format(odorik.__version__), output)
 
     @httpretty.activate
     def test_data_list_text(self):
@@ -129,7 +129,7 @@ class TestOutput(TestCase):
         output = execute(
             ['--format', 'text', 'mobile-data', '--list']
         )
-        self.assertTrue('0.1484' in output)
+        self.assertIn('0.1484', output)
 
     @httpretty.activate
     def test_data_list_json(self):
@@ -150,7 +150,7 @@ class TestOutput(TestCase):
             ['--format', 'csv', 'mobile-data', '--list'],
             True
         )
-        self.assertTrue('0.1484' in output)
+        self.assertIn('0.1484', output)
 
 
 class TestCommands(TestCase):
@@ -159,7 +159,7 @@ class TestCommands(TestCase):
     def test_version(self):
         """Test version printing"""
         output = execute(['version'])
-        self.assertTrue(odorik.__version__ in output)
+        self.assertIn(odorik.__version__, output)
 
     def test_invalid(self):
         """Test invalid command"""
@@ -179,42 +179,42 @@ class TestCommands(TestCase):
         """Test getting balance"""
         register_uris()
         output = execute(['balance'])
-        self.assertTrue('123.45' in output)
+        self.assertIn('123.45', output)
 
     @httpretty.activate
     def test_data_summary(self):
         """Test getting data summary"""
         register_uris()
         output = execute(['mobile-data'])
-        self.assertTrue('price: 0.1484' in output)
+        self.assertIn('price: 0.1484', output)
 
     @httpretty.activate
     def test_data_number(self):
         """Test getting data summary for number"""
         register_uris()
         output = execute(['mobile-data', '--phone', '00420789123456'])
-        self.assertTrue('price: 0.1484' in output)
+        self.assertIn('price: 0.1484', output)
 
     @httpretty.activate
     def test_data_all(self):
         """Test getting data summary for number"""
         register_uris()
         output = execute(['mobile-data', '--all'])
-        self.assertTrue('price: 0.1484' in output)
+        self.assertIn('price: 0.1484', output)
 
     @httpretty.activate
     def test_data_list(self):
         """Test getting data list"""
         register_uris()
         output = execute(['mobile-data', '--list'])
-        self.assertTrue('0.1484' in output)
+        self.assertIn('0.1484', output)
 
     @httpretty.activate
     def test_api(self):
         """Test API GET operation"""
         register_uris()
         output = execute(['api', 'sms/allowed_sender'])
-        self.assertTrue('Odorik.cz,5517,00420789123456' in output)
+        self.assertIn('Odorik.cz,5517,00420789123456', output)
 
     @httpretty.activate
     def test_api_params(self):
@@ -225,7 +225,7 @@ class TestCommands(TestCase):
             '--param', 'from=2015-05-01T00:00:00+02:00',
             '--param', 'to=2015-05-18T00:00:00+02:00'
         ])
-        self.assertTrue('*300000' in output)
+        self.assertIn('*300000', output)
 
     @httpretty.activate
     def test_api_wrong(self):
@@ -249,7 +249,7 @@ class TestCommands(TestCase):
             '--param', 'caller=00420789123456',
             '--param', 'recipient=800123456'
         ])
-        self.assertTrue('callback_ordered' in output)
+        self.assertIn('callback_ordered', output)
 
     @httpretty.activate
     def test_send_sms(self):
