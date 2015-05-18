@@ -44,7 +44,7 @@
 
         Performs single API GET call and parses JSON reply including error
         handling.
-    
+
     .. method:: balance()
 
         :rtype: float
@@ -63,8 +63,20 @@
 
         Returns mobile data usage list in given interval. Optionally filtered
         for given number.
-    
-    .. method: callback(caller, recipient, line=None)
+
+    .. method:: send_sms(recipient, message, sender='5517')
+
+        :param recipient: Number where to sent SMS.
+        :type recipient: string
+        :param message: Text of the message.
+        :type message: string
+        :param sender: Optional sender number.
+        :type sender: string
+        :rtype: string
+
+        Sends a SMS message.
+
+    .. method:: callback(caller, recipient, line=None)
 
         :param caller: Number which is calling.
         :type caller: string
