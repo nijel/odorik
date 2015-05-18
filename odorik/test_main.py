@@ -35,11 +35,11 @@ from odorik.test_odorik import register_uris
 class TestCommands(TestCase):
     """Test command line interface"""
     @staticmethod
-    def execute(args, binary=False, settings=True):
+    def execute(args, binary=False, settings=None):
         """Execute command and return output."""
-        if settings:
-            settings = {}
-        else:
+        if settings is None:
+            settings = ()
+        elif not settings:
             settings = None
         if binary and sys.version_info < (3, 0):
             output = BytesIO()
@@ -85,6 +85,16 @@ class TestCommands(TestCase):
         register_uris()
         output = self.execute(['--url', 'https://example.net/', 'balance'])
         self.assertTrue('321.09' in output)
+
+    @httpretty.activate
+    def test_settings(self):
+        register_uris()
+        output = self.execute(
+            ['balance'],
+            settings=(('odorik', 'url', 'https://example.net/'),)
+        )
+        self.assertTrue('321.09' in output)
+
 
     @httpretty.activate
     def test_config(self):
