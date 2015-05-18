@@ -27,7 +27,7 @@ import json
 import sys
 
 import odorik
-from odorik.main import main
+from odorik.main import main, CommandError
 from odorik.test_odorik import register_uris
 
 
@@ -47,6 +47,14 @@ class TestCommands(TestCase):
         """Test version printing"""
         output = self.execute(['version'])
         self.assertTrue(odorik.__version__ in output)
+
+    def test_invalid(self):
+        """Test invalid command"""
+        self.assertRaises(
+            SystemExit,
+            self.execute,
+            ['invalid']
+        )
 
     def test_version_json(self):
         """Test version printing"""
@@ -125,6 +133,19 @@ class TestCommands(TestCase):
             '--param', 'to=2015-05-18T00:00:00+02:00'
         ])
         self.assertTrue('*300000' in output)
+
+    @httpretty.activate
+    def test_api_wrong(self):
+        """Test API wrong params operation"""
+        register_uris()
+        self.assertRaises(
+            SystemExit,
+            self.execute,
+            [
+                'api', 'calls.json',
+                '--param', 'from',
+            ],
+        )
 
     @httpretty.activate
     def test_api_post(self):
