@@ -205,7 +205,7 @@ class API(Command):
     def run(self):
         params = {}
         for param in self.args.param:
-            if not '=' in param:
+            if '=' not in param:
                 raise Exception('Please specify --param as key=value')
             key, value = param.split('=', 1)
             params[key] = value
