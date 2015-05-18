@@ -179,7 +179,7 @@ class OdorikTest(TestCase):
         )
 
     @httpretty.activate
-    def test_sms(self):
+    def test_callback(self):
         """Test callback"""
         register_uris()
         self.assertEquals(
