@@ -191,6 +191,7 @@ class API(Command):
         parser.add_argument(
             '--param',
             action='append',
+            metavar='KEY=VALUE',
             default=[],
             help='Parameter to append to the call'
         )

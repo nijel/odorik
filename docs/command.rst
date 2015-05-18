@@ -27,7 +27,7 @@ subcommands are available:
 
     Prints current version.
 
-.. option:: api PATH
+.. option:: api PATH [--param KEY=VALUE]...
 
     Performs authenticated API call.
 
