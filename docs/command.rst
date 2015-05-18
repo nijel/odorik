@@ -25,15 +25,15 @@ subcommands are available:
 
 .. option:: --url URL
 
-    Specify API URL.
+    Specify API URL. Overrides value from configuration file, see :ref:`files`.
 
 .. option:: --user USER
 
-    Specify API user.
+    Specify API user. Overrides value from configuration file, see :ref:`files`.
 
 .. option:: --password PASSWORD
 
-    Specify API password.
+    Specify API password. Overrides value from configuration file, see :ref:`files`.
 
 .. option:: version
 
@@ -60,6 +60,8 @@ subcommands are available:
 
     Sends a SMS message.
 
+.. _files:
+
 Files
 +++++
 
@@ -70,6 +72,21 @@ Files
 
 The program follows XDG specification, so you can adjust placement of config files 
 by environment variables ``XDG_CONFIG_HOME`` or ``XDG_CONFIG_DIRS``.
+
+Following settings can be configured in the ``[odorik]`` section:
+
+.. describe:: user
+
+    API user, can be either ID registered user or line ID.
+
+.. describe:: password
+
+    API password. Use API password for per user access and line password (used
+    for SIP as well) for line access.
+
+.. describe:: url
+
+    API server URL, defaults to ``https://www.odorik.cz/api/v1/``.
 
 The configuration file is INI file, for example:
 
