@@ -28,7 +28,7 @@ except ImportError:
 
 import json
 
-__version__ = '0.2'
+__version__ = '0.3'
 
 API_URL = 'https://www.odorik.cz/api/v1/'
 
