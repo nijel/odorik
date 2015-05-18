@@ -86,6 +86,10 @@ def get_parser():
     return parser
 
 
+class CommandError(Exception):
+    """Generic error from command line."""
+
+
 class Command(object):
     """
     Basic command object.
@@ -206,7 +210,7 @@ class API(Command):
         params = {}
         for param in self.args.param:
             if '=' not in param:
-                raise Exception('Please specify --param as key=value')
+                raise CommandError('Please specify --param as key=value')
             key, value = param.split('=', 1)
             params[key] = value
         if self.args.post:
@@ -341,4 +345,8 @@ def main(settings=None, stdout=None, args=None):
             config.set(section, key, value)
 
     command = COMMANDS[args.cmd](args, config, stdout)
-    command.run()
+    try:
+        command.run()
+    except (CommandError, odorik.OdorikException) as error:
+        print('Error: {0}'.format(error), file=sys.stderr)
+        sys.exit(1)
