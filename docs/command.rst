@@ -45,7 +45,11 @@ subcommands are available:
 
 .. option:: api PATH [--post] [--param KEY=VALUE]...
 
-    Performs authenticated API call.
+    Performs authenticated API call. By default ``GET`` method is used, with
+    ``--post`` it is ``POST``.
+
+    Additional parameters can be specified by ``--param`` switch which can be
+    used multiple times.
 
 .. option:: balance
 
@@ -55,10 +59,10 @@ subcommands are available:
 
     Prints mobile data usage.
 
-    It can list all individual records.
+    It can list all individual records when ``--list`` is specified.
 
-    The result can be also limited to given phone number. Needs to be specified
-    as ``00420789123456``.
+    The result can be also limited to given phone number by using ``--phone``.
+    The phone number has to be specified as ``00420789123456``.
 
     If ``--all`` is specified, summary for all mobile lines on current account
     is printed.
@@ -66,6 +70,9 @@ subcommands are available:
 .. option:: send-sms [--sender SENDER] recipient message
 
     Sends a SMS message.
+
+    You can specify sender number by ``--sender``, it has to be one of allowed
+    values. By default ``5517`` is used.
 
 .. option:: callback [--line LINE] caller recipient
 
