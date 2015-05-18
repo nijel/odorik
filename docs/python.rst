@@ -124,3 +124,33 @@ Python API
         Loads configuration from a file, if none is specified it loads from
         `odorik` configuration file placed in XDG configuration path
         (:file:`~/.config/odorik` and :file:`/etc/xdg/odorik`).
+
+
+:mod:`odorik.main`
+==================
+
+.. module:: odorik.main
+    :synopsis: Command line interface
+
+.. function:: main(settings=None, stdout=None, args=None)
+
+    :param settings: settings to override
+    :type settings: list of tuples
+    :param stdout: stdout for printing output, uses ``sys.stdout`` as default
+    :type stdout: file
+    :param args: command line argumets to process, uses ``sys.args`` as default
+    :type args: list
+
+    Main entry point for command line interface.
+
+.. decorator:: register_command(command)
+
+    Decorator to register :class:`Command` class in main parser used by
+    :func:`main`.
+
+:class:`Command`
+----------------
+
+.. class:: Command(args, config, stdout=None)
+
+    Main class for invoking commands.
