@@ -202,8 +202,12 @@ class API(Command):
                 raise Exception('Please specify --param as key=value')
             key, value = param.split('=', 1)
             params[key] = value
-        result = self.odorik.get(self.args.path, params)
-        self.println('{0}'.format(result))
+        if self.args.path.endswith('.json'):
+            result = self.odorik.get_json(self.args.path, params)
+            self.print(result)
+        else:
+            result = self.odorik.get(self.args.path, params)
+            self.println('{0}'.format(result))
 
 
 @register_command
