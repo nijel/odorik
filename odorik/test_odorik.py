@@ -94,6 +94,11 @@ def register_uris():
         'https://www.odorik.cz/api/v1/calls.json',
         body=CALLS_BODY
     )
+    httpretty.register_uri(
+        httpretty.POST,
+        'https://www.odorik.cz/api/v1/callback',
+        body='callback_ordered'
+    )
 
 
 class OdorikTest(TestCase):

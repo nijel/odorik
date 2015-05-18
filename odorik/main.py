@@ -195,6 +195,11 @@ class API(Command):
             default=[],
             help='Parameter to append to the call'
         )
+        parser.add_argument(
+            '--post',
+            action='store_true',
+            help='perform POST request instead of GET'
+        )
         return parser
 
     def run(self):
@@ -204,7 +209,10 @@ class API(Command):
                 raise Exception('Please specify --param as key=value')
             key, value = param.split('=', 1)
             params[key] = value
-        if self.args.path.endswith('.json'):
+        if self.args.post:
+            result = self.odorik.post(self.args.path, params)
+            self.println('{0}'.format(result))
+        elif self.args.path.endswith('.json'):
             result = self.odorik.get_json(self.args.path, params)
             self.print(result)
         else:

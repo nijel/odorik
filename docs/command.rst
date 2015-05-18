@@ -27,7 +27,7 @@ subcommands are available:
 
     Prints current version.
 
-.. option:: api PATH [--param KEY=VALUE]...
+.. option:: api PATH [--post] [--param KEY=VALUE]...
 
     Performs authenticated API call.
 
@@ -106,6 +106,12 @@ Generic API usage:
 
     $ odorik api sms/allowed_sender
     Odorik.cz,5517,00420789123456
+
+Generic API POST:
+
+.. code-block:: sh
+
+    $ odorik api --post --param caller=00420789123456 --param recipient=800123456 callback
 
 Machine readable output formats:
 

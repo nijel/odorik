@@ -110,14 +110,14 @@ class TestCommands(TestCase):
 
     @httpretty.activate
     def test_api(self):
-        """Test API operation"""
+        """Test API GET operation"""
         register_uris()
         output = self.execute(['api', 'sms/allowed_sender'])
         self.assertTrue('Odorik.cz,5517,00420789123456' in output)
 
     @httpretty.activate
     def test_api_params(self):
-        """Test API operation"""
+        """Test API GET params operation"""
         register_uris()
         output = self.execute([
             'api', 'calls.json',
@@ -125,6 +125,17 @@ class TestCommands(TestCase):
             '--param', 'to=2015-05-18T00:00:00+02:00'
         ])
         self.assertTrue('*300000' in output)
+
+    @httpretty.activate
+    def test_api_post(self):
+        """Test API POST operation"""
+        register_uris()
+        output = self.execute([
+            'api', 'callback', '--post',
+            '--param', 'caller=00420789123456',
+            '--param', 'recipient=800123456'
+        ])
+        self.assertTrue('callback_ordered' in output)
 
     @httpretty.activate
     def test_send_sms(self):

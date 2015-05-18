@@ -6,6 +6,7 @@ Changes
 
 * Documentation improvements.
 * Added support for json and csv output.
+* Improved command line support for API calls.
 
 0.1
 ---
