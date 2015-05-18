@@ -28,7 +28,8 @@ import sys
 import os
 
 import odorik
-from odorik.main import main, OdorikConfig
+from odorik.main import main
+from odorik.config import OdorikConfig
 from odorik.test_odorik import register_uris
 
 TEST_CONFIG = os.path.join(os.path.dirname(__file__), 'test_data', 'odorik')

@@ -1,9 +1,14 @@
+Python API
+~~~~~~~~~~
+
 :mod:`odorik`
 =============
 
 .. module:: odorik
     :synopsis: Odorik API
 
+:exc:`OdorikException`
+----------------------
 
 .. exception:: OdorikException
 
@@ -13,7 +18,7 @@
 :class:`Odorik`
 ---------------
 
-.. class:: Odorik(user, password, url=None)
+.. class:: Odorik(user='', password='', url=None, config=None)
 
     :param user: User ID
     :type user: string
@@ -21,6 +26,8 @@
     :type password: string
     :param url: API server URL, if not specified default is used
     :type url: string
+    :param config: Configuration object, overrides any other parameters.
+    :type config: OdorikConfig
 
     Access class to the API, define user, password and optionally API URL.
 
@@ -93,3 +100,27 @@
         :rtype: list
 
         Returns list of dictionaries with information about lines.
+
+
+:mod:`odorik.config`
+====================
+
+.. module:: odorik.config
+    :synopsis: Configuration parsing
+
+:class:`OdorikConfig`
+---------------------
+
+.. class:: OdorikConfig()
+
+    Configuration file parser following XDG specification.
+
+
+    .. method:: load(path=None)
+
+        :param path: Path where to load configuration.
+        :type path: string
+
+        Loads configuration from a file, if none is specified it loads from
+        `odorik` configuration file placed in XDG configuration path
+        (:file:`~/.config/odorik` and :file:`/etc/xdg/odorik`).

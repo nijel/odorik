@@ -26,15 +26,11 @@ from __future__ import unicode_literals
 import sys
 import json
 import csv
-from xdg.BaseDirectory import load_config_paths
 from argparse import ArgumentParser
 from datetime import datetime
-try:
-    from configparser import RawConfigParser
-except ImportError:
-    from ConfigParser import RawConfigParser
 
 import odorik
+from odorik.config import OdorikConfig
 
 
 COMMANDS = {}
@@ -46,30 +42,6 @@ def register_command(command):
     """
     COMMANDS[command.name] = command
     return command
-
-
-class OdorikConfig(RawConfigParser):
-    """
-    Configuration parser wrapper with defaults.
-    """
-    def __init__(self):
-        RawConfigParser.__init__(self)
-        self.set_defaults()
-
-    def set_defaults(self):
-        """Set default values"""
-        self.add_section('odorik')
-        self.set('odorik', 'user', '')
-        self.set('odorik', 'password', '')
-        self.set('odorik', 'url', odorik.API_URL)
-
-    def load(self, path=None):
-        """
-        Loads configuration from XDG paths.
-        """
-        if path is None:
-            path = load_config_paths('odorik')
-        self.read(path)
 
 
 def get_parser():
@@ -133,11 +105,7 @@ class Command(object):
             self.stdout = sys.stdout
         else:
             self.stdout = stdout
-        self.odorik = odorik.Odorik(
-            config.get('odorik', 'user'),
-            config.get('odorik', 'password'),
-            config.get('odorik', 'url'),
-        )
+        self.odorik = odorik.Odorik(config=config)
 
     @classmethod
     def add_parser(cls, subparser):
