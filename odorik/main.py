@@ -154,6 +154,33 @@ class Command(object):
         """
         print(line, file=self.stdout)
 
+    def print_json(self, value):
+        """JSON print"""
+        json.dump(value, self.stdout, indent=2)
+
+    def print_csv(self, value, header):
+        """CSV print"""
+        if header:
+            writer = csv.DictWriter(self.stdout, header)
+            writer.writeheader()
+            for row in value:
+                writer.writerow(row)
+        else:
+            writer = csv.writer(self.stdout)
+            for key, data in value.items():
+                writer.writerow((key, data))
+
+    def print_text(self, value, header):
+        """Text print"""
+        if header:
+            for item in value:
+                for key in header:
+                    self.println('{0}: {1}'.format(key, item[key]))
+                self.println('')
+        else:
+            for key, data in value.items():
+                self.println('{0}: {1}'.format(key, data))
+
     def print(self, value):
         """
         Prints value.
@@ -163,28 +190,11 @@ class Command(object):
             header = list(value[0].keys())
 
         if self.args.format == 'json':
-            json.dump(value, self.stdout, indent=2)
-
+            self.print_json(value)
         elif self.args.format == 'csv':
-            if header:
-                writer = csv.DictWriter(self.stdout, header)
-                writer.writeheader()
-                for row in value:
-                    writer.writerow(row)
-            else:
-                writer = csv.writer(self.stdout)
-                for key, data in value.items():
-                    writer.writerow((key, data))
-
+            self.print_csv(value, header)
         else:
-            if header:
-                for item in value:
-                    for key in header:
-                        self.println('{0}: {1}'.format(key, item[key]))
-                    self.println('')
-            else:
-                for key, data in value.items():
-                    self.println('{0}: {1}'.format(key, data))
+            self.print_text(value, header)
 
     def run(self):
         """
