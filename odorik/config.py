@@ -51,4 +51,3 @@ class OdorikConfig(RawConfigParser):
         if path is None:
             path = load_config_paths('odorik')
         self.read(path)
-
