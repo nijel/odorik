@@ -37,7 +37,7 @@ setup(
     description='Python module for Odorik API.',
     license='GPLv3+',
     keywords='odorik',
-    url='https://github.com/nijel/odorik',
+    url='http://cihar.com/software/odorik/',
     download_url='https://pypi.python.org/pypi/odorik',
     bugtrack_url='https://github.com/nijel/odorik/issues',
     platforms=['any'],
