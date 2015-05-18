@@ -27,7 +27,7 @@ import json
 import sys
 
 import odorik
-from odorik.main import main, CommandError
+from odorik.main import main
 from odorik.test_odorik import register_uris
 
 
