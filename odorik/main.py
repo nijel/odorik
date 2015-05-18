@@ -77,8 +77,8 @@ def get_parser():
     Creates argument parser.
     """
     parser = ArgumentParser(
-        description='Odorik <http://www.odorik.cz/> command line utility.',
-        epilog='This utility is developed at <https://github.com/nijel/odorik>.',
+        description='Odorik <{0}> command line utility.'.format(odorik.URL),
+        epilog='This utility is developed at <{0}>.'.format(odorik.DEVEL_URL),
     )
     parser.add_argument(
         '--format',

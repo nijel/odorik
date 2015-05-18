@@ -31,6 +31,8 @@ import json
 __version__ = '0.3'
 
 API_URL = 'https://www.odorik.cz/api/v1/'
+DEVEL_URL = 'https://github.com/nijel/odorik'
+URL = 'http://www.odorik.cz/'
 
 
 class OdorikException(Exception):
