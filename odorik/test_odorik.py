@@ -189,3 +189,16 @@ class OdorikTest(TestCase):
             ),
             'callback_ordered'
         )
+
+    @httpretty.activate
+    def test_callback_line(self):
+        """Test callback"""
+        register_uris()
+        self.assertEquals(
+            Odorik().callback(
+                '00420789123456',
+                '800123456',
+                '123'
+            ),
+            'callback_ordered'
+        )
