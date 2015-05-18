@@ -63,3 +63,15 @@
 
         Returns mobile data usage list in given interval. Optionally filtered
         for given number.
+    
+    .. method: callback(caller, recipient, line=None)
+
+        :param caller: Number which is calling.
+        :type caller: string
+        :param recipient: Number to call.
+        :type recipient: string
+        :param line: Line to use for accounting.
+        :type line: string or None
+        :rtype: string
+
+        Initiates callback.

@@ -111,3 +111,15 @@ class Odorik(object):
         )
         self._check_response(response)
         return response
+
+    def callback(self, caller, recipient, line=None):
+        """Initiates callback."""
+        args = {
+            'caller': caller,
+            'recipient': recipient,
+        }
+        if line is not None:
+            args['line'] = line
+        response = self.post('callback', args)
+        self._check_response(response)
+        return response
