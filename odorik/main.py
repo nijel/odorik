@@ -54,7 +54,10 @@ class OdorikConfig(RawConfigParser):
     """
     def __init__(self):
         RawConfigParser.__init__(self)
-        # Set defaults
+        self.set_defaults()
+
+    def set_defaults(self):
+        """Set default values"""
         self.add_section('odorik')
         self.set('odorik', 'user', '')
         self.set('odorik', 'password', '')
