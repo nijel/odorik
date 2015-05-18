@@ -39,6 +39,7 @@ setup(
     keywords='odorik',
     url='https://github.com/nijel/odorik',
     download_url='https://pypi.python.org/pypi/odorik',
+    bugtrack_url='https://github.com/nijel/odorik/issues',
     platforms=['any'],
     packages=[
         'odorik',
@@ -49,6 +50,9 @@ setup(
     classifiers=[
         'Development Status :: 4 - Beta',
         'Topic :: Internet',
+        'Topic :: Communications :: Telephony',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Topic :: Utilities',
         'License :: OSI Approved :: GNU General Public License (GPL)',
         'Operating System :: OS Independent',
         'Intended Audience :: Developers',
