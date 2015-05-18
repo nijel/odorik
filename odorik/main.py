@@ -179,7 +179,9 @@ class Command(object):
         else:
             if header:
                 for item in value:
-                    self.println('{0}'.format(item))
+                    for key in header:
+                        self.println('{0}: {1}'.format(key, item[key]))
+                    self.println('')
             else:
                 for key, data in value.items():
                     self.println('{0}: {1}'.format(key, data))
