@@ -28,8 +28,10 @@ import sys
 import os
 
 import odorik
-from odorik.main import main
+from odorik.main import main, OdorikConfig
 from odorik.test_odorik import register_uris
+
+TEST_CONFIG = os.path.join(os.path.dirname(__file__), 'test_data', 'odorik')
 
 
 def execute(args, binary=False, settings=None, stdout=None):
@@ -81,13 +83,15 @@ class TestSettings(TestCase):
     @httpretty.activate
     def test_config(self):
         register_uris()
-        config = os.path.join(
-            os.path.dirname(__file__),
-            'test_data',
-            'odorik'
-        )
-        output = execute(['--config', config, 'balance'], settings=False)
+        output = execute(['--config', TEST_CONFIG, 'balance'], settings=False)
         self.assertTrue('321.09' in output)
+
+    def test_parsing(self):
+        config = OdorikConfig()
+        self.assertEqual(config.get('odorik', 'url'), odorik.API_URL)
+        config.load()
+        config.load(TEST_CONFIG)
+        self.assertEqual(config.get('odorik', 'url'), 'https://example.net/')
 
 
 class TestOutput(TestCase):
