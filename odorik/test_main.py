@@ -127,7 +127,6 @@ class TestOutput(TestCase):
         self.assertTrue('0.1484' in output)
 
 
-
 class TestCommands(TestCase):
     """Test command line interface"""
 
