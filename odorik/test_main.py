@@ -70,7 +70,12 @@ class TestCommands(TestCase):
     def test_version_csv(self):
         """Test version printing"""
         output = self.execute(['--format', 'csv', 'version'], True)
-        self.assertTrue('version,0.2' in output)
+        self.assertTrue('version,{0}'.format(odorik.__version__) in output)
+
+    def test_version_bare(self):
+        """Test version printing"""
+        output = self.execute(['version', '--bare'])
+        self.assertTrue(output.startswith(odorik.__version__))
 
     @httpretty.activate
     def test_balance(self):

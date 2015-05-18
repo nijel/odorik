@@ -8,7 +8,7 @@ if [ "x$1" = "x--help" -o "x$1" = "x-h" ] ; then
 fi
 
 # Grab version
-version=`./odo version`
+version=`./odo version --bare`
 namever=odorik-$version
 
 # What are we going to build?

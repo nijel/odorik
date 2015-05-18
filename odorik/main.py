@@ -199,8 +199,23 @@ class Version(Command):
     name = 'version'
     description = "Prints program version"
 
+    @classmethod
+    def add_parser(cls, subparser):
+        """
+        Creates parser for command line.
+        """
+        parser = super(Version, cls).add_parser(subparser)
+        parser.add_argument(
+            '--bare',
+            action='store_true',
+            help='Print only version'
+        )
+
     def run(self):
-        self.print({'version': odorik.__version__})
+        if self.args.bare:
+            self.println(odorik.__version__)
+        else:
+            self.print({'version': odorik.__version__})
 
 
 @register_command
