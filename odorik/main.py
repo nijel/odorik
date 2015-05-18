@@ -360,7 +360,6 @@ class MobileData(Command):
                 'price':  price,
             }
 
-
     def run(self):
         phone = None
         if self.args.all:
