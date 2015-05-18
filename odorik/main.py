@@ -327,20 +327,22 @@ class MobileData(Command):
             '--phone',
             help='Limit listing to phone number'
         )
+        parser.add_argument(
+            '--all',
+            action='store_true',
+            help='List limits for all phone numbers on account'
+        )
         return parser
 
-    def run(self):
+    def one_number(self, phone):
         now = datetime.now()
-        phone = None
-        if self.args.phone:
-            phone = self.args.phone
         data_usage = self.odorik.mobile_data(
             datetime(now.year, now.month, 1),
             now,
             phone
         )
         if self.args.list:
-            self.print(data_usage)
+            return data_usage
         else:
             bytes_total = 0
             bytes_down = 0
@@ -351,12 +353,26 @@ class MobileData(Command):
                 bytes_down += item['bytes_down']
                 bytes_up += item['bytes_up']
                 price += item['price']
-            self.print({
+            return {
                 'bytes_total': bytes_total,
                 'bytes_down': bytes_down,
                 'bytes_up': bytes_up,
                 'price':  price,
-            })
+            }
+
+
+    def run(self):
+        phone = None
+        if self.args.all:
+            result = []
+            for line in self.odorik.lines():
+                result.append(self.one_number(line['public_number']))
+                result[-1]['public_number'] = line['public_number']
+            self.print(result)
+        else:
+            if self.args.phone:
+                phone = self.args.phone
+            self.print(self.one_number(phone))
 
 
 @register_command

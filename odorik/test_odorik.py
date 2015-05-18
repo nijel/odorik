@@ -96,6 +96,12 @@ def register_uris():
     )
     httpretty.register_uri(
         httpretty.GET,
+        'https://www.odorik.cz/api/v1/sim_cards/'
+        '00420799799799/mobile_data.json',
+        body=DATA_BODY
+    )
+    httpretty.register_uri(
+        httpretty.GET,
         'https://www.odorik.cz/api/v1/sim_cards/INVALID/mobile_data.json',
         body='{"errors":["nonexisting_public_number"]}'
     )

@@ -5,6 +5,7 @@ Changes
 ---
 
 * Added support for listing lines information.
+* Added support for listing data usage for all lines on current account.
 
 0.2
 ---

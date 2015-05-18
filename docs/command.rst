@@ -51,7 +51,7 @@ subcommands are available:
 
     Prints current balance.
 
-.. option:: mobile-data [--list] [--phone NUMBER]
+.. option:: mobile-data [--list] [--phone NUMBER] [--all]
 
     Prints mobile data usage.
 
@@ -59,6 +59,9 @@ subcommands are available:
 
     The result can be also limited to given phone number. Needs to be specified
     as ``00420789123456``.
+
+    If ``--all`` is specified, summary for all mobile lines on current account
+    is printed.
 
 .. option:: send-sms [--sender SENDER] recipient message
 
