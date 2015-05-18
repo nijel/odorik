@@ -55,7 +55,7 @@ def get_parser():
     parser.add_argument(
         '--format',
         default='text',
-        choices=('text', 'csv', 'json'),
+        choices=('text', 'csv', 'json', 'html'),
         help='Output format to use'
     )
     parser.add_argument(
@@ -138,6 +138,31 @@ class Command(object):
             for key, data in value.items():
                 writer.writerow((key, data))
 
+    def print_html(self, value, header):
+        """HTML print"""
+        self.println('<table>')
+        if header:
+            self.println('  <thead>')
+            self.println('    <tr>')
+            for key in header:
+                self.println('      <th>{0}</th>'.format(key))
+            self.println('    </tr>')
+            self.println('  </thead>')
+            self.println('  <tbody>')
+
+            for item in value:
+                self.println('    <tr>')
+                for key in header:
+                    self.println('      <td>{0}</td>'.format(item[key]))
+                self.println('    </tr>')
+            self.println('  </tbody>')
+        else:
+            for key, data in value.items():
+                self.println('  <tr>')
+                self.println('    <th>{0}</th><td>{1}</td>'.format(key, data))
+                self.println('  </tr>')
+        self.println('</table>')
+
     def print_text(self, value, header):
         """Text print"""
         if header:
@@ -161,6 +186,8 @@ class Command(object):
             self.print_json(value)
         elif self.args.format == 'csv':
             self.print_csv(value, header)
+        elif self.args.format == 'html':
+            self.print_html(value, header)
         else:
             self.print_text(value, header)
 

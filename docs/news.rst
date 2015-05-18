@@ -7,6 +7,7 @@ Changes
 * Added support for listing lines information.
 * Added support for listing data usage for all lines on current account.
 * Documentation improvements.
+* Added html output to the program.
 
 0.2
 ---

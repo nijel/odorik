@@ -123,6 +123,11 @@ class TestOutput(TestCase):
         output = execute(['--format', 'csv', 'version'], True)
         self.assertIn('version,{0}'.format(odorik.__version__), output)
 
+    def test_version_html(self):
+        """Test version printing"""
+        output = execute(['--format', 'html', 'version'])
+        self.assertIn(odorik.__version__, output)
+
     @httpretty.activate
     def test_data_list_text(self):
         """Test getting data list"""
@@ -150,6 +155,15 @@ class TestOutput(TestCase):
         output = execute(
             ['--format', 'csv', 'mobile-data', '--list'],
             True
+        )
+        self.assertIn('0.1484', output)
+
+    @httpretty.activate
+    def test_data_list_html(self):
+        """Test getting data list"""
+        register_uris()
+        output = execute(
+            ['--format', 'html', 'mobile-data', '--list'],
         )
         self.assertIn('0.1484', output)
 
