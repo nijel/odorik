@@ -357,6 +357,42 @@ class SendSMS(Command):
         )
 
 
+@register_command
+class Callback(Command):
+    """
+    Initiates callback
+    """
+    name = 'callback'
+    description = "Initiates callback"
+
+    @classmethod
+    def add_parser(cls, subparser):
+        """
+        Creates parser for command line.
+        """
+        parser = super(Callback, cls).add_parser(subparser)
+        parser.add_argument(
+            'caller',
+            help='Caller number'
+        )
+        parser.add_argument(
+            'recipient',
+            help='Recipient number'
+        )
+        parser.add_argument(
+            '--line',
+            help='Line to use for accounting'
+        )
+        return parser
+
+    def run(self):
+        self.odorik.callback(
+            self.args.caller,
+            self.args.recipient,
+            self.args.line,
+        )
+
+
 def main(settings=None, stdout=None, args=None):
     """
     Execution entry point.

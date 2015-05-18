@@ -64,6 +64,10 @@ subcommands are available:
 
     Sends a SMS message.
 
+.. option:: callback [--line LINE] caller recipient
+
+    Initiates a callback.
+
 .. _files:
 
 Files
@@ -134,6 +138,12 @@ Sending message:
 .. code-block:: sh
 
     $ odorik send-sms 00420789123456 "Ahoj, jak se mas?"
+
+Initiating callback:
+
+.. code-block:: sh
+
+    $ odorik callback 00420789123456 800123456
 
 Generic API usage:
 
