@@ -51,10 +51,8 @@ class Odorik(object):
         """Fills in args"""
         if args is None:
             args = {}
-        if 'user' not in args:
-            args['user'] = self.user
-        if 'password' not in args:
-            args['password'] = self.password
+        args['user'] = self.user
+        args['password'] = self.password
         return args
 
     @staticmethod
