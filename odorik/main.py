@@ -60,11 +60,13 @@ class OdorikConfig(RawConfigParser):
         self.set('odorik', 'password', '')
         self.set('odorik', 'url', odorik.API_URL)
 
-    def load(self):
+    def load(self, path=None):
         """
         Loads configuration from XDG paths.
         """
-        self.read(load_config_paths('odorik'))
+        if path is None:
+            path = load_config_paths('odorik')
+        self.read(path)
 
 
 def get_parser():
@@ -77,6 +79,10 @@ def get_parser():
         default='text',
         choices=('text', 'csv', 'json'),
         help='Output format to use'
+    )
+    parser.add_argument(
+        '--config',
+        help='Path to configuration file',
     )
     parser.add_argument(
         '--user',
@@ -351,7 +357,7 @@ def main(settings=None, stdout=None, args=None):
 
     config = OdorikConfig()
     if settings is None:
-        config.load()
+        config.load(args.config)
     else:
         for section, key, value in settings:
             config.set(section, key, value)

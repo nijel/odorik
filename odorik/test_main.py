@@ -25,6 +25,7 @@ from io import StringIO, BytesIO
 import httpretty
 import json
 import sys
+import os
 
 import odorik
 from odorik.main import main
@@ -34,13 +35,17 @@ from odorik.test_odorik import register_uris
 class TestCommands(TestCase):
     """Test command line interface"""
     @staticmethod
-    def execute(args, binary=False):
+    def execute(args, binary=False, settings=True):
         """Execute command and return output."""
+        if settings:
+            settings = {}
+        else:
+            settings = None
         if binary and sys.version_info < (3, 0):
             output = BytesIO()
         else:
             output = StringIO()
-        main(args=args, stdout=output, settings={})
+        main(args=args, stdout=output, settings=settings)
         return output.getvalue()
 
     def test_version(self):
@@ -79,6 +84,17 @@ class TestCommands(TestCase):
         """Test getting balance using different API"""
         register_uris()
         output = self.execute(['--url', 'https://example.net/', 'balance'])
+        self.assertTrue('321.09' in output)
+
+    @httpretty.activate
+    def test_config(self):
+        register_uris()
+        config = os.path.join(
+            os.path.dirname(__file__),
+            'test_data',
+            'odorik'
+        )
+        output = self.execute(['--config', config, 'balance'], settings=False)
         self.assertTrue('321.09' in output)
 
     @httpretty.activate

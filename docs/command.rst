@@ -35,6 +35,10 @@ subcommands are available:
 
     Specify API password. Overrides value from configuration file, see :ref:`files`.
 
+.. option:: --config PATH
+
+    Override path to configuration file, see :ref:`files`.
+
 .. option:: version
 
     Prints current version.
@@ -70,7 +74,7 @@ Files
 /etc/xdg/odorik
     Global configration file
 
-The program follows XDG specification, so you can adjust placement of config files 
+The program follows XDG specification, so you can adjust placement of config files
 by environment variables ``XDG_CONFIG_HOME`` or ``XDG_CONFIG_DIRS``.
 
 Following settings can be configured in the ``[odorik]`` section:
