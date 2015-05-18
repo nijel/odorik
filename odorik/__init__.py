@@ -33,6 +33,7 @@ __version__ = '0.3'
 API_URL = 'https://www.odorik.cz/api/v1/'
 DEVEL_URL = 'https://github.com/nijel/odorik'
 URL = 'http://www.odorik.cz/'
+USER_AGENT = 'python-odorik/{0}'.format(__version__)
 
 
 class OdorikException(Exception):
@@ -55,6 +56,7 @@ class Odorik(object):
             args = {}
         args['user'] = self.user
         args['password'] = self.password
+        args['user_agent'] = USER_AGENT
         return args
 
     @staticmethod
