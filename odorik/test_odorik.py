@@ -36,6 +36,16 @@ DATA_BODY = (
     '"price_per_mb":1.0,"phone_number":"00420799799799"}]'
 )
 
+CALLS_BODY = (
+    '[{"id": 98292358,"redirection_parent_id": 98292356, '
+    '"date": "2014-10-01T11:28:31Z", "direction": "redirected", '
+    '"source_number": "00420555444333", "destination_number": "*300000", '
+    '"destination_name": "Česká rep. - * v síti", "length": 362, '
+    '"ringing_length": 8, "status": "answered", "price": 0.0, '
+    '"price_per_minute": 0.0, "balance_after": 554.0288, '
+    '"line": 403366}]'
+)
+
 
 def sms_response(request, uri, headers):
     """httpretty SMS sending response generator"""
@@ -78,6 +88,11 @@ def register_uris():
         httpretty.POST,
         'https://www.odorik.cz/api/v1/sms',
         body=sms_response,
+    )
+    httpretty.register_uri(
+        httpretty.GET,
+        'https://www.odorik.cz/api/v1/calls.json',
+        body=CALLS_BODY
     )
 
 

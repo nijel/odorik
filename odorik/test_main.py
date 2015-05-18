@@ -116,6 +116,17 @@ class TestCommands(TestCase):
         self.assertTrue('Odorik.cz,5517,00420789123456' in output)
 
     @httpretty.activate
+    def test_api_params(self):
+        """Test API operation"""
+        register_uris()
+        output = self.execute([
+            'api', 'calls.json',
+            '--param', 'from=2015-05-01T00:00:00+02:00',
+            '--param', 'to=2015-05-18T00:00:00+02:00'
+        ])
+        self.assertTrue('*300000' in output)
+
+    @httpretty.activate
     def test_send_sms(self):
         """Test sending SMS"""
         register_uris()
