@@ -118,7 +118,7 @@ The configuration file is INI file, for example:
     user = pepa
     password = zdepa
 
-.. seealso:: http://www.odorik.cz/w/api#autentizace
+.. seealso:: `Autentizace Odorik API <http://www.odorik.cz/w/api#autentizace>`_
 
 Examples
 ++++++++

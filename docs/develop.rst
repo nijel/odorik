@@ -1,6 +1,16 @@
 Developing
 ==========
 
+Source code
+-----------
+
+The project is being developed on GitHub: https://github.com/nijel/odorik
+
+Issue tracker
+-------------
+
+Issue tracker is hosted on GitHub: https://github.com/nijel/odorik/issues
+
 Testsuite
 ---------
 

@@ -6,7 +6,7 @@
 Welcome to Odorik's documentation!
 ==================================
 
-This is Python module which wraps Odorik API <http://www.odorik.cz/w/api>.
+This is Python module which wraps `Odorik API <http://www.odorik.cz/w/api>`_.
 
 You can install the module from PyPI:
 
@@ -14,7 +14,7 @@ You can install the module from PyPI:
 
     pip install odorik
 
-The project is being developed on GitHub: <https://github.com/nijel/odorik>
+The project is being developed on GitHub: https://github.com/nijel/odorik
 
 Contents:
 
