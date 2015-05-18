@@ -60,6 +60,11 @@ def register_uris():
     """Register URIs for httpretty."""
     httpretty.register_uri(
         httpretty.GET,
+        'https://example.net/balance',
+        body='321.09'
+    )
+    httpretty.register_uri(
+        httpretty.GET,
         'https://www.odorik.cz/api/v1/balance',
         body='123.45'
     )

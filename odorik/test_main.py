@@ -75,6 +75,13 @@ class TestCommands(TestCase):
         self.assertTrue('123.45' in output)
 
     @httpretty.activate
+    def test_balance_api(self):
+        """Test getting balance using different API"""
+        register_uris()
+        output = self.execute(['--url', 'https://example.net/', 'balance'])
+        self.assertTrue('321.09' in output)
+
+    @httpretty.activate
     def test_data_summary(self):
         """Test getting data summary"""
         register_uris()
