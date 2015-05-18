@@ -84,6 +84,11 @@ def get_parser():
         help='Output format to use'
     )
     parser.add_argument(
+        '--version',
+        action='version',
+        version='odorik {0}'.format(odorik.__version__)
+    )
+    parser.add_argument(
         '--config',
         help='Path to configuration file',
     )
