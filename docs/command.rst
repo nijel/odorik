@@ -19,7 +19,7 @@ This module also installs :program:`odorik` program, which allows you to
 easily access some of the functionality from command line. Currently following
 subcommands are available:
 
-.. option:: --format [csv|json|text]
+.. option:: --format {csv,json,text}
 
     Specify output format.
 
