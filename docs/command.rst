@@ -8,7 +8,7 @@ Synopsis
 
 .. code-block:: text
 
-    odorik <command> [options]
+    odorik [parameter] <command> [options]
 
 Commands actually indicate which operation should be performed.
 
@@ -22,6 +22,18 @@ subcommands are available:
 .. option:: --format [csv|json|text]
 
     Specify output format.
+
+.. option:: --url URL
+
+    Specify API URL.
+
+.. option:: --user USER
+
+    Specify API user.
+
+.. option:: --password PASSWORD
+
+    Specify API password.
 
 .. option:: version
 

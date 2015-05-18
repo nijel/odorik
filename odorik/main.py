@@ -78,6 +78,18 @@ def get_parser():
         choices=('text', 'csv', 'json'),
         help='Output format to use'
     )
+    parser.add_argument(
+        '--user',
+        help='API username',
+    )
+    parser.add_argument(
+        '--password',
+        help='API password',
+    )
+    parser.add_argument(
+        '--url',
+        help='API URL',
+    )
     subparser = parser.add_subparsers(dest="cmd")
 
     for command in COMMANDS:
@@ -343,6 +355,11 @@ def main(settings=None, stdout=None, args=None):
     else:
         for section, key, value in settings:
             config.set(section, key, value)
+
+    for override in ('user', 'password', 'url'):
+        value = getattr(args, override)
+        if value is not None:
+            config.set('odorik', override, value)
 
     command = COMMANDS[args.cmd](args, config, stdout)
     try:
