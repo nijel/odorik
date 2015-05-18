@@ -32,7 +32,7 @@ from odorik.main import main
 from odorik.test_odorik import register_uris
 
 
-def execute(args, binary=False, settings=None):
+def execute(args, binary=False, settings=None, stdout=None):
     """Execute command and return output."""
     if settings is None:
         settings = ()
@@ -42,7 +42,14 @@ def execute(args, binary=False, settings=None):
         output = BytesIO()
     else:
         output = StringIO()
-    main(args=args, stdout=output, settings=settings)
+    backup = sys.stdout
+    try:
+        sys.stdout = output
+        if stdout:
+            stdout = output
+        main(args=args, settings=settings, stdout=stdout)
+    finally:
+        sys.stdout = backup
     return output.getvalue()
 
 
@@ -55,6 +62,12 @@ class TestSettings(TestCase):
         register_uris()
         output = execute(['--url', 'https://example.net/', 'balance'])
         self.assertTrue('321.09' in output)
+
+    @httpretty.activate
+    def test_stdout(self):
+        register_uris()
+        output = execute(['balance'], stdout=True)
+        self.assertTrue('123.45' in output)
 
     @httpretty.activate
     def test_settings(self):
