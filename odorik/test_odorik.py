@@ -49,6 +49,8 @@ CALLS_BODY = (
 
 def sms_response(request, uri, headers):
     """httpretty SMS sending response generator"""
+    if not uri.endswith('/sms'):
+        return (400, headers, 'invalid request')
     params = parse_qs(request.body.decode('utf-8'))
     if params['sender'][0] == '5517':
         return (200, headers, 'successfully_sent 132.44')
