@@ -87,3 +87,9 @@
         :rtype: string
 
         Initiates callback.
+
+    .. method:: lines()
+
+        :rtype: list
+
+        Returns list of dictionaries with information about lines.

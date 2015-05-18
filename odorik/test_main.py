@@ -250,3 +250,10 @@ class TestCommands(TestCase):
             'callback', '00420789123456', '800123456'
         ])
         self.assertEquals('', output)
+
+    @httpretty.activate
+    def test_lines(self):
+        """Test lines"""
+        register_uris()
+        output = execute(['lines'])
+        self.assertIn('active_822', output)

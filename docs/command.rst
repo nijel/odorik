@@ -68,6 +68,10 @@ subcommands are available:
 
     Initiates a callback.
 
+.. option:: lines
+
+    Prints infromation about lines.
+
 .. _files:
 
 Files

@@ -46,6 +46,20 @@ CALLS_BODY = (
     '"line": 403366}]'
 )
 
+LINES_BODY = (
+    '[ { "incoming_call_name_format": 0, "active_pin": true, '
+    '"active_anonymous": true, "id": 123465, "active_greeting": false, '
+    '"connected_devices": [], "missed_call_email": "noreply@example.net", '
+    '"recording_email": "noreply@example.net", "sip_password": "65432109", '
+    '"active_password": true, "public_number": "00420799799799", '
+    '"active_cz_restriction": false, "active_iax": false, '
+    '"caller_id": "00420799799799", "active_ping": false, '
+    '"backup_number": null, "incoming_call_number_format": 0, '
+    '"name": "Test", "active_sip": true, "active_rtp": false, '
+    '"backup_number_email": null, '
+    '"voicemail_email": "noreply@example.net", "active_822": false}]'
+)
+
 
 def sms_response(request, uri, headers):
     """httpretty SMS sending response generator"""
@@ -99,6 +113,11 @@ def register_uris():
         httpretty.GET,
         'https://www.odorik.cz/api/v1/calls.json',
         body=CALLS_BODY
+    )
+    httpretty.register_uri(
+        httpretty.GET,
+        'https://www.odorik.cz/api/v1/lines.json',
+        body=LINES_BODY
     )
     httpretty.register_uri(
         httpretty.POST,
@@ -202,4 +221,13 @@ class OdorikTest(TestCase):
                 '123'
             ),
             'callback_ordered'
+        )
+
+    @httpretty.activate
+    def test_lines(self):
+        """Test getting lines information"""
+        register_uris()
+        self.assertEqual(
+            len(Odorik().lines()),
+            1
         )

@@ -4,6 +4,8 @@ Changes
 0.3
 ---
 
+* Added support for listing lines information.
+
 0.2
 ---
 

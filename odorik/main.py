@@ -281,6 +281,18 @@ class Balance(Command):
 
 
 @register_command
+class Lines(Command):
+    """
+    Prints lines.
+    """
+    name = 'lines'
+    description = "Prints lines information"
+
+    def run(self):
+        self.print(self.odorik.lines())
+
+
+@register_command
 class MobileData(Command):
     """
     Prints data usage.

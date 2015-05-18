@@ -125,3 +125,7 @@ class Odorik(object):
         response = self.post('callback', args)
         self._check_response(response)
         return response
+
+    def lines(self):
+        """Lists lines for an account."""
+        return self.get_json('lines.json')
