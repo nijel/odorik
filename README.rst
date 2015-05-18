@@ -37,7 +37,7 @@ Command line utility
 The module comes with handy command line utility::
 
     $ odorik balance
-    123.45
+    balance: 123.45
 
     $ odorik mobile-data --phone 00420789123456
     bytes_total: 111593707

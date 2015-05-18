@@ -118,14 +118,14 @@ Print current program version:
 .. code-block:: sh
 
     $ odorik version
-    0.1
+    version: 0.1
 
 Print current user balance:
 
 .. code-block:: sh
 
     $ odorik balance
-    123.45
+    balance: 123.45
 
 Prints current mobile data usage:
 
