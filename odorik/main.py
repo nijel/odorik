@@ -234,6 +234,12 @@ class IntervalCommand(Command):
         # Fallback to this month
         return (datetime(now.year, now.month, 1), now)
 
+    def run(self):
+        """
+        Main execution of the command.
+        """
+        raise NotImplementedError
+
 
 @register_command
 class Version(Command):
