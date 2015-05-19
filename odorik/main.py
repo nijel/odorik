@@ -123,6 +123,21 @@ class Command(object):
         )
 
     @staticmethod
+    def add_list_option(parser):
+        parser.add_argument(
+            '--list',
+            action='store_true',
+            help='List all records (instead of printing summary)'
+        )
+
+    @staticmethod
+    def add_line_option(parser):
+        parser.add_argument(
+            '--line',
+            help='Line to use for listing'
+        )
+
+    @staticmethod
     def summary(values, fields):
         """
         Calculates summary of values.
@@ -397,15 +412,8 @@ class Calls(IntervalCommand):
         Creates parser for command line.
         """
         parser = super(Calls, cls).add_parser(subparser)
-        parser.add_argument(
-            '--list',
-            action='store_true',
-            help='List all records (instead of printing summary)'
-        )
-        parser.add_argument(
-            '--line',
-            help='Line to use for listing'
-        )
+        cls.add_list_option(parser)
+        cls.add_line_option(parser)
         return parser
 
     def run(self):
@@ -472,11 +480,7 @@ class MobileData(IntervalCommand):
         Creates parser for command line.
         """
         parser = super(MobileData, cls).add_parser(subparser)
-        parser.add_argument(
-            '--list',
-            action='store_true',
-            help='List all records (instead of printing summary)'
-        )
+        cls.add_list_option(parser)
         parser.add_argument(
             '--phone',
             help='Limit listing to phone number'
@@ -576,10 +580,7 @@ class Callback(Command):
             'recipient',
             help='Recipient number'
         )
-        parser.add_argument(
-            '--line',
-            help='Line to use for accounting'
-        )
+        cls.add_line_option(parser)
         return parser
 
     def run(self):
