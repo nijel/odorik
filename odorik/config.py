@@ -40,6 +40,8 @@ class OdorikConfig(RawConfigParser):
 
     def set_defaults(self):
         """Set default values"""
+        self.add_section('lines')
+        self.add_section('phones')
         self.add_section(self.section)
         self.set(self.section, 'user', '')
         self.set(self.section, 'password', '')
