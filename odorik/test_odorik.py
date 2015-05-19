@@ -60,8 +60,7 @@ SMS_BODY = ('''[
         "id": 121250000
       }
     ]
-'''
-)
+''')
 
 LINES_BODY = (
     '[ { "incoming_call_name_format": 0, "active_pin": true, '
