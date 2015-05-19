@@ -18,7 +18,7 @@ Python API
 :class:`Odorik`
 ---------------
 
-.. class:: Odorik(user='', password='', url=None, config=None, section='odorik'):
+.. class:: Odorik(user='', password='', url=None, config=None):
 
     :param user: User ID
     :type user: string
