@@ -31,7 +31,7 @@ from datetime import datetime, timedelta
 import dateutil.parser
 
 import odorik
-from odorik.config import OdorikConfig
+from odorik.config import OdorikConfig, NoOptionError
 
 
 COMMANDS = {}
@@ -143,6 +143,19 @@ class Command(object):
             '--line',
             help='Line to use for listing'
         )
+
+    def resolve(self, kind, value):
+        """Resolve line/phone number from configuration"""
+        if value is None:
+            return None
+        if value.isdigit():
+            return value
+        try:
+            self.config.get(kind, value)
+        except NoOptionError:
+            raise CommandError(
+                'Invalid value for {0}: {1}'.format(kind, value)
+            )
 
     @staticmethod
     def summary(values, fields):
@@ -454,14 +467,11 @@ class Calls(IntervalCommand):
         return parser
 
     def run(self):
-        line = None
-        if self.args.line:
-            line = self.args.line
         from_date, to_date = self.get_interval()
         calls = self.odorik.calls(
             from_date,
             to_date,
-            line
+            self.resolve('lines', self.args.line),
         )
         if self.args.list:
             self.print(calls)
@@ -493,14 +503,11 @@ class SMS(IntervalCommand):
         return parser
 
     def run(self):
-        line = None
-        if self.args.line:
-            line = self.args.line
         from_date, to_date = self.get_interval()
         sms = self.odorik.sms(
             from_date,
             to_date,
-            line
+            self.resolve('lines', self.args.line)
         )
         if self.args.list:
             self.print(sms)
@@ -555,7 +562,6 @@ class MobileData(IntervalCommand):
             )
 
     def run(self):
-        phone = None
         if self.args.all:
             result = []
             for line in self.odorik.lines():
@@ -563,9 +569,9 @@ class MobileData(IntervalCommand):
                 result[-1]['public_number'] = line['public_number']
             self.print(result)
         else:
-            if self.args.phone:
-                phone = self.args.phone
-            self.print(self.one_number(phone))
+            self.print(
+                self.one_number(self.resolve('numbers', self.args.phone))
+            )
 
 
 @register_command
@@ -599,9 +605,9 @@ class SendSMS(Command):
 
     def run(self):
         self.odorik.send_sms(
-            self.args.recipient,
+            self.resolve('numbers', self.args.recipient),
             self.args.message,
-            self.args.sender,
+            self.resolve('numbers', self.args.sender),
         )
 
 
@@ -632,9 +638,9 @@ class Callback(Command):
 
     def run(self):
         self.odorik.callback(
-            self.args.caller,
-            self.args.recipient,
-            self.args.line,
+            self.resolve('numbers', self.args.caller),
+            self.resolve('numbers', self.args.recipient),
+            self.resolve('lines', self.args.line),
         )
 
 

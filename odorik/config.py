@@ -21,12 +21,14 @@
 from __future__ import unicode_literals
 
 try:
-    from configparser import RawConfigParser
+    from configparser import RawConfigParser, NoOptionError
 except ImportError:
-    from ConfigParser import RawConfigParser
+    from ConfigParser import RawConfigParser, NoOptionError
 from xdg.BaseDirectory import load_config_paths
 
 import odorik
+
+__all__ = ['NoOptionError', 'OdorikConfig']
 
 
 class OdorikConfig(RawConfigParser):
