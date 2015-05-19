@@ -102,6 +102,13 @@ def odorik_line(value):
     return int(value)
 
 
+def key_value(value):
+    """Validates key=value parameter"""
+    if '=' not in value:
+        raise ValueError('Please specify --param as key=value')
+    return value
+
+
 class Command(object):
     """
     Basic command object.
@@ -352,6 +359,7 @@ class API(Command):
             '--param',
             action='append',
             metavar='KEY=VALUE',
+            type=key_value,
             default=[],
             help='Parameter to append to the call'
         )
@@ -365,8 +373,6 @@ class API(Command):
     def run(self):
         params = {}
         for param in self.args.param:
-            if '=' not in param:
-                raise CommandError('Please specify --param as key=value')
             key, value = param.split('=', 1)
             params[key] = value
         if self.args.post:
