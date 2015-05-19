@@ -295,6 +295,13 @@ class TestCommands(TestCase):
         self.assertIn('554.0288', output)
 
     @httpretty.activate
+    def test_calls_line(self):
+        """Test getting calls summary for line"""
+        register_uris()
+        output = execute(['calls', '--line', '1234'])
+        self.assertIn('length: 362', output)
+
+    @httpretty.activate
     def test_api(self):
         """Test API GET operation"""
         register_uris()
