@@ -281,6 +281,20 @@ class TestCommands(TestCase):
         self.assertIn('0.1484', output)
 
     @httpretty.activate
+    def test_calls_summary(self):
+        """Test getting calls summary"""
+        register_uris()
+        output = execute(['calls'])
+        self.assertIn('length: 362', output)
+
+    @httpretty.activate
+    def test_calls_list(self):
+        """Test getting calls list"""
+        register_uris()
+        output = execute(['calls', '--list'])
+        self.assertIn('554.0288', output)
+
+    @httpretty.activate
     def test_api(self):
         """Test API GET operation"""
         register_uris()

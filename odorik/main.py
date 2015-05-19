@@ -117,6 +117,19 @@ class Command(object):
             cls.name, description=cls.description
         )
 
+    @staticmethod
+    def summary(values, fields):
+        """
+        Calculates summary of values.
+        """
+        result = {}
+        for field in fields:
+            result[field] = 0
+        for value in values:
+            for field in fields:
+                result[field] += value[field]
+        return result
+
     def println(self, line):
         """
         Prints single line to output.
@@ -366,6 +379,52 @@ class Lines(Command):
 
 
 @register_command
+class Calls(IntervalCommand):
+    """
+    Prints calls
+    """
+    name = 'calls'
+    description = "Prints calls"
+
+    @classmethod
+    def add_parser(cls, subparser):
+        """
+        Creates parser for command line.
+        """
+        parser = super(Calls, cls).add_parser(subparser)
+        parser.add_argument(
+            '--list',
+            action='store_true',
+            help='List all records (instead of printing summary)'
+        )
+        parser.add_argument(
+            '--line',
+            help='Line to use for accounting'
+        )
+        return parser
+
+    def run(self):
+        line = None
+        if self.args.line:
+            line = self.args.line
+        from_date, to_date = self.get_interval()
+        calls = self.odorik.calls(
+            from_date,
+            to_date,
+            line
+        )
+        if self.args.list:
+            self.print(calls)
+        else:
+            self.print(
+                self.summary(
+                    calls,
+                    ('price', 'length', 'ringing_length')
+                )
+            )
+
+
+@register_command
 class MobileData(IntervalCommand):
     """
     Prints data usage.
@@ -405,21 +464,10 @@ class MobileData(IntervalCommand):
         if self.args.list:
             return data_usage
         else:
-            bytes_total = 0
-            bytes_down = 0
-            bytes_up = 0
-            price = 0
-            for item in data_usage:
-                bytes_total += item['bytes_total']
-                bytes_down += item['bytes_down']
-                bytes_up += item['bytes_up']
-                price += item['price']
-            return {
-                'bytes_total': bytes_total,
-                'bytes_down': bytes_down,
-                'bytes_up': bytes_up,
-                'price':  price,
-            }
+            return self.summary(
+                data_usage,
+                ('bytes_total', 'bytes_down', 'bytes_up', 'price')
+            )
 
     def run(self):
         phone = None

@@ -229,6 +229,31 @@ class OdorikTest(TestCase):
         )
 
     @httpretty.activate
+    def test_calls(self):
+        """Test calls"""
+        register_uris()
+        self.assertEquals(
+            len(Odorik().calls(
+                datetime.datetime.now(),
+                datetime.datetime.now(),
+            )),
+            1
+        )
+
+    @httpretty.activate
+    def test_calls_line(self):
+        """Test calls"""
+        register_uris()
+        self.assertEquals(
+            len(Odorik().calls(
+                datetime.datetime.now(),
+                datetime.datetime.now(),
+                '123'
+            )),
+            1
+        )
+
+    @httpretty.activate
     def test_lines(self):
         """Test getting lines information"""
         register_uris()

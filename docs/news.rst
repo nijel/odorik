@@ -5,6 +5,7 @@ Changes
 ---
 
 * Adjustable date periods for commands.
+* Add support for listing calls.
 
 0.3
 ---
