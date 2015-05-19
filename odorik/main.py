@@ -438,12 +438,22 @@ class Calls(IntervalCommand):
 
 
 @register_command
-class SMS(Calls):
+class SMS(IntervalCommand):
     """
     Prints SMS
     """
     name = 'sms'
     description = "Prints SMS messages"
+
+    @classmethod
+    def add_parser(cls, subparser):
+        """
+        Creates parser for command line.
+        """
+        parser = super(SMS, cls).add_parser(subparser)
+        cls.add_list_option(parser)
+        cls.add_line_option(parser)
+        return parser
 
     def run(self):
         line = None
