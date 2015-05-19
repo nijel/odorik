@@ -1,2 +1,2 @@
 pyxdg
-dateutil
+python-dateutil
