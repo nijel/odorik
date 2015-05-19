@@ -121,6 +121,44 @@ class TestInteval(TestCase):
         output = execute(['mobile-data', '--last-month'])
         self.assertIn('0.1484', output)
 
+    @httpretty.activate
+    def test_data_start(self):
+        """Test getting data list"""
+        register_uris()
+        output = execute(['mobile-data', '--start-date', '2015-01-01'])
+        self.assertIn('0.1484', output)
+
+    @httpretty.activate
+    def test_data_start_end(self):
+        """Test getting data list"""
+        register_uris()
+        output = execute([
+            'mobile-data',
+            '--start-date', '2015-01-01',
+            '--end-date', '2015-10-01'
+        ])
+        self.assertIn('0.1484', output)
+
+    def test_data_start_end_wrong(self):
+        """Test getting data list"""
+        self.assertRaises(
+            SystemExit,
+            execute,
+            [
+                'mobile-data',
+                '--start-date', '2015-01-01',
+                '--end-date', '2015-01-01'
+            ]
+        )
+
+    def test_data_end(self):
+        """Test getting data list"""
+        self.assertRaises(
+            SystemExit,
+            execute,
+            ['mobile-data', '--end-date', '2015-01-01']
+        )
+
 
 class TestOutput(TestCase):
     """Test output formatting"""

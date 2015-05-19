@@ -108,6 +108,19 @@ You can specify date period for which many commands will be issued:
 
     Prints information for last month.
 
+.. option:: --start-date DATE
+
+    Starting datetime.
+
+.. option:: --end-date DATE
+
+    Ending datetime. If not specified, current date is used.
+
+All parameters accepting date can take almost any format of date or timestamp.
+Check `dateutil <http://labix.org/python-dateutil#head-b95ce2094d189a89f80f5ae52a05b4ab7b41af47>`_
+documentation for more detailed information (especially on year/month/day
+precendence).
+
 .. _files:
 
 Files

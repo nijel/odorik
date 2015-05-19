@@ -28,6 +28,7 @@ import json
 import csv
 from argparse import ArgumentParser
 from datetime import datetime, timedelta
+import dateutil.parser
 
 import odorik
 from odorik.config import OdorikConfig
@@ -219,11 +220,30 @@ class IntervalCommand(Command):
             action='store_true',
             help='Show data for last month'
         )
+        parser.add_argument(
+            '--start-date',
+            type=dateutil.parser.parse,
+            help='Starting datetime'
+        )
+        parser.add_argument(
+            '--end-date',
+            type=dateutil.parser.parse,
+            help='Ending datetime'
+        )
         return parser
 
     def get_interval(self):
         """Returns interval based on passed flags."""
         now = datetime.now()
+
+        if self.args.start_date and self.args.end_date:
+            if self.args.start_date >= self.args.end_date:
+                raise CommandError('Starting date has to be earlier than ending!')
+            return (self.args.start_date, self.args.end_date)
+        elif self.args.start_date:
+            return (self.args.start_date, now)
+        elif self.args.end_date:
+            raise CommandError('Can not set ending date without start!')
 
         if self.args.last_month:
             # Get last day of previous month
