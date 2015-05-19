@@ -201,7 +201,7 @@ class OdorikTest(TestCase):
         )
 
     @httpretty.activate
-    def test_sms(self):
+    def test_sms_send(self):
         """Test sending SMS"""
         register_uris()
         self.assertEquals(
@@ -213,7 +213,7 @@ class OdorikTest(TestCase):
         )
 
     @httpretty.activate
-    def test_sms_invalid(self):
+    def test_sms_send_invalid(self):
         """Test sending SMS"""
         register_uris()
         self.assertRaises(
