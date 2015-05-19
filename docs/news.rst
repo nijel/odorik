@@ -4,6 +4,8 @@ Changes
 0.4
 ---
 
+* Adjustable date periods for commands.
+
 0.3
 ---
 

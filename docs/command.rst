@@ -16,8 +16,12 @@ Description
 +++++++++++
 
 This module also installs :program:`odorik` program, which allows you to
-easily access some of the functionality from command line. Currently following
-subcommands are available:
+easily access some of the functionality from command line.
+
+Global options
+--------------
+
+The program accepts following global options, which must be entered before subcommand.
 
 .. option:: --format {csv,json,text,html}
 
@@ -39,6 +43,11 @@ subcommands are available:
 
     Override path to configuration file, see :ref:`files`.
 
+Subcommands
+-----------
+
+Currently following subcommands are available:
+
 .. option:: version
 
     Prints current version.
@@ -55,7 +64,7 @@ subcommands are available:
 
     Prints current balance.
 
-.. option:: mobile-data [--list] [--phone NUMBER] [--all]
+.. option:: mobile-data [--list] [--phone NUMBER] [--all] [DATE PERIOD]
 
     Prints mobile data usage.
 
@@ -66,6 +75,8 @@ subcommands are available:
 
     If ``--all`` is specified, summary for all mobile lines on current account
     is printed.
+
+    See :ref:`interval` for information how to specify date period.
 
 .. option:: send-sms [--sender SENDER] recipient message
 
@@ -81,6 +92,21 @@ subcommands are available:
 .. option:: lines
 
     Prints infromation about lines.
+
+.. _interval:
+
+Specifying date period
+----------------------
+
+You can specify date period for which many commands will be issued:
+
+.. option:: --this-month
+
+    Prints information for current month.
+
+.. option:: --last-month
+
+    Prints information for last month.
 
 .. _files:
 

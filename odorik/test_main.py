@@ -104,6 +104,24 @@ class TestSettings(TestCase):
             sys.argv = backup
 
 
+class TestInteval(TestCase):
+    """Test interval processing"""
+
+    @httpretty.activate
+    def test_data_this(self):
+        """Test getting data list"""
+        register_uris()
+        output = execute(['mobile-data', '--this-month'])
+        self.assertIn('0.1484', output)
+
+    @httpretty.activate
+    def test_data_last(self):
+        """Test getting data list"""
+        register_uris()
+        output = execute(['mobile-data', '--last-month'])
+        self.assertIn('0.1484', output)
+
+
 class TestOutput(TestCase):
     """Test output formatting"""
 

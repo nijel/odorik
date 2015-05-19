@@ -27,7 +27,7 @@ import sys
 import json
 import csv
 from argparse import ArgumentParser
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import odorik
 from odorik.config import OdorikConfig
@@ -198,6 +198,43 @@ class Command(object):
         raise NotImplementedError
 
 
+class IntervalCommand(Command):
+    """
+    Helper class to handle date intervals.
+    """
+
+    @classmethod
+    def add_parser(cls, subparser):
+        """
+        Creates parser for command line.
+        """
+        parser = super(IntervalCommand, cls).add_parser(subparser)
+        parser.add_argument(
+            '--this-month',
+            action='store_true',
+            help='Show data for this month [default]'
+        )
+        parser.add_argument(
+            '--last-month',
+            action='store_true',
+            help='Show data for last month'
+        )
+        return parser
+
+    def get_interval(self):
+        """Returns interval based on passed flags."""
+        now = datetime.now()
+
+        if self.args.last_month:
+            # Get last day of previous month
+            now = now.replace(day=1) - timedelta(days=1)
+            # Set to midnight
+            now = now.replace(hour=23, minute=59, second=59)
+
+        # Fallback to this month
+        return (datetime(now.year, now.month, 1), now)
+
+
 @register_command
 class Version(Command):
     """
@@ -217,6 +254,7 @@ class Version(Command):
             action='store_true',
             help='Print only version'
         )
+        return parser
 
     def run(self):
         if self.args.bare:
@@ -300,7 +338,7 @@ class Lines(Command):
 
 
 @register_command
-class MobileData(Command):
+class MobileData(IntervalCommand):
     """
     Prints data usage.
     """
@@ -330,10 +368,10 @@ class MobileData(Command):
         return parser
 
     def one_number(self, phone):
-        now = datetime.now()
+        from_date, to_date = self.get_interval()
         data_usage = self.odorik.mobile_data(
-            datetime(now.year, now.month, 1),
-            now,
+            from_date,
+            to_date,
             phone
         )
         if self.args.list:
