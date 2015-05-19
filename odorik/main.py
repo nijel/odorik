@@ -238,7 +238,9 @@ class IntervalCommand(Command):
 
         if self.args.start_date and self.args.end_date:
             if self.args.start_date >= self.args.end_date:
-                raise CommandError('Starting date has to be earlier than ending!')
+                raise CommandError(
+                    'Starting date has to be earlier than ending!'
+                )
             return (self.args.start_date, self.args.end_date)
         elif self.args.start_date:
             return (self.args.start_date, now)
