@@ -97,23 +97,11 @@ class CommandError(Exception):
     """Generic error from command line."""
 
 
-def odorik_line(value):
-    """Parses line argument"""
-    return int(value)
-
-
 def key_value(value):
     """Validates key=value parameter"""
     if '=' not in value:
         raise ValueError('Please specify --param as key=value')
     return value
-
-
-def phone_number(value):
-    """Validates phone number"""
-    if value.isdigit():
-        return value
-    raise ValueError('Invalid phone number')
 
 
 class Command(object):
@@ -153,7 +141,6 @@ class Command(object):
     def add_line_option(parser):
         parser.add_argument(
             '--line',
-            type=odorik_line,
             help='Line to use for listing'
         )
 
@@ -544,7 +531,6 @@ class MobileData(IntervalCommand):
         parser.add_argument(
             '--phone',
             help='Limit listing to phone number',
-            type=phone_number,
         )
         parser.add_argument(
             '--all',
@@ -599,7 +585,6 @@ class SendSMS(Command):
         parser.add_argument(
             'recipient',
             help='Recipient number',
-            type=phone_number,
         )
         parser.add_argument(
             'message',
@@ -637,12 +622,10 @@ class Callback(Command):
         parser.add_argument(
             'caller',
             help='Caller number',
-            type=phone_number,
         )
         parser.add_argument(
             'recipient',
             help='Recipient number',
-            type=phone_number,
         )
         cls.add_line_option(parser)
         return parser
