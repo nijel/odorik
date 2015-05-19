@@ -302,6 +302,37 @@ class TestCommands(TestCase):
         self.assertIn('length: 362', output)
 
     @httpretty.activate
+    def test_send_sms(self):
+        """Test sending SMS"""
+        register_uris()
+        output = execute([
+            'send-sms',
+            '00420789123456',
+            'text'
+        ])
+        self.assertEquals('', output)
+
+    @httpretty.activate
+    def test_callback(self):
+        """Test callback"""
+        register_uris()
+        output = execute([
+            'callback', '00420789123456', '800123456'
+        ])
+        self.assertEquals('', output)
+
+    @httpretty.activate
+    def test_lines(self):
+        """Test lines"""
+        register_uris()
+        output = execute(['lines'])
+        self.assertIn('active_822', output)
+
+
+class TestAPI(TestCase):
+    """Test generic API support"""
+
+    @httpretty.activate
     def test_api(self):
         """Test API GET operation"""
         register_uris()
@@ -342,30 +373,3 @@ class TestCommands(TestCase):
             '--param', 'recipient=800123456'
         ])
         self.assertIn('callback_ordered', output)
-
-    @httpretty.activate
-    def test_send_sms(self):
-        """Test sending SMS"""
-        register_uris()
-        output = execute([
-            'send-sms',
-            '00420789123456',
-            'text'
-        ])
-        self.assertEquals('', output)
-
-    @httpretty.activate
-    def test_callback(self):
-        """Test callback"""
-        register_uris()
-        output = execute([
-            'callback', '00420789123456', '800123456'
-        ])
-        self.assertEquals('', output)
-
-    @httpretty.activate
-    def test_lines(self):
-        """Test lines"""
-        register_uris()
-        output = execute(['lines'])
-        self.assertIn('active_822', output)
