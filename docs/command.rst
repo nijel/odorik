@@ -102,7 +102,7 @@ You can specify date period for which many commands will be issued:
 
 .. option:: --this-month
 
-    Prints information for current month.
+    Prints information for current month. This is the default interval.
 
 .. option:: --last-month
 
