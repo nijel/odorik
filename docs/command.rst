@@ -88,6 +88,16 @@ Currently following subcommands are available:
 
     See :ref:`interval` for information how to specify date period.
 
+.. option:: sms [--list] [--line LINE] [DATE PERIOD]
+
+    Prints SMS usage.
+
+    It can list all individual records when ``--list`` is specified.
+
+    The result can be also limited to given line by using ``--line``.
+
+    See :ref:`interval` for information how to specify date period.
+
 .. option:: send-sms [--sender SENDER] recipient message
 
     Sends a SMS message.

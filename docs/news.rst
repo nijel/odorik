@@ -6,6 +6,7 @@ Changes
 
 * Adjustable date periods for commands.
 * Add support for listing calls.
+* Add support for listing SMS.
 
 0.3
 ---

@@ -302,6 +302,27 @@ class TestCommands(TestCase):
         self.assertIn('length: 362', output)
 
     @httpretty.activate
+    def test_sms_summary(self):
+        """Test getting sms summary"""
+        register_uris()
+        output = execute(['sms'])
+        self.assertIn('price: 0.0', output)
+
+    @httpretty.activate
+    def test_sms_list(self):
+        """Test getting sms list"""
+        register_uris()
+        output = execute(['sms', '--list'])
+        self.assertIn('direction: in', output)
+
+    @httpretty.activate
+    def test_sms_line(self):
+        """Test getting sms summary for line"""
+        register_uris()
+        output = execute(['sms', '--line', '1234'])
+        self.assertIn('price: 0.0', output)
+
+    @httpretty.activate
     def test_send_sms(self):
         """Test sending SMS"""
         register_uris()

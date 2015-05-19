@@ -130,6 +130,17 @@ class Odorik(object):
         if line is not None:
             args['line'] = line
         return self.get_json('calls.json', args)
+        return response
+
+    def sms(self, from_date, to_date, line=None):
+        """Returns list of sms."""
+        args = {
+            'from': from_date.isoformat(),
+            'to': to_date.isoformat()
+        }
+        if line is not None:
+            args['line'] = line
+        return self.get_json('sms.json', args)
 
     def callback(self, caller, recipient, line=None):
         """Initiates callback."""

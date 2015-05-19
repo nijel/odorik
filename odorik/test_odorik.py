@@ -46,6 +46,23 @@ CALLS_BODY = (
     '"line": 403366}]'
 )
 
+SMS_BODY = ('''[
+      {
+        "status": "unknown",
+        "direction": "in",
+        "destination_number": "00420799799799",
+        "line": 716000,
+        "price": 0.0,
+        "source_number": "00420799799799",
+        "date": "2015-05-18T16:26:56Z",
+        "balance_after": 377.7841,
+        "type": "sms",
+        "id": 121250000
+      }
+    ]
+'''
+)
+
 LINES_BODY = (
     '[ { "incoming_call_name_format": 0, "active_pin": true, '
     '"active_anonymous": true, "id": 123465, "active_greeting": false, '
@@ -118,6 +135,11 @@ def register_uris():
         httpretty.GET,
         'https://www.odorik.cz/api/v1/calls.json',
         body=CALLS_BODY
+    )
+    httpretty.register_uri(
+        httpretty.GET,
+        'https://www.odorik.cz/api/v1/sms.json',
+        body=SMS_BODY
     )
     httpretty.register_uri(
         httpretty.GET,
@@ -246,6 +268,31 @@ class OdorikTest(TestCase):
         register_uris()
         self.assertEquals(
             len(Odorik().calls(
+                datetime.datetime.now(),
+                datetime.datetime.now(),
+                '123'
+            )),
+            1
+        )
+
+    @httpretty.activate
+    def test_sms(self):
+        """Test sms"""
+        register_uris()
+        self.assertEquals(
+            len(Odorik().sms(
+                datetime.datetime.now(),
+                datetime.datetime.now(),
+            )),
+            1
+        )
+
+    @httpretty.activate
+    def test_sms_line(self):
+        """Test sms"""
+        register_uris()
+        self.assertEquals(
+            len(Odorik().sms(
                 datetime.datetime.now(),
                 datetime.datetime.now(),
                 '123'

@@ -108,6 +108,19 @@ Python API
         Returns list of calls in given interval. Optionally filtered for given
         line.
 
+    .. method:: sms(from_date, to_date, line=None):
+
+        :param from_date: Starting date
+        :type from_date: datetime.datetime
+        :param to_date: Ending date
+        :type to_date: datetime.datetime
+        :param line: Line to use for listing
+        :type line: string or None
+        :rtype: list
+
+        Returns list of sms in given interval. Optionally filtered for given
+        line.
+
     .. method:: lines()
 
         :rtype: list

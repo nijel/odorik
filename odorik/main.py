@@ -399,7 +399,7 @@ class Calls(IntervalCommand):
         )
         parser.add_argument(
             '--line',
-            help='Line to use for accounting'
+            help='Line to use for listing'
         )
         return parser
 
@@ -420,6 +420,35 @@ class Calls(IntervalCommand):
                 self.summary(
                     calls,
                     ('price', 'length', 'ringing_length')
+                )
+            )
+
+
+@register_command
+class SMS(Calls):
+    """
+    Prints SMS
+    """
+    name = 'sms'
+    description = "Prints SMS messages"
+
+    def run(self):
+        line = None
+        if self.args.line:
+            line = self.args.line
+        from_date, to_date = self.get_interval()
+        sms = self.odorik.sms(
+            from_date,
+            to_date,
+            line
+        )
+        if self.args.list:
+            self.print(sms)
+        else:
+            self.print(
+                self.summary(
+                    sms,
+                    ('price',)
                 )
             )
 
