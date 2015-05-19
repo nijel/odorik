@@ -373,6 +373,13 @@ class TestCommands(TestCase):
         output = execute(['lines'])
         self.assertIn('active_822', output)
 
+    @httpretty.activate
+    def test_lines_config(self):
+        """Test lines generating config"""
+        register_uris()
+        output = execute(['lines', '--generate-config'])
+        self.assertIn('Test = 123465', output)
+
 
 class TestAPI(TestCase):
     """Test generic API support"""

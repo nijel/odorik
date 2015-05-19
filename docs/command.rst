@@ -117,8 +117,8 @@ Currently following subcommands are available:
 
     Prints infromation about lines.
 
-    With ``--generate-config`` it generates config file entries for lines and
-    phone numbers aliases, see :ref:`files`.
+    With ``--generate-config`` it generates config file entries for line and
+    phone number aliases, see :ref:`files`.
 
 .. _interval:
 
@@ -188,6 +188,16 @@ The configuration file is INI file, for example:
     user = pepa
     password = zdepa
 
+Additionally config file can include phone number and line aliases:
+
+.. code-block:: ini
+
+    [lines]
+    pepa = 12345
+
+    [numbers]
+    pepa = 00420789789789
+    franta = 00420789123456
 
 Examples
 ++++++++

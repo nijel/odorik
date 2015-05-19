@@ -413,8 +413,39 @@ class Lines(Command):
     name = 'lines'
     description = "Prints lines information"
 
+    @classmethod
+    def add_parser(cls, subparser):
+        """
+        Creates parser for command line.
+        """
+        parser = super(Lines, cls).add_parser(subparser)
+        parser.add_argument(
+            '--generate-config',
+            action='store_true',
+            help='generate configuration file for line aliases'
+        )
+        return parser
+
     def run(self):
-        self.print(self.odorik.lines())
+        lines = self.odorik.lines()
+        if self.args.generate_config:
+            lines = [line for line in lines if line['name']]
+            self.println('[lines]')
+            for line in lines:
+                self.println('{0} = {1}'.format(
+                    line['name'],
+                    line['id']
+                ))
+            self.println('')
+            self.println('[numbers]')
+            for line in lines:
+                self.println('{0} = {1}'.format(
+                    line['name'],
+                    line['public_number']
+                ))
+
+        else:
+            self.print(lines)
 
 
 @register_command
