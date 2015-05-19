@@ -43,6 +43,10 @@ The program accepts following global options, which must be entered before subco
 
     Override path to configuration file, see :ref:`files`.
 
+.. option:: --config-section SECTION
+
+    Override section to use in configuration file, see :ref:`files`.
+
 Subcommands
 -----------
 
@@ -154,7 +158,8 @@ Files
 The program follows XDG specification, so you can adjust placement of config files
 by environment variables ``XDG_CONFIG_HOME`` or ``XDG_CONFIG_DIRS``.
 
-Following settings can be configured in the ``[odorik]`` section:
+Following settings can be configured in the ``[odorik]`` section (you can
+customize this by :option:`--config-option`):
 
 .. describe:: user
 

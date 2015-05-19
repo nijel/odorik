@@ -69,6 +69,11 @@ def get_parser():
         help='Path to configuration file',
     )
     parser.add_argument(
+        '--config-section',
+        default='odorik',
+        help='Configuration section to use'
+    )
+    parser.add_argument(
         '--user',
         help='API username',
     )
@@ -106,7 +111,9 @@ class Command(object):
             self.stdout = sys.stdout
         else:
             self.stdout = stdout
-        self.odorik = odorik.Odorik(config=config)
+        self.odorik = odorik.Odorik(
+            config=config, section=args.config_section
+        )
 
     @classmethod
     def add_parser(cls, subparser):
@@ -594,7 +601,7 @@ def main(settings=None, stdout=None, args=None):
         args = sys.argv[1:]
     args = parser.parse_args(args)
 
-    config = OdorikConfig()
+    config = OdorikConfig(args.config_section)
     if settings is None:
         config.load(args.config)
     else:
@@ -604,7 +611,7 @@ def main(settings=None, stdout=None, args=None):
     for override in ('user', 'password', 'url'):
         value = getattr(args, override)
         if value is not None:
-            config.set('odorik', override, value)
+            config.set(args.config_section, override, value)
 
     command = COMMANDS[args.cmd](args, config, stdout)
     try:

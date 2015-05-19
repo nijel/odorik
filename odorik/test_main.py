@@ -33,6 +33,7 @@ from odorik.config import OdorikConfig
 from odorik.test_odorik import register_uris
 
 TEST_CONFIG = os.path.join(os.path.dirname(__file__), 'test_data', 'odorik')
+TEST_SECTION = os.path.join(os.path.dirname(__file__), 'test_data', 'section')
 
 
 def execute(args, binary=False, settings=None, stdout=None):
@@ -85,6 +86,19 @@ class TestSettings(TestCase):
     def test_config(self):
         register_uris()
         output = execute(['--config', TEST_CONFIG, 'balance'], settings=False)
+        self.assertIn('321.09', output)
+
+    @httpretty.activate
+    def test_config_section(self):
+        register_uris()
+        output = execute(
+            [
+                '--config', TEST_SECTION,
+                '--config-section', 'custom',
+                'balance'
+            ],
+            settings=False
+        )
         self.assertIn('321.09', output)
 
     def test_parsing(self):

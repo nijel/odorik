@@ -18,7 +18,7 @@ Python API
 :class:`Odorik`
 ---------------
 
-.. class:: Odorik(user='', password='', url=None, config=None)
+.. class:: Odorik(user='', password='', url=None, config=None, section='odorik'):
 
     :param user: User ID
     :type user: string
@@ -28,6 +28,8 @@ Python API
     :type url: string
     :param config: Configuration object, overrides any other parameters.
     :type config: OdorikConfig
+    :param section: Configuration section to use from OdorikConfig
+    :type section: string
 
     Access class to the API, define user, password and optionally API URL.
 
@@ -137,7 +139,10 @@ Python API
 :class:`OdorikConfig`
 ---------------------
 
-.. class:: OdorikConfig()
+.. class:: OdorikConfig(section='odorik')
+    
+    :param section: Configuration section to use
+    :type section: string
 
     Configuration file parser following XDG specification.
 

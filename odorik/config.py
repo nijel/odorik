@@ -33,16 +33,17 @@ class OdorikConfig(RawConfigParser):
     """
     Configuration parser wrapper with defaults.
     """
-    def __init__(self):
+    def __init__(self, section='odorik'):
         RawConfigParser.__init__(self)
+        self.section = section
         self.set_defaults()
 
     def set_defaults(self):
         """Set default values"""
-        self.add_section('odorik')
-        self.set('odorik', 'user', '')
-        self.set('odorik', 'password', '')
-        self.set('odorik', 'url', odorik.API_URL)
+        self.add_section(self.section)
+        self.set(self.section, 'user', '')
+        self.set(self.section, 'password', '')
+        self.set(self.section, 'url', odorik.API_URL)
 
     def load(self, path=None):
         """
