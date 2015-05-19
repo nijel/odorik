@@ -131,7 +131,6 @@ class Odorik(object):
         if line is not None:
             args['line'] = line
         return self.get_json('calls.json', args)
-        return response
 
     def sms(self, from_date, to_date, line=None):
         """Returns list of sms."""
