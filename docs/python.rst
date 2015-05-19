@@ -28,8 +28,6 @@ Python API
     :type url: string
     :param config: Configuration object, overrides any other parameters.
     :type config: OdorikConfig
-    :param section: Configuration section to use from OdorikConfig
-    :type section: string
 
     Access class to the API, define user, password and optionally API URL.
 

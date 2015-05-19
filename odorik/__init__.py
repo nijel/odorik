@@ -44,13 +44,12 @@ class OdorikException(Exception):
 
 class Odorik(object):
     """Odorik API object."""
-    def __init__(self, user='', password='', url=API_URL, config=None,
-                 section='odorik'):
+    def __init__(self, user='', password='', url=API_URL, config=None):
         """Creates the object, storing user and API password."""
         if config is not None:
-            self.user = config.get(section, 'user')
-            self.password = config.get(section, 'password')
-            self.url = config.get(section, 'url')
+            self.user = config.get(config.section, 'user')
+            self.password = config.get(config.section, 'password')
+            self.url = config.get(config.section, 'url')
         else:
             self.user = user
             self.password = password

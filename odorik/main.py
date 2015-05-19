@@ -111,9 +111,7 @@ class Command(object):
             self.stdout = sys.stdout
         else:
             self.stdout = stdout
-        self.odorik = odorik.Odorik(
-            config=config, section=args.config_section
-        )
+        self.odorik = odorik.Odorik(config=config)
 
     @classmethod
     def add_parser(cls, subparser):
