@@ -113,9 +113,12 @@ Currently following subcommands are available:
 
     Initiates a callback.
 
-.. option:: lines
+.. option:: lines [--generate-config]
 
     Prints infromation about lines.
+
+    With ``--generate-config`` it generates config file entries for lines and
+    phone numbers aliases, see :ref:`files`.
 
 .. _interval:
 
@@ -174,6 +177,9 @@ customize this by :option:`--config-option`):
 
     API server URL, defaults to ``https://www.odorik.cz/api/v1/``.
 
+See `Autentizace Odorik API <http://www.odorik.cz/w/api#autentizace>`_ for more
+details on authentication.
+
 The configuration file is INI file, for example:
 
 .. code-block:: ini
@@ -182,7 +188,6 @@ The configuration file is INI file, for example:
     user = pepa
     password = zdepa
 
-.. seealso:: `Autentizace Odorik API <http://www.odorik.cz/w/api#autentizace>`_
 
 Examples
 ++++++++
