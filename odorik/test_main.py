@@ -348,6 +348,16 @@ class TestCommands(TestCase):
         self.assertEquals('', output)
 
     @httpretty.activate
+    def test_send_sms_invalid(self):
+        """Test sending SMS"""
+        register_uris()
+        self.assertRaises(
+            SystemExit,
+            execute,
+            ['send-sms', 'INVALID', 'text'],
+        )
+
+    @httpretty.activate
     def test_callback(self):
         """Test callback"""
         register_uris()

@@ -109,6 +109,13 @@ def key_value(value):
     return value
 
 
+def phone_number(value):
+    """Validates phone number"""
+    if value.isdigit():
+        return value
+    raise ValueError('Invalid phone number')
+
+
 class Command(object):
     """
     Basic command object.
@@ -505,7 +512,8 @@ class MobileData(IntervalCommand):
         cls.add_list_option(parser)
         parser.add_argument(
             '--phone',
-            help='Limit listing to phone number'
+            help='Limit listing to phone number',
+            type=phone_number,
         )
         parser.add_argument(
             '--all',
@@ -559,7 +567,8 @@ class SendSMS(Command):
         parser = super(SendSMS, cls).add_parser(subparser)
         parser.add_argument(
             'recipient',
-            help='Recipient number'
+            help='Recipient number',
+            type=phone_number,
         )
         parser.add_argument(
             'message',
@@ -568,7 +577,7 @@ class SendSMS(Command):
         parser.add_argument(
             '--sender',
             default='5517',
-            help='Sender number'
+            help='Sender number',
         )
         return parser
 
@@ -596,11 +605,13 @@ class Callback(Command):
         parser = super(Callback, cls).add_parser(subparser)
         parser.add_argument(
             'caller',
-            help='Caller number'
+            help='Caller number',
+            type=phone_number,
         )
         parser.add_argument(
             'recipient',
-            help='Recipient number'
+            help='Recipient number',
+            type=phone_number,
         )
         cls.add_line_option(parser)
         return parser
