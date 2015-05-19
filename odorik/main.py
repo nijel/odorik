@@ -97,6 +97,11 @@ class CommandError(Exception):
     """Generic error from command line."""
 
 
+def odorik_line(value):
+    """Parses line argument"""
+    return int(value)
+
+
 class Command(object):
     """
     Basic command object.
@@ -134,6 +139,7 @@ class Command(object):
     def add_line_option(parser):
         parser.add_argument(
             '--line',
+            type=odorik_line,
             help='Line to use for listing'
         )
 
