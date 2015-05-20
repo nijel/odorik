@@ -120,6 +120,12 @@ Currently following subcommands are available:
     With ``--generate-config`` it generates config file entries for line and
     phone number aliases, see :ref:`files`.
 
+.. option:: summary [DATE PERIOD]
+
+    Prints summary information for all lines in current account.
+
+    See :ref:`interval` for information how to specify date period.
+
 .. _interval:
 
 Specifying date period

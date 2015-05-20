@@ -367,6 +367,13 @@ class TestCommands(TestCase):
         self.assertEquals('', output)
 
     @httpretty.activate
+    def test_summary(self):
+        """Test summary for all lines"""
+        register_uris()
+        output = execute(['summary'])
+        self.assertIn('0.1484', output)
+
+    @httpretty.activate
     def test_lines(self):
         """Test lines"""
         register_uris()

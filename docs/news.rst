@@ -8,6 +8,7 @@ Changes
 * Add support for listing calls.
 * Add support for listing SMS.
 * Add support for using names for phone numbers and lines.
+* Add summary command to print short overview.
 
 0.3
 ---

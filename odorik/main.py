@@ -616,6 +616,58 @@ class SendSMS(Command):
 
 
 @register_command
+class Summary(IntervalCommand):
+    """
+    Prints data usage.
+    """
+    name = 'summary'
+    description = "Displays summary information for all lines"
+
+    def process_line(self, line, from_date, to_date):
+        messages = self.odorik.sms(from_date, to_date, line['id'])
+        calls = self.odorik.calls(from_date, to_date, line['id'])
+        data_usage = self.odorik.mobile_data(
+            from_date,
+            to_date,
+            line['public_number']
+        )
+        messages_summary = self.summary(messages, ('price',))
+        calls_summary = self.summary(
+            calls,
+            ('price', 'length'),
+        )
+        data_summary = self.summary(
+            data_usage,
+            ('bytes_total', 'bytes_down', 'bytes_up', 'price')
+        )
+        return {
+            'public_number': line['public_number'],
+            'id': line['id'],
+            'call_count': len(calls),
+            'sms_count': len(messages),
+            'bytes_total': data_summary['bytes_total'],
+            'data_price': data_summary['price'],
+            'call_price': calls_summary['price'],
+            'message_price': messages_summary['price'],
+            'price': (
+                data_summary['price'] +
+                calls_summary['price'] +
+                messages_summary['price']
+            ),
+        }
+
+    def run(self):
+        lines = self.odorik.lines()
+        from_date, to_date = self.get_interval()
+        result = {}
+        for line in lines:
+            result[line['name']] = self.process_line(
+                line, from_date, to_date
+            )
+        self.print(result)
+
+
+@register_command
 class Callback(Command):
     """
     Initiates callback
