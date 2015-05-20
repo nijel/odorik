@@ -226,7 +226,7 @@ class TestOutput(TestCase):
             ['--format', 'csv', 'mobile-data', '--list'],
             True
         )
-        self.assertIn('0.1484', output)
+        self.assertIn('0.15', output)
 
     @httpretty.activate
     def test_data_list_html(self):

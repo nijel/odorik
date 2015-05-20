@@ -180,17 +180,28 @@ class Command(object):
         """JSON print"""
         json.dump(value, self.stdout, indent=2)
 
+    @staticmethod
+    def format_csv_value(value):
+        if isinstance(value, float):
+            return '{0:.2f}'.format(value)
+        elif isinstance(value, int):
+            return '{0}'.format(value)
+        else:
+            return value.encode('utf-8')
+
     def print_csv(self, value, header):
         """CSV print"""
         if header is not None:
             writer = csv.DictWriter(self.stdout, header)
             writer.writeheader()
             for row in value:
-                writer.writerow(row)
+                writer.writerow(
+                    {k: self.format_csv_value(v) for k,v in row.items()}
+                )
         else:
             writer = csv.writer(self.stdout)
             for key, data in value.items():
-                writer.writerow((key, data))
+                writer.writerow((key, self.format_csv_value(data)))
 
     def print_html(self, value, header):
         """HTML print"""
