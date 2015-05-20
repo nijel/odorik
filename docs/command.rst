@@ -244,6 +244,33 @@ Initiating callback:
 
     $ odorik callback 00420789123456 800123456
 
+Getting account summary:
+
+.. code-block:: sh
+
+    $ odorik summary
+    Pepa
+    id: 716000
+    public_number: 00420789789789
+    call_count: 58
+    sms_count: 42
+    bytes_total: 145921813
+    data_price: 0.01
+    call_price: 24.28
+    sms_price: 12.31
+    price: 36.59
+
+    Franta
+    id: 717000
+    public_number: 00420789123456
+    call_count: 11
+    sms_count: 0
+    bytes_total: 0
+    data_price: 0
+    call_price: 2.20
+    sms_price: 0
+    price: 2.20
+
 Generic API usage:
 
 .. code-block:: sh
