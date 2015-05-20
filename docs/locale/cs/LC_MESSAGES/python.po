@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: Odorik 0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-20 15:07+0200\n"
-"PO-Revision-Date: 2015-05-20 16:33+0200\n"
+"PO-Revision-Date: 2015-05-20 20:45+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
 "/documentation-python/cs/>\n"
@@ -21,35 +21,35 @@ msgstr "Python API"
 
 #: ../../python.rst:5
 msgid ":mod:`odorik`"
-msgstr ""
+msgstr ":mod:`odorik`"
 
 #: ../../python.rst:11
 msgid ":exc:`OdorikException`"
-msgstr ""
+msgstr ":exc:`OdorikException`"
 
 #: ../../python.rst:15
 msgid "Base class for all exceptions."
-msgstr ""
+msgstr "Základní třída pro výjimky."
 
 #: ../../python.rst:19
 msgid ":class:`Odorik`"
-msgstr ""
+msgstr ":class:`Odorik`"
 
 #: ../../python.rst:23
 msgid "User ID"
-msgstr ""
+msgstr "ID uživatele"
 
 #: ../../python.rst:25
 msgid "API password"
-msgstr ""
+msgstr "API heslo"
 
 #: ../../python.rst:27
 msgid "API server URL, if not specified default is used"
-msgstr ""
+msgstr "URL API serveru, pokud není zadáno použije se výchozí"
 
 #: ../../python.rst:29
 msgid "Configuration object, overrides any other parameters."
-msgstr ""
+msgstr "Objekt s nastaveními, přepíše jakékoliv jiné parametry."
 
 #: ../../python.rst:32
 msgid "Access class to the API, define user, password and optionally API URL."
@@ -57,23 +57,23 @@ msgstr ""
 
 #: ../../python.rst:36 ../../python.rst:46
 msgid "Request path"
-msgstr ""
+msgstr "Cesta požadavku"
 
 #: ../../python.rst:38 ../../python.rst:48
 msgid "Optional request parameters"
-msgstr ""
+msgstr "Volitelné parametry požadavku"
 
 #: ../../python.rst:40 ../../python.rst:82 ../../python.rst:94
 msgid "string"
-msgstr ""
+msgstr "řetězec"
 
 #: ../../python.rst:42
 msgid "Performs single API GET call."
-msgstr ""
+msgstr "Provede jeden GET API požadavek."
 
 #: ../../python.rst:50
 msgid "object"
-msgstr ""
+msgstr "objekt"
 
 #: ../../python.rst:52
 msgid ""
@@ -86,24 +86,24 @@ msgstr ""
 
 #: ../../python.rst:59
 msgid "Returns current balance."
-msgstr ""
+msgstr "Vrátí aktuální zůstatek."
 
 #: ../../python.rst:63 ../../python.rst:100 ../../python.rst:113
 msgid "Starting date"
-msgstr ""
+msgstr "Počáteční datum"
 
 #: ../../python.rst:65 ../../python.rst:102 ../../python.rst:115
 msgid "Ending date"
-msgstr ""
+msgstr "Koncové datum"
 
 #: ../../python.rst:67
 msgid "Phone number in form of 00420789123456"
-msgstr ""
+msgstr "Telefonní číslo ve tvaru 00420789123456"
 
 #: ../../python.rst:69 ../../python.rst:106 ../../python.rst:119
 #: ../../python.rst:126
 msgid "list"
-msgstr ""
+msgstr "seznam"
 
 #: ../../python.rst:71
 msgid ""
@@ -113,15 +113,15 @@ msgstr ""
 
 #: ../../python.rst:76
 msgid "Number where to sent SMS."
-msgstr ""
+msgstr "Číslo kam odeslat SMS."
 
 #: ../../python.rst:78
 msgid "Text of the message."
-msgstr ""
+msgstr "Text zprávy."
 
 #: ../../python.rst:80
 msgid "Optional sender number."
-msgstr ""
+msgstr "Volitelné číslo odesílatele."
 
 #: ../../python.rst:84
 msgid "Sends a SMS message."
