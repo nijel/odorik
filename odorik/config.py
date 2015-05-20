@@ -33,7 +33,9 @@ __all__ = ['NoOptionError', 'OdorikConfig']
 
 class OdorikConfig(RawConfigParser):
     """Configuration parser wrapper with defaults."""
+
     def __init__(self, section='odorik'):
+        """Constructs OdorikConfig object."""
         RawConfigParser.__init__(self)
         self.section = section
         self.set_defaults()

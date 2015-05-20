@@ -17,9 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-'''
-Command line interface for odorik.
-'''
+"""Command line interface for odorik."""
 from __future__ import print_function
 from __future__ import unicode_literals
 
@@ -132,10 +130,12 @@ def key_value(value):
 
 class Command(object):
     """Basic command object."""
+
     name = ''
     description = ''
 
     def __init__(self, args, config, stdout=None):
+        """Constructs Command object."""
         self.args = args
         self.config = config
         if stdout is None:
@@ -373,6 +373,7 @@ class IntervalCommand(Command):
 @register_command
 class Version(Command):
     """Prints version."""
+
     name = 'version'
     description = "Prints program version"
 
@@ -388,6 +389,7 @@ class Version(Command):
         return parser
 
     def run(self):
+        """Main execution of the command."""
         if self.args.bare:
             self.println(odorik.__version__)
         else:
@@ -397,6 +399,7 @@ class Version(Command):
 @register_command
 class API(Command):
     """Performs API GET."""
+
     name = 'api'
     description = "Performs API request"
 
@@ -424,6 +427,7 @@ class API(Command):
         return parser
 
     def run(self):
+        """Main execution of the command."""
         params = {}
         for param in self.args.param:
             key, value = param.split('=', 1)
@@ -442,16 +446,19 @@ class API(Command):
 @register_command
 class Balance(Command):
     """Prints balance."""
+
     name = 'balance'
     description = "Prints current balance"
 
     def run(self):
+        """Main execution of the command."""
         self.print({'balance': self.odorik.balance()})
 
 
 @register_command
 class Lines(Command):
     """Prints lines."""
+
     name = 'lines'
     description = "Prints lines information"
 
@@ -467,6 +474,7 @@ class Lines(Command):
         return parser
 
     def run(self):
+        """Main execution of the command."""
         lines = self.odorik.lines()
         if self.args.generate_config:
             lines = [line for line in lines if line['name']]
@@ -491,6 +499,7 @@ class Lines(Command):
 @register_command
 class Calls(IntervalCommand):
     """Prints calls."""
+
     name = 'calls'
     description = "Prints calls"
 
@@ -503,6 +512,7 @@ class Calls(IntervalCommand):
         return parser
 
     def run(self):
+        """Main execution of the command."""
         from_date, to_date = self.get_interval()
         calls = self.odorik.calls(
             from_date,
@@ -523,6 +533,7 @@ class Calls(IntervalCommand):
 @register_command
 class SMS(IntervalCommand):
     """Prints SMS."""
+
     name = 'sms'
     description = "Prints SMS messages"
 
@@ -535,6 +546,7 @@ class SMS(IntervalCommand):
         return parser
 
     def run(self):
+        """Main execution of the command."""
         from_date, to_date = self.get_interval()
         sms = self.odorik.sms(
             from_date,
@@ -555,6 +567,7 @@ class SMS(IntervalCommand):
 @register_command
 class MobileData(IntervalCommand):
     """Prints data usage."""
+
     name = 'mobile-data'
     description = "Prints mobile data usage"
 
@@ -591,6 +604,7 @@ class MobileData(IntervalCommand):
             )
 
     def run(self):
+        """Main execution of the command."""
         if self.args.all:
             result = []
             for line in self.odorik.lines():
@@ -606,6 +620,7 @@ class MobileData(IntervalCommand):
 @register_command
 class SendSMS(Command):
     """Sends SMS."""
+
     name = 'send-sms'
     description = "Sends a SMS message"
 
@@ -629,6 +644,7 @@ class SendSMS(Command):
         return parser
 
     def run(self):
+        """Main execution of the command."""
         self.odorik.send_sms(
             self.resolve('numbers', self.args.recipient),
             self.args.message,
@@ -639,6 +655,7 @@ class SendSMS(Command):
 @register_command
 class Summary(IntervalCommand):
     """Prints data usage."""
+
     name = 'summary'
     description = "Displays summary information for all lines"
 
@@ -677,6 +694,7 @@ class Summary(IntervalCommand):
         }
 
     def run(self):
+        """Main execution of the command."""
         lines = self.odorik.lines()
         from_date, to_date = self.get_interval()
         result = {}
@@ -690,6 +708,7 @@ class Summary(IntervalCommand):
 @register_command
 class Callback(Command):
     """Initiates callback."""
+
     name = 'callback'
     description = "Initiates callback"
 
@@ -709,6 +728,7 @@ class Callback(Command):
         return parser
 
     def run(self):
+        """Main execution of the command."""
         self.odorik.callback(
             self.resolve('numbers', self.args.caller),
             self.resolve('numbers', self.args.recipient),
