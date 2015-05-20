@@ -36,6 +36,22 @@ from odorik.config import OdorikConfig, NoOptionError
 
 COMMANDS = {}
 
+SORT_ORDER = [
+    'id',
+    'public_number',
+    'call_count',
+    'sms_count',
+    'bytes_down',
+    'bytes_up',
+    'bytes_total',
+    'data_price',
+    'call_price',
+    'sms_price',
+    'length',
+    'ringing_length',
+    'price',
+]
+
 
 def register_command(command):
     """
@@ -95,6 +111,20 @@ def get_parser():
 
 class CommandError(Exception):
     """Generic error from command line."""
+
+
+def sort_key(value):
+    """Key getter for sorting"""
+    try:
+        return SORT_ORDER.index(value)
+    except ValueError:
+        return value
+
+
+def sorted_items(value):
+    """Sorted items iterator"""
+    for key in sorted(value.keys(), key=sort_key):
+        yield key, value[key]
 
 
 def key_value(value):
@@ -206,13 +236,13 @@ class Command(object):
                     {k: self.format_csv_value(v) for k, v in row.items()}
                 )
         elif isinstance(value.items()[0][1], dict):
-            for key, data in value.items():
+            for key, data in sorted_items(value):
                 self.println(self.format_csv_value(key))
                 self.print_csv(data, None)
                 self.println(self.format_csv_value(''))
         else:
             writer = csv.writer(self.stdout)
-            for key, data in value.items():
+            for key, data in sorted_items(value):
                 writer.writerow((key, self.format_csv_value(data)))
 
     def print_html(self, value, header):
@@ -237,12 +267,12 @@ class Command(object):
             self.println('  </tbody>')
             self.println('</table>')
         elif isinstance(value.items()[0][1], dict):
-            for key, data in value.items():
+            for key, data in sorted_items(value):
                 self.println('<h1>{0}</h1>'.format(key))
                 self.print_html(data, None)
         else:
             self.println('<table>')
-            for key, data in value.items():
+            for key, data in sorted_items(value):
                 self.println('  <tr>')
                 self.println('    <th>{0}</th><td>{1}</td>'.format(
                     key, self.format_value(data)
@@ -260,12 +290,12 @@ class Command(object):
                     ))
                 self.println('')
         elif isinstance(value.items()[0][1], dict):
-            for key, data in value.items():
+            for key, data in sorted_items(value):
                 self.println(key)
                 self.print_text(data, None)
                 self.println('')
         else:
-            for key, data in value.items():
+            for key, data in sorted_items(value):
                 self.println('{0}: {1}'.format(
                     key, self.format_value(data)
                 ))
@@ -277,7 +307,7 @@ class Command(object):
         header = None
         if isinstance(value, list):
             try:
-                header = list(value[0].keys())
+                header = sorted(value[0].keys(), key=sort_key)
             except IndexError:
                 # Empty list
                 header = []
