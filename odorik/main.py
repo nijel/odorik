@@ -235,7 +235,7 @@ class Command(object):
                 writer.writerow(
                     {k: self.format_csv_value(v) for k, v in row.items()}
                 )
-        elif isinstance(value.items()[0][1], dict):
+        elif isinstance(list(value.items())[0][1], dict):
             for key, data in sorted_items(value):
                 self.println(self.format_csv_value(key))
                 self.print_csv(data, None)
@@ -266,7 +266,7 @@ class Command(object):
                 self.println('    </tr>')
             self.println('  </tbody>')
             self.println('</table>')
-        elif isinstance(value.items()[0][1], dict):
+        elif isinstance(list(value.items())[0][1], dict):
             for key, data in sorted_items(value):
                 self.println('<h1>{0}</h1>'.format(key))
                 self.print_html(data, None)
@@ -289,7 +289,7 @@ class Command(object):
                         key, self.format_value(item[key])
                     ))
                 self.println('')
-        elif isinstance(value.items()[0][1], dict):
+        elif isinstance(list(value.items())[0][1], dict):
             for key, data in sorted_items(value):
                 self.println(key)
                 self.print_text(data, None)
