@@ -297,11 +297,7 @@ class Command(object):
         """Print value."""
         header = None
         if isinstance(value, list):
-            try:
-                header = sorted(value[0].keys(), key=sort_key)
-            except IndexError:
-                # Empty list
-                header = []
+            header = sorted(value[0].keys(), key=sort_key)
 
         if self.args.format == 'json':
             self.print_json(value)
