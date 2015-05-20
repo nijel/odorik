@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: Odorik 0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-20 15:07+0200\n"
-"PO-Revision-Date: 2015-05-20 15:40+0200\n"
+"PO-Revision-Date: 2015-05-20 16:19+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
 "/documentation-develop/cs/>\n"
@@ -49,32 +49,32 @@ msgstr "Testy můžete spustit pomocí ``py.test``."
 
 #: ../../develop.rst:20
 msgid "Continuous integration"
-msgstr ""
+msgstr "Průběžná integrace"
 
 #: ../../develop.rst:22
 msgid "We're using several services to ensure our code is healthy:"
-msgstr ""
+msgstr "Pro ověření kvality kódu používáme několik služeb:"
 
 #: ../../develop.rst:24
 msgid "Travis CI for running the testsuite"
-msgstr ""
+msgstr "Travis CI spouští testy po každé změně"
 
 #: ../../develop.rst:25
 msgid "https://travis-ci.org/nijel/odorik"
-msgstr ""
+msgstr "https://travis-ci.org/nijel/odorik"
 
 #: ../../develop.rst:26
 msgid "Codeciv for reporting the testsuite coverage"
-msgstr ""
+msgstr "Codecov kontroluje pokrytí kódu testy"
 
 #: ../../develop.rst:27
 msgid "https://codecov.io/github/nijel/odorik"
-msgstr ""
+msgstr "https://codecov.io/github/nijel/odorik"
 
 #: ../../develop.rst:28
 msgid "Landscape for checking quality of our code"
-msgstr ""
+msgstr "Landscape kontroluje kvalitu kódu"
 
 #: ../../develop.rst:29
 msgid "https://landscape.io/github/nijel/odorik/master"
-msgstr ""
+msgstr "https://landscape.io/github/nijel/odorik/master"
