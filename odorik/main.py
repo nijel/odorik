@@ -116,7 +116,7 @@ class CommandError(Exception):
 def sort_key(value):
     """Key getter for sorting."""
     try:
-        return SORT_ORDER.index(value)
+        return '{0:02d}'.format(SORT_ORDER.index(value))
     except ValueError:
         return value
 
