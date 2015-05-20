@@ -35,7 +35,7 @@ class OdorikConfig(RawConfigParser):
     """Configuration parser wrapper with defaults."""
 
     def __init__(self, section='odorik'):
-        """Constructs OdorikConfig object."""
+        """Construct OdorikConfig object."""
         RawConfigParser.__init__(self)
         self.section = section
         self.set_defaults()
@@ -50,7 +50,7 @@ class OdorikConfig(RawConfigParser):
         self.set(self.section, 'url', odorik.API_URL)
 
     def load(self, path=None):
-        """Loads configuration from XDG paths."""
+        """Load configuration from XDG paths."""
         if path is None:
             path = load_config_paths('odorik')
         self.read(path)

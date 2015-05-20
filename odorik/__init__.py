@@ -44,7 +44,7 @@ class Odorik(object):
     """Odorik API object."""
 
     def __init__(self, user='', password='', url=API_URL, config=None):
-        """Creates the object, storing user and API password."""
+        """Create the object, storing user and API password."""
         if config is not None:
             self.user = config.get(config.section, 'user')
             self.password = config.get(config.section, 'password')
@@ -55,7 +55,7 @@ class Odorik(object):
             self.url = url
 
     def _fill_args(self, args):
-        """Fills in args."""
+        """Fill in args."""
         if args is None:
             args = {}
         args['user'] = self.user
@@ -65,19 +65,19 @@ class Odorik(object):
 
     @staticmethod
     def _check_response(response):
-        """Checks whether response is valid."""
+        """Check whether response is valid."""
         if response.startswith('error '):
             raise OdorikException(response)
 
     def post(self, path, args=None):
-        """Performs GET request on the API."""
+        """Perform GET request on the API."""
         args = self._fill_args(args)
         url = '{0}{1}'.format(self.url, path)
         request = urlopen(url, urlencode(args).encode('utf-8'))
         return request.read().decode('utf-8')
 
     def get(self, path, args=None):
-        """Performs GET request on the API."""
+        """Perform GET request on the API."""
         args = self._fill_args(args)
         url = '{0}{1}?{2}'.format(
             self.url,
@@ -95,13 +95,13 @@ class Odorik(object):
         return result
 
     def balance(self):
-        """Gets current balance."""
+        """Get current balance."""
         response = self.get('balance')
         self._check_response(response)
         return float(response)
 
     def mobile_data(self, from_date, to_date, number=None):
-        """Gets data usage in given period."""
+        """Get data usage in given period."""
         if number is None:
             url = 'sim_cards/mobile_data.json'
         else:
@@ -112,7 +112,7 @@ class Odorik(object):
         )
 
     def send_sms(self, recipient, message, sender='5517'):
-        """Sends a SMS message."""
+        """Send a SMS message."""
         response = self.post(
             'sms',
             {'sender': sender, 'recipient': recipient, 'message': message}
@@ -121,7 +121,7 @@ class Odorik(object):
         return response
 
     def calls(self, from_date, to_date, line=None):
-        """Returns list of calls."""
+        """Return list of calls."""
         args = {
             'from': from_date.isoformat(),
             'to': to_date.isoformat()
@@ -131,7 +131,7 @@ class Odorik(object):
         return self.get_json('calls.json', args)
 
     def sms(self, from_date, to_date, line=None):
-        """Returns list of sms."""
+        """Return list of sms."""
         args = {
             'from': from_date.isoformat(),
             'to': to_date.isoformat()
@@ -141,7 +141,7 @@ class Odorik(object):
         return self.get_json('sms.json', args)
 
     def callback(self, caller, recipient, line=None):
-        """Initiates callback."""
+        """Initiate callback."""
         args = {
             'caller': caller,
             'recipient': recipient,
@@ -153,5 +153,5 @@ class Odorik(object):
         return response
 
     def lines(self):
-        """Lists lines for an account."""
+        """List lines for an account."""
         return self.get_json('lines.json')

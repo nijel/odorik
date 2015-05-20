@@ -58,7 +58,7 @@ def register_command(command):
 
 
 def get_parser():
-    """Creates argument parser."""
+    """Create argument parser."""
     parser = ArgumentParser(
         description='Odorik <{0}> command line utility.'.format(odorik.URL),
         epilog='This utility is developed at <{0}>.'.format(odorik.DEVEL_URL),
@@ -122,7 +122,7 @@ def sorted_items(value):
 
 
 def key_value(value):
-    """Validates key=value parameter."""
+    """Validate key=value parameter."""
     if '=' not in value:
         raise ValueError('Please specify --param as key=value')
     return value
@@ -135,7 +135,7 @@ class Command(object):
     description = ''
 
     def __init__(self, args, config, stdout=None):
-        """Constructs Command object."""
+        """Construct Command object."""
         self.args = args
         self.config = config
         if stdout is None:
@@ -146,7 +146,7 @@ class Command(object):
 
     @classmethod
     def add_parser(cls, subparser):
-        """Creates parser for command line."""
+        """Create parser for command line."""
         return subparser.add_parser(
             cls.name, description=cls.description
         )
@@ -183,7 +183,7 @@ class Command(object):
 
     @staticmethod
     def summary(values, fields):
-        """Calculates summary of values."""
+        """Calculate summary of values."""
         result = {}
         for field in fields:
             result[field] = 0
@@ -193,7 +193,7 @@ class Command(object):
         return result
 
     def println(self, line):
-        """Prints single line to output."""
+        """Print single line to output."""
         print(line, file=self.stdout)
 
     def print_json(self, value):
@@ -202,7 +202,7 @@ class Command(object):
 
     @staticmethod
     def format_value(value):
-        """Formats value for rendering."""
+        """Format value for rendering."""
         if isinstance(value, float):
             return '{0:.2f}'.format(value)
         elif isinstance(value, int):
@@ -211,7 +211,7 @@ class Command(object):
 
     @classmethod
     def format_csv_value(cls, value):
-        """Formats value for rendering in CSV."""
+        """Format value for rendering in CSV."""
         return cls.format_value(value).encode('utf-8')
 
     def print_csv(self, value, header):
@@ -289,7 +289,7 @@ class Command(object):
                 ))
 
     def print(self, value):
-        """Prints value."""
+        """Print value."""
         header = None
         if isinstance(value, list):
             try:
@@ -317,7 +317,7 @@ class IntervalCommand(Command):
 
     @classmethod
     def add_parser(cls, subparser):
-        """Creates parser for command line."""
+        """Create parser for command line."""
         parser = super(IntervalCommand, cls).add_parser(subparser)
         parser.add_argument(
             '--this-month',
@@ -342,7 +342,7 @@ class IntervalCommand(Command):
         return parser
 
     def get_interval(self):
-        """Returns interval based on passed flags."""
+        """Return interval based on passed flags."""
         now = datetime.now()
 
         if self.args.start_date and self.args.end_date:
@@ -372,14 +372,14 @@ class IntervalCommand(Command):
 
 @register_command
 class Version(Command):
-    """Prints version."""
+    """Print version."""
 
     name = 'version'
     description = "Prints program version"
 
     @classmethod
     def add_parser(cls, subparser):
-        """Creates parser for command line."""
+        """Create parser for command line."""
         parser = super(Version, cls).add_parser(subparser)
         parser.add_argument(
             '--bare',
@@ -398,14 +398,14 @@ class Version(Command):
 
 @register_command
 class API(Command):
-    """Performs API GET."""
+    """Perform API GET."""
 
     name = 'api'
     description = "Performs API request"
 
     @classmethod
     def add_parser(cls, subparser):
-        """Creates parser for command line."""
+        """Create parser for command line."""
         parser = super(API, cls).add_parser(subparser)
         parser.add_argument(
             'path',
@@ -445,7 +445,7 @@ class API(Command):
 
 @register_command
 class Balance(Command):
-    """Prints balance."""
+    """Print balance."""
 
     name = 'balance'
     description = "Prints current balance"
@@ -457,14 +457,14 @@ class Balance(Command):
 
 @register_command
 class Lines(Command):
-    """Prints lines."""
+    """Print lines."""
 
     name = 'lines'
     description = "Prints lines information"
 
     @classmethod
     def add_parser(cls, subparser):
-        """Creates parser for command line."""
+        """Create parser for command line."""
         parser = super(Lines, cls).add_parser(subparser)
         parser.add_argument(
             '--generate-config',
@@ -498,14 +498,14 @@ class Lines(Command):
 
 @register_command
 class Calls(IntervalCommand):
-    """Prints calls."""
+    """Print calls."""
 
     name = 'calls'
     description = "Prints calls"
 
     @classmethod
     def add_parser(cls, subparser):
-        """Creates parser for command line."""
+        """Create parser for command line."""
         parser = super(Calls, cls).add_parser(subparser)
         cls.add_list_option(parser)
         cls.add_line_option(parser)
@@ -532,14 +532,14 @@ class Calls(IntervalCommand):
 
 @register_command
 class SMS(IntervalCommand):
-    """Prints SMS."""
+    """Print SMS."""
 
     name = 'sms'
     description = "Prints SMS messages"
 
     @classmethod
     def add_parser(cls, subparser):
-        """Creates parser for command line."""
+        """Create parser for command line."""
         parser = super(SMS, cls).add_parser(subparser)
         cls.add_list_option(parser)
         cls.add_line_option(parser)
@@ -566,14 +566,14 @@ class SMS(IntervalCommand):
 
 @register_command
 class MobileData(IntervalCommand):
-    """Prints data usage."""
+    """Print data usage."""
 
     name = 'mobile-data'
     description = "Prints mobile data usage"
 
     @classmethod
     def add_parser(cls, subparser):
-        """Creates parser for command line."""
+        """Create parser for command line."""
         parser = super(MobileData, cls).add_parser(subparser)
         cls.add_list_option(parser)
         parser.add_argument(
@@ -588,7 +588,7 @@ class MobileData(IntervalCommand):
         return parser
 
     def one_number(self, phone):
-        """Processes data summary for one phone number."""
+        """Processe data summary for one phone number."""
         from_date, to_date = self.get_interval()
         data_usage = self.odorik.mobile_data(
             from_date,
@@ -619,14 +619,14 @@ class MobileData(IntervalCommand):
 
 @register_command
 class SendSMS(Command):
-    """Sends SMS."""
+    """Send SMS."""
 
     name = 'send-sms'
     description = "Sends a SMS message"
 
     @classmethod
     def add_parser(cls, subparser):
-        """Creates parser for command line."""
+        """Create parser for command line."""
         parser = super(SendSMS, cls).add_parser(subparser)
         parser.add_argument(
             'recipient',
@@ -654,13 +654,13 @@ class SendSMS(Command):
 
 @register_command
 class Summary(IntervalCommand):
-    """Prints data usage."""
+    """Print data usage."""
 
     name = 'summary'
     description = "Displays summary information for all lines"
 
     def process_line(self, line, from_date, to_date):
-        """Processes summary for one line."""
+        """Processe summary for one line."""
         messages = self.odorik.sms(from_date, to_date, line['id'])
         calls = self.odorik.calls(from_date, to_date, line['id'])
         data_usage = self.odorik.mobile_data(
@@ -707,14 +707,14 @@ class Summary(IntervalCommand):
 
 @register_command
 class Callback(Command):
-    """Initiates callback."""
+    """Initiate callback."""
 
     name = 'callback'
     description = "Initiates callback"
 
     @classmethod
     def add_parser(cls, subparser):
-        """Creates parser for command line."""
+        """Create parser for command line."""
         parser = super(Callback, cls).add_parser(subparser)
         parser.add_argument(
             'caller',
