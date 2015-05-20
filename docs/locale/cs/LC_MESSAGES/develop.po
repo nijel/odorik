@@ -4,12 +4,16 @@ msgstr ""
 "Project-Id-Version: Odorik 0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-20 15:07+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2015-05-20 15:35+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
+"/documentation-develop/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: ../../develop.rst:2
 msgid "Developing"
@@ -22,7 +26,7 @@ msgstr ""
 #: ../../develop.rst:7
 msgid ""
 "The project is being developed on GitHub: https://github.com/nijel/odorik"
-msgstr ""
+msgstr "Projekt je vyvíjen na GitHubu: https://github.com/nijel/odorik"
 
 #: ../../develop.rst:10
 msgid "Issue tracker"
