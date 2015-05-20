@@ -168,7 +168,7 @@ The program follows XDG specification, so you can adjust placement of config fil
 by environment variables ``XDG_CONFIG_HOME`` or ``XDG_CONFIG_DIRS``.
 
 Following settings can be configured in the ``[odorik]`` section (you can
-customize this by :option:`--config-option`):
+customize this by :option:`--config-section`):
 
 .. describe:: user
 
