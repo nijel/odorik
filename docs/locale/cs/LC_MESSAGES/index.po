@@ -1,0 +1,51 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odorik 0.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-20 15:07+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../index.rst:7
+msgid "Welcome to Odorik's documentation!"
+msgstr ""
+
+#: ../../index.rst:9
+msgid ""
+"This is Python module which wraps `Odorik API "
+"<http://www.odorik.cz/w/api>`_."
+msgstr ""
+
+#: ../../index.rst:11
+msgid "You can install the module from PyPI:"
+msgstr ""
+
+#: ../../index.rst:17
+msgid ""
+"The project is being developed on GitHub: https://github.com/nijel/odorik"
+msgstr ""
+
+#: ../../index.rst:19
+msgid "Contents:"
+msgstr ""
+
+#: ../../index.rst:31
+msgid "Indices and tables"
+msgstr ""
+
+#: ../../index.rst:33
+msgid ":ref:`genindex`"
+msgstr ""
+
+#: ../../index.rst:34
+msgid ":ref:`modindex`"
+msgstr ""
+
+#: ../../index.rst:35
+msgid ":ref:`search`"
+msgstr ""

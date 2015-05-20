@@ -1,0 +1,219 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odorik 0.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-20 15:07+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../python.rst:2
+msgid "Python API"
+msgstr ""
+
+#: ../../python.rst:5
+msgid ":mod:`odorik`"
+msgstr ""
+
+#: ../../python.rst:11
+msgid ":exc:`OdorikException`"
+msgstr ""
+
+#: ../../python.rst:15
+msgid "Base class for all exceptions."
+msgstr ""
+
+#: ../../python.rst:19
+msgid ":class:`Odorik`"
+msgstr ""
+
+#: ../../python.rst:23
+msgid "User ID"
+msgstr ""
+
+#: ../../python.rst:25
+msgid "API password"
+msgstr ""
+
+#: ../../python.rst:27
+msgid "API server URL, if not specified default is used"
+msgstr ""
+
+#: ../../python.rst:29
+msgid "Configuration object, overrides any other parameters."
+msgstr ""
+
+#: ../../python.rst:32
+msgid "Access class to the API, define user, password and optionally API URL."
+msgstr ""
+
+#: ../../python.rst:36 ../../python.rst:46
+msgid "Request path"
+msgstr ""
+
+#: ../../python.rst:38 ../../python.rst:48
+msgid "Optional request parameters"
+msgstr ""
+
+#: ../../python.rst:40 ../../python.rst:82 ../../python.rst:94
+msgid "string"
+msgstr ""
+
+#: ../../python.rst:42
+msgid "Performs single API GET call."
+msgstr ""
+
+#: ../../python.rst:50
+msgid "object"
+msgstr ""
+
+#: ../../python.rst:52
+msgid ""
+"Performs single API GET call and parses JSON reply including error handling."
+msgstr ""
+
+#: ../../python.rst:57
+msgid "float"
+msgstr ""
+
+#: ../../python.rst:59
+msgid "Returns current balance."
+msgstr ""
+
+#: ../../python.rst:63 ../../python.rst:100 ../../python.rst:113
+msgid "Starting date"
+msgstr ""
+
+#: ../../python.rst:65 ../../python.rst:102 ../../python.rst:115
+msgid "Ending date"
+msgstr ""
+
+#: ../../python.rst:67
+msgid "Phone number in form of 00420789123456"
+msgstr ""
+
+#: ../../python.rst:69 ../../python.rst:106 ../../python.rst:119
+#: ../../python.rst:126
+msgid "list"
+msgstr ""
+
+#: ../../python.rst:71
+msgid ""
+"Returns mobile data usage list in given interval. Optionally filtered for "
+"given number."
+msgstr ""
+
+#: ../../python.rst:76
+msgid "Number where to sent SMS."
+msgstr ""
+
+#: ../../python.rst:78
+msgid "Text of the message."
+msgstr ""
+
+#: ../../python.rst:80
+msgid "Optional sender number."
+msgstr ""
+
+#: ../../python.rst:84
+msgid "Sends a SMS message."
+msgstr ""
+
+#: ../../python.rst:88
+msgid "Number which is calling."
+msgstr ""
+
+#: ../../python.rst:90
+msgid "Number to call."
+msgstr ""
+
+#: ../../python.rst:92
+msgid "Line to use for accounting."
+msgstr ""
+
+#: ../../python.rst:96
+msgid "Initiates callback."
+msgstr ""
+
+#: ../../python.rst:104 ../../python.rst:117
+msgid "Line to use for listing"
+msgstr ""
+
+#: ../../python.rst:108
+msgid ""
+"Returns list of calls in given interval. Optionally filtered for given line."
+msgstr ""
+
+#: ../../python.rst:121
+msgid ""
+"Returns list of sms in given interval. Optionally filtered for given line."
+msgstr ""
+
+#: ../../python.rst:128
+msgid "Returns list of dictionaries with information about lines."
+msgstr ""
+
+#: ../../python.rst:132
+msgid ":mod:`odorik.config`"
+msgstr ""
+
+#: ../../python.rst:138
+msgid ":class:`OdorikConfig`"
+msgstr ""
+
+#: ../../python.rst:142
+msgid "Configuration section to use"
+msgstr ""
+
+#: ../../python.rst:145
+msgid "Configuration file parser following XDG specification."
+msgstr ""
+
+#: ../../python.rst:150
+msgid "Path where to load configuration."
+msgstr ""
+
+#: ../../python.rst:153
+msgid ""
+"Loads configuration from a file, if none is specified it loads from `odorik`"
+" configuration file placed in XDG configuration path "
+"(:file:`~/.config/odorik` and :file:`/etc/xdg/odorik`)."
+msgstr ""
+
+#: ../../python.rst:159
+msgid ":mod:`odorik.main`"
+msgstr ""
+
+#: ../../python.rst:166
+msgid "settings to override"
+msgstr ""
+
+#: ../../python.rst:168
+msgid "stdout for printing output, uses ``sys.stdout`` as default"
+msgstr ""
+
+#: ../../python.rst:170
+msgid "command line argumets to process, uses ``sys.args`` as default"
+msgstr ""
+
+#: ../../python.rst:173
+msgid "Main entry point for command line interface."
+msgstr ""
+
+#: ../../python.rst:177
+msgid ""
+"Decorator to register :class:`Command` class in main parser used by "
+":func:`main`."
+msgstr ""
+
+#: ../../python.rst:181
+msgid ":class:`Command`"
+msgstr ""
+
+#: ../../python.rst:185
+msgid "Main class for invoking commands."
+msgstr ""

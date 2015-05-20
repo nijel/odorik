@@ -1,0 +1,104 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odorik 0.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-20 15:07+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../news.rst:2
+msgid "Changes"
+msgstr ""
+
+#: ../../news.rst:5
+msgid "0.5"
+msgstr ""
+
+#: ../../news.rst:8
+msgid "0.4"
+msgstr ""
+
+#: ../../news.rst:10
+msgid "Adjustable date periods for commands."
+msgstr ""
+
+#: ../../news.rst:11
+msgid "Add support for listing calls."
+msgstr ""
+
+#: ../../news.rst:12
+msgid "Add support for listing SMS."
+msgstr ""
+
+#: ../../news.rst:13
+msgid "Add support for using names for phone numbers and lines."
+msgstr ""
+
+#: ../../news.rst:14
+msgid "Add summary command to print short overview."
+msgstr ""
+
+#: ../../news.rst:17
+msgid "0.3"
+msgstr ""
+
+#: ../../news.rst:19
+msgid "Added support for listing lines information."
+msgstr ""
+
+#: ../../news.rst:20
+msgid "Added support for listing data usage for all lines on current account."
+msgstr ""
+
+#: ../../news.rst:21 ../../news.rst:27
+msgid "Documentation improvements."
+msgstr ""
+
+#: ../../news.rst:22
+msgid "Added html output to the program."
+msgstr ""
+
+#: ../../news.rst:25
+msgid "0.2"
+msgstr ""
+
+#: ../../news.rst:28
+msgid "Added support for json and csv output."
+msgstr ""
+
+#: ../../news.rst:29
+msgid "Improved command line support for API calls."
+msgstr ""
+
+#: ../../news.rst:30
+msgid "Command line parameters can now override config file."
+msgstr ""
+
+#: ../../news.rst:31
+msgid "Added support for initiating callback."
+msgstr ""
+
+#: ../../news.rst:34
+msgid "0.1"
+msgstr ""
+
+#: ../../news.rst:36
+msgid "Initial release."
+msgstr ""
+
+#: ../../news.rst:37
+msgid "Support for getting data usage."
+msgstr ""
+
+#: ../../news.rst:38
+msgid "Support for getting current balance."
+msgstr ""
+
+#: ../../news.rst:39
+msgid "Support for sending messages."
+msgstr ""

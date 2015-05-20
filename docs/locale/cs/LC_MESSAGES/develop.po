@@ -1,0 +1,74 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odorik 0.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-20 15:07+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../develop.rst:2
+msgid "Developing"
+msgstr ""
+
+#: ../../develop.rst:5
+msgid "Source code"
+msgstr ""
+
+#: ../../develop.rst:7
+msgid ""
+"The project is being developed on GitHub: https://github.com/nijel/odorik"
+msgstr ""
+
+#: ../../develop.rst:10
+msgid "Issue tracker"
+msgstr ""
+
+#: ../../develop.rst:12
+msgid ""
+"Issue tracker is hosted on GitHub: https://github.com/nijel/odorik/issues"
+msgstr ""
+
+#: ../../develop.rst:15
+msgid "Testsuite"
+msgstr ""
+
+#: ../../develop.rst:17
+msgid "The testsuite can be executed using ``py.test``."
+msgstr ""
+
+#: ../../develop.rst:20
+msgid "Continuous integration"
+msgstr ""
+
+#: ../../develop.rst:22
+msgid "We're using several services to ensure our code is healthy:"
+msgstr ""
+
+#: ../../develop.rst:24
+msgid "Travis CI for running the testsuite"
+msgstr ""
+
+#: ../../develop.rst:25
+msgid "https://travis-ci.org/nijel/odorik"
+msgstr ""
+
+#: ../../develop.rst:26
+msgid "Codeciv for reporting the testsuite coverage"
+msgstr ""
+
+#: ../../develop.rst:27
+msgid "https://codecov.io/github/nijel/odorik"
+msgstr ""
+
+#: ../../develop.rst:28
+msgid "Landscape for checking quality of our code"
+msgstr ""
+
+#: ../../develop.rst:29
+msgid "https://landscape.io/github/nijel/odorik/master"
+msgstr ""
