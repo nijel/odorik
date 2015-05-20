@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-"""Odorik API library"""
+"""Odorik API library."""
 from __future__ import unicode_literals
 
 try:
@@ -41,7 +41,7 @@ class OdorikConfig(RawConfigParser):
         self.set_defaults()
 
     def set_defaults(self):
-        """Set default values"""
+        """Set default values."""
         self.add_section('lines')
         self.add_section('numbers')
         self.add_section(self.section)

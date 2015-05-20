@@ -78,7 +78,7 @@ LINES_BODY = (
 
 
 def sms_response(request, uri, headers):
-    """httpretty SMS sending response generator"""
+    """httpretty SMS sending response generator."""
     assert uri.endswith('/sms')
     params = parse_qs(request.body.decode('utf-8'))
     if params['sender'][0] == '5517':
@@ -153,10 +153,10 @@ def register_uris():
 
 
 class OdorikTest(TestCase):
-    """Testing of Odorik class"""
+    """Testing of Odorik class."""
     @httpretty.activate
     def test_balance(self):
-        """Test getting balance"""
+        """Test getting balance."""
         register_uris()
         self.assertAlmostEqual(
             Odorik().balance(),
@@ -165,7 +165,7 @@ class OdorikTest(TestCase):
 
     @httpretty.activate
     def test_data(self):
-        """Test getting balance"""
+        """Test getting balance."""
         register_uris()
         self.assertEqual(
             len(Odorik().mobile_data(
@@ -177,7 +177,7 @@ class OdorikTest(TestCase):
 
     @httpretty.activate
     def test_data_number(self):
-        """Test getting balance"""
+        """Test getting balance."""
         register_uris()
         self.assertEqual(
             len(Odorik().mobile_data(
@@ -190,7 +190,7 @@ class OdorikTest(TestCase):
 
     @httpretty.activate
     def test_data_invalid(self):
-        """Test getting balance"""
+        """Test getting balance."""
         register_uris()
         self.assertRaises(
             OdorikException,
@@ -202,7 +202,7 @@ class OdorikTest(TestCase):
 
     @httpretty.activate
     def test_sms_send(self):
-        """Test sending SMS"""
+        """Test sending SMS."""
         register_uris()
         self.assertEquals(
             Odorik().send_sms(
@@ -214,7 +214,7 @@ class OdorikTest(TestCase):
 
     @httpretty.activate
     def test_sms_send_invalid(self):
-        """Test sending SMS"""
+        """Test sending SMS."""
         register_uris()
         self.assertRaises(
             OdorikException,
@@ -226,7 +226,7 @@ class OdorikTest(TestCase):
 
     @httpretty.activate
     def test_callback(self):
-        """Test callback"""
+        """Test callback."""
         register_uris()
         self.assertEquals(
             Odorik().callback(
@@ -238,7 +238,7 @@ class OdorikTest(TestCase):
 
     @httpretty.activate
     def test_callback_line(self):
-        """Test callback"""
+        """Test callback."""
         register_uris()
         self.assertEquals(
             Odorik().callback(
@@ -251,7 +251,7 @@ class OdorikTest(TestCase):
 
     @httpretty.activate
     def test_calls(self):
-        """Test calls"""
+        """Test calls."""
         register_uris()
         self.assertEquals(
             len(Odorik().calls(
@@ -263,7 +263,7 @@ class OdorikTest(TestCase):
 
     @httpretty.activate
     def test_calls_line(self):
-        """Test calls"""
+        """Test calls."""
         register_uris()
         self.assertEquals(
             len(Odorik().calls(
@@ -276,7 +276,7 @@ class OdorikTest(TestCase):
 
     @httpretty.activate
     def test_sms(self):
-        """Test sms"""
+        """Test sms."""
         register_uris()
         self.assertEquals(
             len(Odorik().sms(
@@ -288,7 +288,7 @@ class OdorikTest(TestCase):
 
     @httpretty.activate
     def test_sms_line(self):
-        """Test sms"""
+        """Test sms."""
         register_uris()
         self.assertEquals(
             len(Odorik().sms(
@@ -301,7 +301,7 @@ class OdorikTest(TestCase):
 
     @httpretty.activate
     def test_lines(self):
-        """Test getting lines information"""
+        """Test getting lines information."""
         register_uris()
         self.assertEqual(
             len(Odorik().lines()),

@@ -114,7 +114,7 @@ class CommandError(Exception):
 
 
 def sort_key(value):
-    """Key getter for sorting"""
+    """Key getter for sorting."""
     try:
         return SORT_ORDER.index(value)
     except ValueError:
@@ -122,13 +122,13 @@ def sort_key(value):
 
 
 def sorted_items(value):
-    """Sorted items iterator"""
+    """Sorted items iterator."""
     for key in sorted(value.keys(), key=sort_key):
         yield key, value[key]
 
 
 def key_value(value):
-    """Validates key=value parameter"""
+    """Validates key=value parameter."""
     if '=' not in value:
         raise ValueError('Please specify --param as key=value')
     return value
@@ -161,7 +161,7 @@ class Command(object):
 
     @staticmethod
     def add_list_option(parser):
-        """Add argparse argument --list"""
+        """Add argparse argument --list."""
         parser.add_argument(
             '--list',
             action='store_true',
@@ -170,14 +170,14 @@ class Command(object):
 
     @staticmethod
     def add_line_option(parser):
-        """Add argparse argument --line"""
+        """Add argparse argument --line."""
         parser.add_argument(
             '--line',
             help='Line to use for listing'
         )
 
     def resolve(self, kind, value):
-        """Resolve line/phone number from configuration"""
+        """Resolve line/phone number from configuration."""
         if value is None:
             return None
         if value.isdigit():
@@ -209,12 +209,12 @@ class Command(object):
         print(line, file=self.stdout)
 
     def print_json(self, value):
-        """JSON print"""
+        """JSON print."""
         json.dump(value, self.stdout, indent=2)
 
     @staticmethod
     def format_value(value):
-        """Formats value for rendering"""
+        """Formats value for rendering."""
         if isinstance(value, float):
             return '{0:.2f}'.format(value)
         elif isinstance(value, int):
@@ -223,11 +223,11 @@ class Command(object):
 
     @classmethod
     def format_csv_value(cls, value):
-        """Formats value for rendering in CSV"""
+        """Formats value for rendering in CSV."""
         return cls.format_value(value).encode('utf-8')
 
     def print_csv(self, value, header):
-        """CSV print"""
+        """CSV print."""
         if header is not None:
             writer = csv.DictWriter(self.stdout, header)
             writer.writeheader()
@@ -246,7 +246,7 @@ class Command(object):
                 writer.writerow((key, self.format_csv_value(data)))
 
     def print_html(self, value, header):
-        """HTML print"""
+        """HTML print."""
         if header is not None:
             self.println('<table>')
             self.println('  <thead>')
@@ -281,7 +281,7 @@ class Command(object):
             self.println('</table>')
 
     def print_text(self, value, header):
-        """Text print"""
+        """Text print."""
         if header is not None:
             for item in value:
                 for key in header:
@@ -623,7 +623,7 @@ class MobileData(IntervalCommand):
         return parser
 
     def one_number(self, phone):
-        """Processes data summary for one phone number"""
+        """Processes data summary for one phone number."""
         from_date, to_date = self.get_interval()
         data_usage = self.odorik.mobile_data(
             from_date,

@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-"""Test command line interface"""
+"""Test command line interface."""
 from __future__ import unicode_literals
 
 from unittest import TestCase
@@ -63,21 +63,21 @@ class TestSettings(TestCase):
     """
     @httpretty.activate
     def test_commandline(self):
-        """Configuration using commandline"""
+        """Configuration using commandline."""
         register_uris()
         output = execute(['--url', 'https://example.net/', 'balance'])
         self.assertIn('321.09', output)
 
     @httpretty.activate
     def test_stdout(self):
-        """Configuration using params"""
+        """Configuration using params."""
         register_uris()
         output = execute(['balance'], stdout=True)
         self.assertIn('123.45', output)
 
     @httpretty.activate
     def test_settings(self):
-        """Configuration using settings param"""
+        """Configuration using settings param."""
         register_uris()
         output = execute(
             ['balance'],
@@ -87,14 +87,14 @@ class TestSettings(TestCase):
 
     @httpretty.activate
     def test_config(self):
-        """Configuration using custom config file"""
+        """Configuration using custom config file."""
         register_uris()
         output = execute(['--config', TEST_CONFIG, 'balance'], settings=False)
         self.assertIn('321.09', output)
 
     @httpretty.activate
     def test_config_section(self):
-        """Configuration using custom config file section"""
+        """Configuration using custom config file section."""
         register_uris()
         output = execute(
             [
@@ -107,7 +107,7 @@ class TestSettings(TestCase):
         self.assertIn('321.09', output)
 
     def test_parsing(self):
-        """Test config file parsing"""
+        """Test config file parsing."""
         config = OdorikConfig()
         self.assertEqual(config.get('odorik', 'url'), odorik.API_URL)
         config.load()
@@ -115,7 +115,7 @@ class TestSettings(TestCase):
         self.assertEqual(config.get('odorik', 'url'), 'https://example.net/')
 
     def test_argv(self):
-        """Test sys.argv processing"""
+        """Test sys.argv processing."""
         backup = sys.argv
         try:
             sys.argv = ['odorik', 'version']
@@ -126,32 +126,32 @@ class TestSettings(TestCase):
 
 
 class TestInteval(TestCase):
-    """Test interval processing"""
+    """Test interval processing."""
 
     @httpretty.activate
     def test_data_this(self):
-        """Test getting data list"""
+        """Test getting data list."""
         register_uris()
         output = execute(['mobile-data', '--this-month'])
         self.assertIn('0.15', output)
 
     @httpretty.activate
     def test_data_last(self):
-        """Test getting data list"""
+        """Test getting data list."""
         register_uris()
         output = execute(['mobile-data', '--last-month'])
         self.assertIn('0.15', output)
 
     @httpretty.activate
     def test_data_start(self):
-        """Test getting data list"""
+        """Test getting data list."""
         register_uris()
         output = execute(['mobile-data', '--start-date', '2015-01-01'])
         self.assertIn('0.15', output)
 
     @httpretty.activate
     def test_data_start_end(self):
-        """Test getting data list"""
+        """Test getting data list."""
         register_uris()
         output = execute([
             'mobile-data',
@@ -161,7 +161,7 @@ class TestInteval(TestCase):
         self.assertIn('0.15', output)
 
     def test_data_start_end_wrong(self):
-        """Test getting data list"""
+        """Test getting data list."""
         self.assertRaises(
             SystemExit,
             execute,
@@ -173,7 +173,7 @@ class TestInteval(TestCase):
         )
 
     def test_data_end(self):
-        """Test getting data list"""
+        """Test getting data list."""
         self.assertRaises(
             SystemExit,
             execute,
@@ -182,32 +182,32 @@ class TestInteval(TestCase):
 
 
 class TestOutput(TestCase):
-    """Test output formatting"""
+    """Test output formatting."""
 
     def test_version_text(self):
-        """Test version printing"""
+        """Test version printing."""
         output = execute(['--format', 'text', 'version'])
         self.assertIn('version: {0}'.format(odorik.__version__), output)
 
     def test_version_json(self):
-        """Test version printing"""
+        """Test version printing."""
         output = execute(['--format', 'json', 'version'], True)
         values = json.loads(output)
         self.assertEqual({'version': odorik.__version__}, values)
 
     def test_version_csv(self):
-        """Test version printing"""
+        """Test version printing."""
         output = execute(['--format', 'csv', 'version'], True)
         self.assertIn('version,{0}'.format(odorik.__version__), output)
 
     def test_version_html(self):
-        """Test version printing"""
+        """Test version printing."""
         output = execute(['--format', 'html', 'version'])
         self.assertIn(odorik.__version__, output)
 
     @httpretty.activate
     def test_data_list_text(self):
-        """Test getting data list"""
+        """Test getting data list."""
         register_uris()
         output = execute(
             ['--format', 'text', 'mobile-data', '--list']
@@ -216,7 +216,7 @@ class TestOutput(TestCase):
 
     @httpretty.activate
     def test_data_list_json(self):
-        """Test getting data list"""
+        """Test getting data list."""
         register_uris()
         output = execute(
             ['--format', 'json', 'mobile-data', '--list'],
@@ -227,7 +227,7 @@ class TestOutput(TestCase):
 
     @httpretty.activate
     def test_data_list_csv(self):
-        """Test getting data list"""
+        """Test getting data list."""
         register_uris()
         output = execute(
             ['--format', 'csv', 'mobile-data', '--list'],
@@ -237,7 +237,7 @@ class TestOutput(TestCase):
 
     @httpretty.activate
     def test_data_list_html(self):
-        """Test getting data list"""
+        """Test getting data list."""
         register_uris()
         output = execute(
             ['--format', 'html', 'mobile-data', '--list'],
@@ -246,43 +246,43 @@ class TestOutput(TestCase):
 
     @httpretty.activate
     def test_summary_text(self):
-        """Test summary for all lines"""
+        """Test summary for all lines."""
         register_uris()
         output = execute(['--format', 'text', 'summary'])
         self.assertIn('\nprice: 0.15', output)
 
     @httpretty.activate
     def test_summary_json(self):
-        """Test summary for all lines"""
+        """Test summary for all lines."""
         register_uris()
         output = execute(['--format', 'json', 'summary'], True)
         self.assertIn('"price": 0.1484', output)
 
     @httpretty.activate
     def test_summary_csv(self):
-        """Test summary for all lines"""
+        """Test summary for all lines."""
         register_uris()
         output = execute(['--format', 'csv', 'summary'], True)
         self.assertIn('\nprice,0.15', output)
 
     @httpretty.activate
     def test_summary_html(self):
-        """Test summary for all lines"""
+        """Test summary for all lines."""
         register_uris()
         output = execute(['--format', 'html', 'summary'])
         self.assertIn('>price</th><td>0.15<', output)
 
 
 class TestCommands(TestCase):
-    """Test command line interface"""
+    """Test command line interface."""
 
     def test_version(self):
-        """Test version printing"""
+        """Test version printing."""
         output = execute(['version'])
         self.assertIn(odorik.__version__, output)
 
     def test_invalid(self):
-        """Test invalid command"""
+        """Test invalid command."""
         self.assertRaises(
             SystemExit,
             execute,
@@ -290,90 +290,90 @@ class TestCommands(TestCase):
         )
 
     def test_version_bare(self):
-        """Test version printing"""
+        """Test version printing."""
         output = execute(['version', '--bare'])
         self.assertTrue(output.startswith(odorik.__version__))
 
     @httpretty.activate
     def test_balance(self):
-        """Test getting balance"""
+        """Test getting balance."""
         register_uris()
         output = execute(['balance'])
         self.assertIn('123.45', output)
 
     @httpretty.activate
     def test_data_summary(self):
-        """Test getting data summary"""
+        """Test getting data summary."""
         register_uris()
         output = execute(['mobile-data'])
         self.assertIn('price: 0.15', output)
 
     @httpretty.activate
     def test_data_number(self):
-        """Test getting data summary for number"""
+        """Test getting data summary for number."""
         register_uris()
         output = execute(['mobile-data', '--phone', '00420789123456'])
         self.assertIn('price: 0.15', output)
 
     @httpretty.activate
     def test_data_all(self):
-        """Test getting data summary for number"""
+        """Test getting data summary for number."""
         register_uris()
         output = execute(['mobile-data', '--all'])
         self.assertIn('price: 0.15', output)
 
     @httpretty.activate
     def test_data_list(self):
-        """Test getting data list"""
+        """Test getting data list."""
         register_uris()
         output = execute(['mobile-data', '--list'])
         self.assertIn('0.15', output)
 
     @httpretty.activate
     def test_calls_summary(self):
-        """Test getting calls summary"""
+        """Test getting calls summary."""
         register_uris()
         output = execute(['calls'])
         self.assertIn('length: 362', output)
 
     @httpretty.activate
     def test_calls_list(self):
-        """Test getting calls list"""
+        """Test getting calls list."""
         register_uris()
         output = execute(['calls', '--list'])
         self.assertIn('554.03', output)
 
     @httpretty.activate
     def test_calls_line(self):
-        """Test getting calls summary for line"""
+        """Test getting calls summary for line."""
         register_uris()
         output = execute(['calls', '--line', '1234'])
         self.assertIn('length: 362', output)
 
     @httpretty.activate
     def test_sms_summary(self):
-        """Test getting sms summary"""
+        """Test getting sms summary."""
         register_uris()
         output = execute(['sms'])
         self.assertIn('price: 0.0', output)
 
     @httpretty.activate
     def test_sms_list(self):
-        """Test getting sms list"""
+        """Test getting sms list."""
         register_uris()
         output = execute(['sms', '--list'])
         self.assertIn('direction: in', output)
 
     @httpretty.activate
     def test_sms_line(self):
-        """Test getting sms summary for line"""
+        """Test getting sms summary for line."""
         register_uris()
         output = execute(['sms', '--line', '1234'])
         self.assertIn('price: 0.0', output)
 
     @httpretty.activate
     def test_send_sms(self):
-        """Test sending SMS"""
+        """Test sending SMS."""
         register_uris()
         output = execute([
             'send-sms',
@@ -384,7 +384,7 @@ class TestCommands(TestCase):
 
     @httpretty.activate
     def test_send_sms_invalid(self):
-        """Test sending SMS"""
+        """Test sending SMS."""
         register_uris()
         self.assertRaises(
             SystemExit,
@@ -394,7 +394,7 @@ class TestCommands(TestCase):
 
     @httpretty.activate
     def test_callback(self):
-        """Test callback"""
+        """Test callback."""
         register_uris()
         output = execute([
             'callback', '00420789123456', '800123456'
@@ -403,39 +403,39 @@ class TestCommands(TestCase):
 
     @httpretty.activate
     def test_summary(self):
-        """Test summary for all lines"""
+        """Test summary for all lines."""
         register_uris()
         output = execute(['summary'])
         self.assertIn('\nprice: 0.15', output)
 
     @httpretty.activate
     def test_lines(self):
-        """Test lines"""
+        """Test lines."""
         register_uris()
         output = execute(['lines'])
         self.assertIn('active_822', output)
 
     @httpretty.activate
     def test_lines_config(self):
-        """Test lines generating config"""
+        """Test lines generating config."""
         register_uris()
         output = execute(['lines', '--generate-config'])
         self.assertIn('Test = 123465', output)
 
 
 class TestAPI(TestCase):
-    """Test generic API support"""
+    """Test generic API support."""
 
     @httpretty.activate
     def test_api(self):
-        """Test API GET operation"""
+        """Test API GET operation."""
         register_uris()
         output = execute(['api', 'sms/allowed_sender'])
         self.assertIn('Odorik.cz,5517,00420789123456', output)
 
     @httpretty.activate
     def test_api_params(self):
-        """Test API GET params operation"""
+        """Test API GET params operation."""
         register_uris()
         output = execute([
             'api', 'calls.json',
@@ -446,7 +446,7 @@ class TestAPI(TestCase):
 
     @httpretty.activate
     def test_api_wrong(self):
-        """Test API wrong params operation"""
+        """Test API wrong params operation."""
         register_uris()
         self.assertRaises(
             SystemExit,
@@ -459,7 +459,7 @@ class TestAPI(TestCase):
 
     @httpretty.activate
     def test_api_post(self):
-        """Test API POST operation"""
+        """Test API POST operation."""
         register_uris()
         output = execute([
             'api', 'callback', '--post',
