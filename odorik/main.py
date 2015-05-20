@@ -203,9 +203,9 @@ class Command(object):
                 )
         elif isinstance(value.items()[0][1], dict):
             for key, data in value.items():
-                self.println(key)
+                self.println(self.format_csv_value(key))
                 self.print_csv(data, None)
-                self.println('')
+                self.println(self.format_csv_value(''))
         else:
             writer = csv.writer(self.stdout)
             for key, data in value.items():

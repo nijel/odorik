@@ -237,6 +237,34 @@ class TestOutput(TestCase):
         )
         self.assertIn('0.15', output)
 
+    @httpretty.activate
+    def test_summary_text(self):
+        """Test summary for all lines"""
+        register_uris()
+        output = execute(['--format', 'text', 'summary'])
+        self.assertIn('\nprice: 0.15', output)
+
+    @httpretty.activate
+    def test_summary_json(self):
+        """Test summary for all lines"""
+        register_uris()
+        output = execute(['--format', 'json', 'summary'], True)
+        self.assertIn('"price": 0.1484', output)
+
+    @httpretty.activate
+    def test_summary_csv(self):
+        """Test summary for all lines"""
+        register_uris()
+        output = execute(['--format', 'csv', 'summary'], True)
+        self.assertIn('\nprice,0.15', output)
+
+    @httpretty.activate
+    def test_summary_html(self):
+        """Test summary for all lines"""
+        register_uris()
+        output = execute(['--format', 'html', 'summary'])
+        self.assertIn('>price</th><td>0.15<', output)
+
 
 class TestCommands(TestCase):
     """Test command line interface"""
