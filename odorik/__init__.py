@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-"""Odorik API library"""
+"""Odorik API library."""
 from __future__ import unicode_literals
 
 try:
@@ -56,7 +56,7 @@ class Odorik(object):
             self.url = url
 
     def _fill_args(self, args):
-        """Fills in args"""
+        """Fills in args."""
         if args is None:
             args = {}
         args['user'] = self.user
@@ -66,7 +66,7 @@ class Odorik(object):
 
     @staticmethod
     def _check_response(response):
-        """Checks whether response is valid"""
+        """Checks whether response is valid."""
         if response.startswith('error '):
             raise OdorikException(response)
 
@@ -89,14 +89,14 @@ class Odorik(object):
         return request.read().decode('utf-8')
 
     def get_json(self, path, args=None):
-        """JSON parser on top of get"""
+        """JSON parser on top of get."""
         result = json.loads(self.get(path, args))
         if isinstance(result, dict) and 'errors' in result:
             raise OdorikException(result['errors'])
         return result
 
     def balance(self):
-        """Gets current balance"""
+        """Gets current balance."""
         response = self.get('balance')
         self._check_response(response)
         return float(response)
