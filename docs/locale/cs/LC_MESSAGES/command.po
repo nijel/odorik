@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: Odorik 0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-20 15:07+0200\n"
-"PO-Revision-Date: 2015-05-20 16:17+0200\n"
+"PO-Revision-Date: 2015-05-20 16:28+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
 "/documentation-command/cs/>\n"
@@ -101,12 +101,16 @@ msgid ""
 "Performs authenticated API call. By default ``GET`` method is used, with "
 "``--post`` it is ``POST``."
 msgstr ""
+"Provede autentizované volání API. Jako výchozí se použije metoda ``GET``, "
+"volbou ``--post`` ji změníte na ``POST``."
 
 #: ../../command.rst:64
 msgid ""
 "Additional parameters can be specified by ``--param`` switch which can be "
 "used multiple times."
 msgstr ""
+"Další parametry můžete zadat volbou ``--param``, která může být uvedena "
+"vícekrát."
 
 #: ../../command.rst:69
 msgid "Prints current balance."
@@ -125,12 +129,16 @@ msgid ""
 "The result can be also limited to given phone number by using ``--phone``. "
 "The phone number has to be specified as ``00420789123456``."
 msgstr ""
+"Výsledek může být také omezen na telefonní číslo zadáním volby ``--phone``. "
+"Telefonní číslo zadávejte ve tvaru ``00420789123456``."
 
 #: ../../command.rst:80
 msgid ""
 "If ``--all`` is specified, summary for all mobile lines on current account "
 "is printed."
 msgstr ""
+"Pokud použijete volbu ``--all``, program vypíše souhrn pro všechny linky na "
+"účtu."
 
 #: ../../command.rst:83 ../../command.rst:93 ../../command.rst:103
 #: ../../command.rst:127
@@ -158,6 +166,8 @@ msgid ""
 "You can specify sender number by ``--sender``, it has to be one of allowed "
 "values. By default ``5517`` is used."
 msgstr ""
+"Číslo odesílatele můžete změnit pomocí ``--sender``. Musí se jednat o jednu "
+"z povolených hodnot. Jako výchozí se použije ``5517``."
 
 #: ../../command.rst:114
 msgid "Initiates a callback."
@@ -172,6 +182,9 @@ msgid ""
 "With ``--generate-config`` it generates config file entries for line and "
 "phone number aliases, see :ref:`files`."
 msgstr ""
+"S volbou ``--generate-config`` tento příkaz vytvoří položky do "
+"konfiguračního souboru pro pojmenování linek a telefonních čísel, viz "
+":ref:`files`."
 
 #: ../../command.rst:125
 msgid "Prints summary information for all lines in current account."
@@ -216,7 +229,7 @@ msgstr "Soubory"
 
 #: ../../command.rst:162
 msgid ":file:`~/.config/odorik`"
-msgstr ""
+msgstr ":file:`~/.config/odorik`"
 
 #: ../../command.rst:163
 msgid "User configuration file"
@@ -224,7 +237,7 @@ msgstr "Konfigurační soubor uživatele"
 
 #: ../../command.rst:165
 msgid ":file:`/etc/xdg/odorik`"
-msgstr ""
+msgstr ":file:`/etc/xdg/odorik`"
 
 #: ../../command.rst:165
 msgid "Global configration file"
