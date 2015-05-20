@@ -371,7 +371,7 @@ class TestCommands(TestCase):
         """Test summary for all lines"""
         register_uris()
         output = execute(['summary'])
-        self.assertIn('0.1484', output)
+        self.assertIn('\nprice: 0.15', output)
 
     @httpretty.activate
     def test_lines(self):

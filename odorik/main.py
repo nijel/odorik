@@ -244,6 +244,11 @@ class Command(object):
                         key, self.format_value(item[key]))
                     )
                 self.println('')
+        elif isinstance(value.items()[0][1], dict):
+            for key, data in value.items():
+                self.println(key)
+                self.print_text(data, None)
+                self.println('')
         else:
             for key, data in value.items():
                 self.println('{0}: {1}'.format(
