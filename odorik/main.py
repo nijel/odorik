@@ -151,7 +151,7 @@ class Command(object):
         if value.isdigit():
             return value
         try:
-            self.config.get(kind, value)
+            return self.config.get(kind, value)
         except NoOptionError:
             raise CommandError(
                 'Invalid value for {0}: {1}'.format(kind, value)
