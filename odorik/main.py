@@ -694,7 +694,7 @@ class Summary(IntervalCommand):
             'bytes_total': data_summary['bytes_total'],
             'data_price': data_summary['price'],
             'call_price': calls_summary['price'],
-            'message_price': messages_summary['price'],
+            'sms_price': messages_summary['price'],
             'price': (
                 data_summary['price'] +
                 calls_summary['price'] +
