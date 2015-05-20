@@ -4,6 +4,8 @@ Changes
 0.5
 ---
 
+* Documentation translated to Czech language.
+
 0.4
 ---
 
