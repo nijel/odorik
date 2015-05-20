@@ -58,9 +58,7 @@ def execute(args, binary=False, settings=None, stdout=None):
 
 
 class TestSettings(TestCase):
-    """
-    Test settings handling.
-    """
+    """Test settings handling."""
     @httpretty.activate
     def test_commandline(self):
         """Configuration using commandline."""

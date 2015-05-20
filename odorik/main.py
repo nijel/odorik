@@ -54,17 +54,13 @@ SORT_ORDER = [
 
 
 def register_command(command):
-    """
-    Decorator to register command in command line interface.
-    """
+    """Decorator to register command in command line interface."""
     COMMANDS[command.name] = command
     return command
 
 
 def get_parser():
-    """
-    Creates argument parser.
-    """
+    """Creates argument parser."""
     parser = ArgumentParser(
         description='Odorik <{0}> command line utility.'.format(odorik.URL),
         epilog='This utility is developed at <{0}>.'.format(odorik.DEVEL_URL),
@@ -135,9 +131,7 @@ def key_value(value):
 
 
 class Command(object):
-    """
-    Basic command object.
-    """
+    """Basic command object."""
     name = ''
     description = ''
 
@@ -152,9 +146,7 @@ class Command(object):
 
     @classmethod
     def add_parser(cls, subparser):
-        """
-        Creates parser for command line.
-        """
+        """Creates parser for command line."""
         return subparser.add_parser(
             cls.name, description=cls.description
         )
@@ -191,9 +183,7 @@ class Command(object):
 
     @staticmethod
     def summary(values, fields):
-        """
-        Calculates summary of values.
-        """
+        """Calculates summary of values."""
         result = {}
         for field in fields:
             result[field] = 0
@@ -203,9 +193,7 @@ class Command(object):
         return result
 
     def println(self, line):
-        """
-        Prints single line to output.
-        """
+        """Prints single line to output."""
         print(line, file=self.stdout)
 
     def print_json(self, value):
@@ -301,9 +289,7 @@ class Command(object):
                 ))
 
     def print(self, value):
-        """
-        Prints value.
-        """
+        """Prints value."""
         header = None
         if isinstance(value, list):
             try:
@@ -322,22 +308,16 @@ class Command(object):
             self.print_text(value, header)
 
     def run(self):
-        """
-        Main execution of the command.
-        """
+        """Main execution of the command."""
         raise NotImplementedError
 
 
 class IntervalCommand(Command):
-    """
-    Helper class to handle date intervals.
-    """
+    """Helper class to handle date intervals."""
 
     @classmethod
     def add_parser(cls, subparser):
-        """
-        Creates parser for command line.
-        """
+        """Creates parser for command line."""
         parser = super(IntervalCommand, cls).add_parser(subparser)
         parser.add_argument(
             '--this-month',
@@ -386,25 +366,19 @@ class IntervalCommand(Command):
         return (datetime(now.year, now.month, 1), now)
 
     def run(self):
-        """
-        Main execution of the command.
-        """
+        """Main execution of the command."""
         raise NotImplementedError
 
 
 @register_command
 class Version(Command):
-    """
-    Prints version.
-    """
+    """Prints version."""
     name = 'version'
     description = "Prints program version"
 
     @classmethod
     def add_parser(cls, subparser):
-        """
-        Creates parser for command line.
-        """
+        """Creates parser for command line."""
         parser = super(Version, cls).add_parser(subparser)
         parser.add_argument(
             '--bare',
@@ -422,17 +396,13 @@ class Version(Command):
 
 @register_command
 class API(Command):
-    """
-    Performs API GET.
-    """
+    """Performs API GET."""
     name = 'api'
     description = "Performs API request"
 
     @classmethod
     def add_parser(cls, subparser):
-        """
-        Creates parser for command line.
-        """
+        """Creates parser for command line."""
         parser = super(API, cls).add_parser(subparser)
         parser.add_argument(
             'path',
@@ -471,9 +441,7 @@ class API(Command):
 
 @register_command
 class Balance(Command):
-    """
-    Prints balance.
-    """
+    """Prints balance."""
     name = 'balance'
     description = "Prints current balance"
 
@@ -483,17 +451,13 @@ class Balance(Command):
 
 @register_command
 class Lines(Command):
-    """
-    Prints lines.
-    """
+    """Prints lines."""
     name = 'lines'
     description = "Prints lines information"
 
     @classmethod
     def add_parser(cls, subparser):
-        """
-        Creates parser for command line.
-        """
+        """Creates parser for command line."""
         parser = super(Lines, cls).add_parser(subparser)
         parser.add_argument(
             '--generate-config',
@@ -526,17 +490,13 @@ class Lines(Command):
 
 @register_command
 class Calls(IntervalCommand):
-    """
-    Prints calls
-    """
+    """Prints calls."""
     name = 'calls'
     description = "Prints calls"
 
     @classmethod
     def add_parser(cls, subparser):
-        """
-        Creates parser for command line.
-        """
+        """Creates parser for command line."""
         parser = super(Calls, cls).add_parser(subparser)
         cls.add_list_option(parser)
         cls.add_line_option(parser)
@@ -562,17 +522,13 @@ class Calls(IntervalCommand):
 
 @register_command
 class SMS(IntervalCommand):
-    """
-    Prints SMS
-    """
+    """Prints SMS."""
     name = 'sms'
     description = "Prints SMS messages"
 
     @classmethod
     def add_parser(cls, subparser):
-        """
-        Creates parser for command line.
-        """
+        """Creates parser for command line."""
         parser = super(SMS, cls).add_parser(subparser)
         cls.add_list_option(parser)
         cls.add_line_option(parser)
@@ -598,17 +554,13 @@ class SMS(IntervalCommand):
 
 @register_command
 class MobileData(IntervalCommand):
-    """
-    Prints data usage.
-    """
+    """Prints data usage."""
     name = 'mobile-data'
     description = "Prints mobile data usage"
 
     @classmethod
     def add_parser(cls, subparser):
-        """
-        Creates parser for command line.
-        """
+        """Creates parser for command line."""
         parser = super(MobileData, cls).add_parser(subparser)
         cls.add_list_option(parser)
         parser.add_argument(
@@ -653,17 +605,13 @@ class MobileData(IntervalCommand):
 
 @register_command
 class SendSMS(Command):
-    """
-    Sends SMS.
-    """
+    """Sends SMS."""
     name = 'send-sms'
     description = "Sends a SMS message"
 
     @classmethod
     def add_parser(cls, subparser):
-        """
-        Creates parser for command line.
-        """
+        """Creates parser for command line."""
         parser = super(SendSMS, cls).add_parser(subparser)
         parser.add_argument(
             'recipient',
@@ -690,16 +638,12 @@ class SendSMS(Command):
 
 @register_command
 class Summary(IntervalCommand):
-    """
-    Prints data usage.
-    """
+    """Prints data usage."""
     name = 'summary'
     description = "Displays summary information for all lines"
 
     def process_line(self, line, from_date, to_date):
-        """
-        Processes summary for one line
-        """
+        """Processes summary for one line."""
         messages = self.odorik.sms(from_date, to_date, line['id'])
         calls = self.odorik.calls(from_date, to_date, line['id'])
         data_usage = self.odorik.mobile_data(
@@ -745,17 +689,13 @@ class Summary(IntervalCommand):
 
 @register_command
 class Callback(Command):
-    """
-    Initiates callback
-    """
+    """Initiates callback."""
     name = 'callback'
     description = "Initiates callback"
 
     @classmethod
     def add_parser(cls, subparser):
-        """
-        Creates parser for command line.
-        """
+        """Creates parser for command line."""
         parser = super(Callback, cls).add_parser(subparser)
         parser.add_argument(
             'caller',
@@ -777,9 +717,7 @@ class Callback(Command):
 
 
 def main(settings=None, stdout=None, args=None):
-    """
-    Execution entry point.
-    """
+    """Execution entry point."""
     parser = get_parser()
     if args is None:
         args = sys.argv[1:]
