@@ -201,6 +201,11 @@ class Command(object):
                 writer.writerow(
                     {k: self.format_csv_value(v) for k,v in row.items()}
                 )
+        elif isinstance(value.items()[0][1], dict):
+            for key, data in value.items():
+                self.println(key)
+                self.print_csv(data, None)
+                self.println('')
         else:
             writer = csv.writer(self.stdout)
             for key, data in value.items():
