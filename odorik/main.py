@@ -181,13 +181,16 @@ class Command(object):
         json.dump(value, self.stdout, indent=2)
 
     @staticmethod
-    def format_csv_value(value):
+    def format_value(value):
         if isinstance(value, float):
             return '{0:.2f}'.format(value)
         elif isinstance(value, int):
             return '{0}'.format(value)
-        else:
-            return value.encode('utf-8')
+        return value
+
+    @classmethod
+    def format_csv_value(cls, value):
+        return cls.format_value(value).encode('utf-8')
 
     def print_csv(self, value, header):
         """CSV print"""
@@ -218,13 +221,17 @@ class Command(object):
             for item in value:
                 self.println('    <tr>')
                 for key in header:
-                    self.println('      <td>{0}</td>'.format(item[key]))
+                    self.println('      <td>{0}</td>'.format(
+                        self.format_value(item[key]))
+                    )
                 self.println('    </tr>')
             self.println('  </tbody>')
         else:
             for key, data in value.items():
                 self.println('  <tr>')
-                self.println('    <th>{0}</th><td>{1}</td>'.format(key, data))
+                self.println('    <th>{0}</th><td>{1}</td>'.format(
+                    key, self.format_value(data))
+                )
                 self.println('  </tr>')
         self.println('</table>')
 
@@ -233,11 +240,15 @@ class Command(object):
         if header is not None:
             for item in value:
                 for key in header:
-                    self.println('{0}: {1}'.format(key, item[key]))
+                    self.println('{0}: {1}'.format(
+                        key, self.format_value(item[key]))
+                    )
                 self.println('')
         else:
             for key, data in value.items():
-                self.println('{0}: {1}'.format(key, data))
+                self.println('{0}: {1}'.format(
+                    key, self.format_value(data))
+                )
 
     def print(self, value):
         """

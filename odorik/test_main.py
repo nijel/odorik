@@ -126,21 +126,21 @@ class TestInteval(TestCase):
         """Test getting data list"""
         register_uris()
         output = execute(['mobile-data', '--this-month'])
-        self.assertIn('0.1484', output)
+        self.assertIn('0.15', output)
 
     @httpretty.activate
     def test_data_last(self):
         """Test getting data list"""
         register_uris()
         output = execute(['mobile-data', '--last-month'])
-        self.assertIn('0.1484', output)
+        self.assertIn('0.15', output)
 
     @httpretty.activate
     def test_data_start(self):
         """Test getting data list"""
         register_uris()
         output = execute(['mobile-data', '--start-date', '2015-01-01'])
-        self.assertIn('0.1484', output)
+        self.assertIn('0.15', output)
 
     @httpretty.activate
     def test_data_start_end(self):
@@ -151,7 +151,7 @@ class TestInteval(TestCase):
             '--start-date', '2015-01-01',
             '--end-date', '2015-10-01'
         ])
-        self.assertIn('0.1484', output)
+        self.assertIn('0.15', output)
 
     def test_data_start_end_wrong(self):
         """Test getting data list"""
@@ -205,7 +205,7 @@ class TestOutput(TestCase):
         output = execute(
             ['--format', 'text', 'mobile-data', '--list']
         )
-        self.assertIn('0.1484', output)
+        self.assertIn('0.15', output)
 
     @httpretty.activate
     def test_data_list_json(self):
@@ -235,7 +235,7 @@ class TestOutput(TestCase):
         output = execute(
             ['--format', 'html', 'mobile-data', '--list'],
         )
-        self.assertIn('0.1484', output)
+        self.assertIn('0.15', output)
 
 
 class TestCommands(TestCase):
@@ -271,28 +271,28 @@ class TestCommands(TestCase):
         """Test getting data summary"""
         register_uris()
         output = execute(['mobile-data'])
-        self.assertIn('price: 0.1484', output)
+        self.assertIn('price: 0.15', output)
 
     @httpretty.activate
     def test_data_number(self):
         """Test getting data summary for number"""
         register_uris()
         output = execute(['mobile-data', '--phone', '00420789123456'])
-        self.assertIn('price: 0.1484', output)
+        self.assertIn('price: 0.15', output)
 
     @httpretty.activate
     def test_data_all(self):
         """Test getting data summary for number"""
         register_uris()
         output = execute(['mobile-data', '--all'])
-        self.assertIn('price: 0.1484', output)
+        self.assertIn('price: 0.15', output)
 
     @httpretty.activate
     def test_data_list(self):
         """Test getting data list"""
         register_uris()
         output = execute(['mobile-data', '--list'])
-        self.assertIn('0.1484', output)
+        self.assertIn('0.15', output)
 
     @httpretty.activate
     def test_calls_summary(self):
@@ -306,7 +306,7 @@ class TestCommands(TestCase):
         """Test getting calls list"""
         register_uris()
         output = execute(['calls', '--list'])
-        self.assertIn('554.0288', output)
+        self.assertIn('554.03', output)
 
     @httpretty.activate
     def test_calls_line(self):
