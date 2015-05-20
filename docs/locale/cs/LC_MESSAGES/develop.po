@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: Odorik 0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-20 15:07+0200\n"
-"PO-Revision-Date: 2015-05-20 15:35+0200\n"
+"PO-Revision-Date: 2015-05-20 15:40+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
 "/documentation-develop/cs/>\n"
@@ -17,11 +17,11 @@ msgstr ""
 
 #: ../../develop.rst:2
 msgid "Developing"
-msgstr ""
+msgstr "Vývoj"
 
 #: ../../develop.rst:5
 msgid "Source code"
-msgstr ""
+msgstr "Zdrojový kód"
 
 #: ../../develop.rst:7
 msgid ""
@@ -30,20 +30,22 @@ msgstr "Projekt je vyvíjen na GitHubu: https://github.com/nijel/odorik"
 
 #: ../../develop.rst:10
 msgid "Issue tracker"
-msgstr ""
+msgstr "Sledování chyb"
 
 #: ../../develop.rst:12
 msgid ""
 "Issue tracker is hosted on GitHub: https://github.com/nijel/odorik/issues"
 msgstr ""
+"Systém pro sledování chyb je hostován na GitHubu: "
+"https://github.com/nijel/odorik/issues"
 
 #: ../../develop.rst:15
 msgid "Testsuite"
-msgstr ""
+msgstr "Testování"
 
 #: ../../develop.rst:17
 msgid "The testsuite can be executed using ``py.test``."
-msgstr ""
+msgstr "Testy můžete spustit pomocí ``py.test``."
 
 #: ../../develop.rst:20
 msgid "Continuous integration"
