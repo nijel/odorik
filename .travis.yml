@@ -6,9 +6,9 @@ python:
   - "pypy"
   - "pypy3"
 sudo: false
-cache:
-  directories:
-    - $HOME/.cache/pip
+#cache:
+#  directories:
+#    - $HOME/.cache/pip
 # commands to install dependencies
 install: 
   - pip install -r requirements.txt
