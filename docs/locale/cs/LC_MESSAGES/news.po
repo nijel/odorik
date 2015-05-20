@@ -6,8 +6,7 @@ msgstr ""
 "POT-Creation-Date: 2015-05-20 15:07+0200\n"
 "PO-Revision-Date: 2015-05-20 16:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
-"/documentation-news/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/odorik/documentation-news/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,87 +22,91 @@ msgstr "Změny"
 msgid "0.5"
 msgstr "0.5"
 
-#: ../../news.rst:8
+#: ../../news.rst:10
 msgid "0.4"
 msgstr "0.4"
 
-#: ../../news.rst:10
+#: ../../news.rst:12
 msgid "Adjustable date periods for commands."
 msgstr "Nastavitelné časové intervaly pro příkazy."
 
-#: ../../news.rst:11
+#: ../../news.rst:13
 msgid "Add support for listing calls."
 msgstr "Přidána podpora pro výpis hovorů."
 
-#: ../../news.rst:12
+#: ../../news.rst:14
 msgid "Add support for listing SMS."
 msgstr "Přidána podpora pro výpis SMS."
 
-#: ../../news.rst:13
+#: ../../news.rst:15
 msgid "Add support for using names for phone numbers and lines."
 msgstr "Přidána podpora pro pojmenování telefonních čísel a linek."
 
-#: ../../news.rst:14
+#: ../../news.rst:16
 msgid "Add summary command to print short overview."
 msgstr "Přidán příkaz pro výpis souhrnu stavu účtu."
 
-#: ../../news.rst:17
+#: ../../news.rst:19
 msgid "0.3"
 msgstr "0.3"
 
-#: ../../news.rst:19
+#: ../../news.rst:21
 msgid "Added support for listing lines information."
 msgstr "Přidána podpora pro výpis informací o linkách."
 
-#: ../../news.rst:20
+#: ../../news.rst:22
 msgid "Added support for listing data usage for all lines on current account."
 msgstr "Přidána podpora pro výpis využití dat pro všechny linky na účtě."
 
-#: ../../news.rst:21 ../../news.rst:27
+#: ../../news.rst:23 ../../news.rst:29
 msgid "Documentation improvements."
 msgstr "Vylepšené dokumentace."
 
-#: ../../news.rst:22
+#: ../../news.rst:24
 msgid "Added html output to the program."
 msgstr "Přidána možnost HTML výstupu."
 
-#: ../../news.rst:25
+#: ../../news.rst:27
 msgid "0.2"
 msgstr "0.2"
 
-#: ../../news.rst:28
+#: ../../news.rst:30
 msgid "Added support for json and csv output."
 msgstr "Přidána podpora pro výstup ve formátu JSON a CSV."
 
-#: ../../news.rst:29
+#: ../../news.rst:31
 msgid "Improved command line support for API calls."
 msgstr "Vylepšená podpora pro přímé volání API z příkazové řádky."
 
-#: ../../news.rst:30
+#: ../../news.rst:32
 msgid "Command line parameters can now override config file."
 msgstr ""
 "Parametry z příkazové řádky mohou měnit nastavení z konfiguračního souboru."
 
-#: ../../news.rst:31
+#: ../../news.rst:33
 msgid "Added support for initiating callback."
 msgstr "Přidána podpora pro zpětné volání."
 
-#: ../../news.rst:34
+#: ../../news.rst:36
 msgid "0.1"
 msgstr "0.1"
 
-#: ../../news.rst:36
+#: ../../news.rst:38
 msgid "Initial release."
 msgstr "První vydání."
 
-#: ../../news.rst:37
+#: ../../news.rst:39
 msgid "Support for getting data usage."
 msgstr "Přidána podpora pro výpis využití dat."
 
-#: ../../news.rst:38
+#: ../../news.rst:40
 msgid "Support for getting current balance."
 msgstr "Přidána podpora pro zjištění zůstatku."
 
-#: ../../news.rst:39
+#: ../../news.rst:41
 msgid "Support for sending messages."
 msgstr "Přidána podpora pro posílání zpráv."
+
+#: ../../news.rst:7
+msgid "Documentation translated to Czech language."
+msgstr ""
