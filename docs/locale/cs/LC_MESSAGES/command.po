@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: Odorik 0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-20 15:07+0200\n"
-"PO-Revision-Date: 2015-05-20 15:47+0200\n"
+"PO-Revision-Date: 2015-05-20 16:17+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
 "/documentation-command/cs/>\n"
@@ -25,7 +25,7 @@ msgstr "Použití"
 
 #: ../../command.rst:13
 msgid "Commands actually indicate which operation should be performed."
-msgstr ""
+msgstr "Jednotlivé příkazy určují jaká operace se provede."
 
 #: ../../command.rst:16
 msgid "Description"
@@ -36,6 +36,8 @@ msgid ""
 "This module also installs :program:`odorik` program, which allows you to "
 "easily access some of the functionality from command line."
 msgstr ""
+"Tento modul také nainstaluje program :program:`odorik`, který vám ho umožní "
+"používat z příkazové řádky."
 
 #: ../../command.rst:22
 msgid "Global options"
@@ -46,34 +48,41 @@ msgid ""
 "The program accepts following global options, which must be entered before "
 "subcommand."
 msgstr ""
+"Program rozumí následujícím globálním volbám. Tyto musí být zadány před "
+"příkazem."
 
 #: ../../command.rst:28
 msgid "Specify output format."
-msgstr ""
+msgstr "Určí výstupní formát."
 
 #: ../../command.rst:32
 msgid ""
 "Specify API URL. Overrides value from configuration file, see :ref:`files`."
 msgstr ""
+"Nastaví API URL. Přepíše hodnotu z konfiguračního souboru, viz :ref:`files`."
 
 #: ../../command.rst:36
 msgid ""
 "Specify API user. Overrides value from configuration file, see :ref:`files`."
 msgstr ""
+"Nastaví API uživatele. Přepíše hodnotu z konfiguračního souboru, viz "
+":ref:`files`."
 
 #: ../../command.rst:40
 msgid ""
 "Specify API password. Overrides value from configuration file, see "
 ":ref:`files`."
 msgstr ""
+"Nastaví API heslo. Přepíše hodnotu z konfiguračního souboru, viz "
+":ref:`files`."
 
 #: ../../command.rst:44
 msgid "Override path to configuration file, see :ref:`files`."
-msgstr ""
+msgstr "Cesta ke konfiguračnímu souboru, viz :ref:`files`."
 
 #: ../../command.rst:48
 msgid "Override section to use in configuration file, see :ref:`files`."
-msgstr ""
+msgstr "Sekce v konfiguračním souboru, viz :ref:`files`."
 
 #: ../../command.rst:51
 msgid "Subcommands"
@@ -81,7 +90,7 @@ msgstr "Příkazy"
 
 #: ../../command.rst:53
 msgid "Currently following subcommands are available:"
-msgstr ""
+msgstr "V současné době jsou k dispozici tyto příkazy:"
 
 #: ../../command.rst:57
 msgid "Prints current version."
@@ -134,7 +143,7 @@ msgstr "Vypíše hovory."
 
 #: ../../command.rst:91 ../../command.rst:101
 msgid "The result can be also limited to given line by using ``--line``."
-msgstr ""
+msgstr "Výsledek může být také omezen na jednu linku použitím ``--line``."
 
 #: ../../command.rst:97
 msgid "Prints SMS usage."
@@ -166,7 +175,7 @@ msgstr ""
 
 #: ../../command.rst:125
 msgid "Prints summary information for all lines in current account."
-msgstr ""
+msgstr "Vypíše souhrnné informace o všech linkách pod účtem."
 
 #: ../../command.rst:132
 msgid "Specifying date period"
@@ -175,6 +184,7 @@ msgstr "Zadávání časového intervalu"
 #: ../../command.rst:134
 msgid "You can specify date period for which many commands will be issued:"
 msgstr ""
+"Pro mnoho příkazů můžete zadat časový interval na který se budou aplikovat:"
 
 #: ../../command.rst:138
 msgid "Prints information for current month. This is the default interval."
@@ -186,11 +196,11 @@ msgstr "Vypíše informace pro minulý měsíc."
 
 #: ../../command.rst:146
 msgid "Starting datetime."
-msgstr ""
+msgstr "Počáteční datum."
 
 #: ../../command.rst:150
 msgid "Ending datetime. If not specified, current date is used."
-msgstr ""
+msgstr "Koncové datum. Pokud nebude zadáno použije se aktuální."
 
 #: ../../command.rst:152
 msgid ""
@@ -202,7 +212,7 @@ msgstr ""
 
 #: ../../command.rst:160
 msgid "Files"
-msgstr ""
+msgstr "Soubory"
 
 #: ../../command.rst:162
 msgid ":file:`~/.config/odorik`"
@@ -234,31 +244,37 @@ msgstr ""
 
 #: ../../command.rst:175
 msgid "API user, can be either ID registered user or line ID."
-msgstr ""
+msgstr "API uživatel, může být buď ID uživatele nebo linky."
 
 #: ../../command.rst:179
 msgid ""
 "API password. Use API password for per user access and line password (used "
 "for SIP as well) for line access."
 msgstr ""
+"API heslo. Použijte API heslo pro uživatele nebo heslo linky (stejné jako "
+"pro SIP) pro přístup na linku."
 
 #: ../../command.rst:184
 msgid "API server URL, defaults to ``https://www.odorik.cz/api/v1/``."
-msgstr ""
+msgstr "URL API serveru, výchozí je ``https://www.odorik.cz/api/v1/``."
 
 #: ../../command.rst:186
 msgid ""
 "See `Autentizace Odorik API <http://www.odorik.cz/w/api#autentizace>`_ for "
 "more details on authentication."
 msgstr ""
+"Více informací naleznete na wiki v sekci  `Autentizace Odorik API "
+"<http://www.odorik.cz/w/api#autentizace>`_."
 
 #: ../../command.rst:189
 msgid "The configuration file is INI file, for example:"
-msgstr ""
+msgstr "Konfigurační soubor je ve formátu INI. Například může vypadat takto:"
 
 #: ../../command.rst:197
 msgid "Additionally config file can include phone number and line aliases:"
 msgstr ""
+"Dále může konfigurační soubor obsahovat pojmenování pro telefonní čísla a "
+"linky:"
 
 #: ../../command.rst:209
 msgid "Examples"
