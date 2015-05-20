@@ -199,7 +199,7 @@ class Command(object):
             writer.writeheader()
             for row in value:
                 writer.writerow(
-                    {k: self.format_csv_value(v) for k,v in row.items()}
+                    {k: self.format_csv_value(v) for k, v in row.items()}
                 )
         elif isinstance(value.items()[0][1], dict):
             for key, data in value.items():
@@ -227,8 +227,8 @@ class Command(object):
                 self.println('    <tr>')
                 for key in header:
                     self.println('      <td>{0}</td>'.format(
-                        self.format_value(item[key]))
-                    )
+                        self.format_value(item[key])
+                    ))
                 self.println('    </tr>')
             self.println('  </tbody>')
             self.println('</table>')
@@ -241,8 +241,8 @@ class Command(object):
             for key, data in value.items():
                 self.println('  <tr>')
                 self.println('    <th>{0}</th><td>{1}</td>'.format(
-                    key, self.format_value(data))
-                )
+                    key, self.format_value(data)
+                ))
                 self.println('  </tr>')
             self.println('</table>')
 
@@ -252,8 +252,8 @@ class Command(object):
             for item in value:
                 for key in header:
                     self.println('{0}: {1}'.format(
-                        key, self.format_value(item[key]))
-                    )
+                        key, self.format_value(item[key])
+                    ))
                 self.println('')
         elif isinstance(value.items()[0][1], dict):
             for key, data in value.items():
@@ -263,8 +263,8 @@ class Command(object):
         else:
             for key, data in value.items():
                 self.println('{0}: {1}'.format(
-                    key, self.format_value(data))
-                )
+                    key, self.format_value(data)
+                ))
 
     def print(self, value):
         """
