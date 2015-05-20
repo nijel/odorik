@@ -208,8 +208,8 @@ class Command(object):
 
     def print_html(self, value, header):
         """HTML print"""
-        self.println('<table>')
         if header is not None:
+            self.println('<table>')
             self.println('  <thead>')
             self.println('    <tr>')
             for key in header:
@@ -226,14 +226,20 @@ class Command(object):
                     )
                 self.println('    </tr>')
             self.println('  </tbody>')
+            self.println('</table>')
+        elif isinstance(value.items()[0][1], dict):
+            for key, data in value.items():
+                self.println('<h1>{0}</h1>'.format(key))
+                self.print_html(data, None)
         else:
+            self.println('<table>')
             for key, data in value.items():
                 self.println('  <tr>')
                 self.println('    <th>{0}</th><td>{1}</td>'.format(
                     key, self.format_value(data))
                 )
                 self.println('  </tr>')
-        self.println('</table>')
+            self.println('</table>')
 
     def print_text(self, value, header):
         """Text print"""
