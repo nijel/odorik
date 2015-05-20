@@ -14,7 +14,6 @@ install:
 script: 
   - py.test --cov=odorik
 after_script:
-  - coveralls
   - codecov
   - ocular --data-file ".coverage" --config-file ".coveragerc"
 # trigger Buildtime Trend Service to parse Travis CI log
