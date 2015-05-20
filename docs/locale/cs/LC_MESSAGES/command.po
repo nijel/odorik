@@ -6,8 +6,7 @@ msgstr ""
 "POT-Creation-Date: 2015-05-20 15:07+0200\n"
 "PO-Revision-Date: 2015-05-20 16:28+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
-"/documentation-command/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/odorik/documentation-command/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -249,12 +248,6 @@ msgid ""
 " files by environment variables ``XDG_CONFIG_HOME`` or ``XDG_CONFIG_DIRS``."
 msgstr ""
 
-#: ../../command.rst:170
-msgid ""
-"Following settings can be configured in the ``[odorik]`` section (you can "
-"customize this by :option:`--config-option`):"
-msgstr ""
-
 #: ../../command.rst:175
 msgid "API user, can be either ID registered user or line ID."
 msgstr "API uživatel, může být buď ID uživatele nebo linky."
@@ -328,3 +321,14 @@ msgstr "Obecné použití POST API:"
 #: ../../command.rst:287
 msgid "Machine readable output formats:"
 msgstr "Strojově zpracovatelné výstupní formáty:"
+
+#: ../../command.rst:170
+msgid ""
+"Following settings can be configured in the ``[odorik]`` section (you can "
+"customize this by :option:`--config-section`):"
+msgstr ""
+
+#~ msgid ""
+#~ "Following settings can be configured in the ``[odorik]`` section (you can "
+#~ "customize this by :option:`--config-option`):"
+#~ msgstr ""
