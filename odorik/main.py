@@ -182,7 +182,7 @@ class Command(object):
 
     def print_csv(self, value, header):
         """CSV print"""
-        if header:
+        if header is not None:
             writer = csv.DictWriter(self.stdout, header)
             writer.writeheader()
             for row in value:
@@ -195,7 +195,7 @@ class Command(object):
     def print_html(self, value, header):
         """HTML print"""
         self.println('<table>')
-        if header:
+        if header is not None:
             self.println('  <thead>')
             self.println('    <tr>')
             for key in header:
@@ -219,7 +219,7 @@ class Command(object):
 
     def print_text(self, value, header):
         """Text print"""
-        if header:
+        if header is not None:
             for item in value:
                 for key in header:
                     self.println('{0}: {1}'.format(key, item[key]))
@@ -234,7 +234,11 @@ class Command(object):
         """
         header = None
         if isinstance(value, list):
-            header = list(value[0].keys())
+            try:
+                header = list(value[0].keys())
+            except IndexError:
+                # Empty list
+                header = []
 
         if self.args.format == 'json':
             self.print_json(value)
