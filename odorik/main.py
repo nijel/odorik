@@ -131,6 +131,7 @@ class Command(object):
 
     @staticmethod
     def add_list_option(parser):
+        """Add argparse argument --list"""
         parser.add_argument(
             '--list',
             action='store_true',
@@ -139,6 +140,7 @@ class Command(object):
 
     @staticmethod
     def add_line_option(parser):
+        """Add argparse argument --line"""
         parser.add_argument(
             '--line',
             help='Line to use for listing'
@@ -182,6 +184,7 @@ class Command(object):
 
     @staticmethod
     def format_value(value):
+        """Formats value for rendering"""
         if isinstance(value, float):
             return '{0:.2f}'.format(value)
         elif isinstance(value, int):
@@ -190,6 +193,7 @@ class Command(object):
 
     @classmethod
     def format_csv_value(cls, value):
+        """Formats value for rendering in CSV"""
         return cls.format_value(value).encode('utf-8')
 
     def print_csv(self, value, header):
@@ -589,6 +593,7 @@ class MobileData(IntervalCommand):
         return parser
 
     def one_number(self, phone):
+        """Processes data summary for one phone number"""
         from_date, to_date = self.get_interval()
         data_usage = self.odorik.mobile_data(
             from_date,
@@ -662,6 +667,9 @@ class Summary(IntervalCommand):
     description = "Displays summary information for all lines"
 
     def process_line(self, line, from_date, to_date):
+        """
+        Processes summary for one line
+        """
         messages = self.odorik.sms(from_date, to_date, line['id'])
         calls = self.odorik.calls(from_date, to_date, line['id'])
         data_usage = self.odorik.mobile_data(

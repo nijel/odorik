@@ -63,18 +63,21 @@ class TestSettings(TestCase):
     """
     @httpretty.activate
     def test_commandline(self):
+        """Configuration using commandline"""
         register_uris()
         output = execute(['--url', 'https://example.net/', 'balance'])
         self.assertIn('321.09', output)
 
     @httpretty.activate
     def test_stdout(self):
+        """Configuration using params"""
         register_uris()
         output = execute(['balance'], stdout=True)
         self.assertIn('123.45', output)
 
     @httpretty.activate
     def test_settings(self):
+        """Configuration using settings param"""
         register_uris()
         output = execute(
             ['balance'],
@@ -84,12 +87,14 @@ class TestSettings(TestCase):
 
     @httpretty.activate
     def test_config(self):
+        """Configuration using custom config file"""
         register_uris()
         output = execute(['--config', TEST_CONFIG, 'balance'], settings=False)
         self.assertIn('321.09', output)
 
     @httpretty.activate
     def test_config_section(self):
+        """Configuration using custom config file section"""
         register_uris()
         output = execute(
             [
@@ -102,6 +107,7 @@ class TestSettings(TestCase):
         self.assertIn('321.09', output)
 
     def test_parsing(self):
+        """Test config file parsing"""
         config = OdorikConfig()
         self.assertEqual(config.get('odorik', 'url'), odorik.API_URL)
         config.load()
@@ -109,6 +115,7 @@ class TestSettings(TestCase):
         self.assertEqual(config.get('odorik', 'url'), 'https://example.net/')
 
     def test_argv(self):
+        """Test sys.argv processing"""
         backup = sys.argv
         try:
             sys.argv = ['odorik', 'version']
