@@ -17,6 +17,10 @@ Python module for Odorik API
     :target: https://pypi.python.org/pypi/odorik
     :alt: PyPI package
 
+.. image:: https://hosted.weblate.org/widgets/odorik/-/svg-badge.svg
+    :alt: Translation status
+    :target: https://hosted.weblate.org/engage/odorik/?utm_source=widget
+
 Documentation
 -------------
 
