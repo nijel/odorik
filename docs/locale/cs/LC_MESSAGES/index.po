@@ -4,12 +4,16 @@ msgstr ""
 "Project-Id-Version: Odorik 0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-20 15:07+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2015-05-20 15:38+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
+"/documentation-index/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: ../../index.rst:7
 msgid "Welcome to Odorik's documentation!"
@@ -20,32 +24,34 @@ msgid ""
 "This is Python module which wraps `Odorik API "
 "<http://www.odorik.cz/w/api>`_."
 msgstr ""
+"Toto je modul pro Python který zpřístupní `Odorik API "
+"<http://www.odorik.cz/w/api>`_."
 
 #: ../../index.rst:11
 msgid "You can install the module from PyPI:"
-msgstr ""
+msgstr "Můžete ho nainstalovat z PyPI:"
 
 #: ../../index.rst:17
 msgid ""
 "The project is being developed on GitHub: https://github.com/nijel/odorik"
-msgstr ""
+msgstr "Projekt je vyvíjen na GitHubu: https://github.com/nijel/odorik"
 
 #: ../../index.rst:19
 msgid "Contents:"
-msgstr ""
+msgstr "Obsah:"
 
 #: ../../index.rst:31
 msgid "Indices and tables"
-msgstr ""
+msgstr "Rejstříky a tabulky"
 
 #: ../../index.rst:33
 msgid ":ref:`genindex`"
-msgstr ""
+msgstr ":ref:`genindex`"
 
 #: ../../index.rst:34
 msgid ":ref:`modindex`"
-msgstr ""
+msgstr ":ref:`modindex`"
 
 #: ../../index.rst:35
 msgid ":ref:`search`"
-msgstr ""
+msgstr ":ref:`search`"
