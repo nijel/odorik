@@ -104,6 +104,7 @@ def get_parser():
 
 
 class CommandError(Exception):
+
     """Generic error from command line."""
 
 
@@ -129,6 +130,7 @@ def key_value(value):
 
 
 class Command(object):
+
     """Basic command object."""
 
     name = ''
@@ -316,6 +318,7 @@ class Command(object):
 
 
 class IntervalCommand(Command):
+
     """Helper class to handle date intervals."""
 
     @classmethod
@@ -375,6 +378,7 @@ class IntervalCommand(Command):
 
 @register_command
 class Version(Command):
+
     """Print version."""
 
     name = 'version'
@@ -401,6 +405,7 @@ class Version(Command):
 
 @register_command
 class API(Command):
+
     """Perform API GET."""
 
     name = 'api'
@@ -448,6 +453,7 @@ class API(Command):
 
 @register_command
 class Balance(Command):
+
     """Print balance."""
 
     name = 'balance'
@@ -460,6 +466,7 @@ class Balance(Command):
 
 @register_command
 class Lines(Command):
+
     """Print lines."""
 
     name = 'lines'
@@ -501,6 +508,7 @@ class Lines(Command):
 
 @register_command
 class Calls(IntervalCommand):
+
     """Print calls."""
 
     name = 'calls'
@@ -535,6 +543,7 @@ class Calls(IntervalCommand):
 
 @register_command
 class SMS(IntervalCommand):
+
     """Print SMS."""
 
     name = 'sms'
@@ -569,6 +578,7 @@ class SMS(IntervalCommand):
 
 @register_command
 class MobileData(IntervalCommand):
+
     """Print data usage."""
 
     name = 'mobile-data'
@@ -622,6 +632,7 @@ class MobileData(IntervalCommand):
 
 @register_command
 class SendSMS(Command):
+
     """Send SMS."""
 
     name = 'send-sms'
@@ -657,6 +668,7 @@ class SendSMS(Command):
 
 @register_command
 class Summary(IntervalCommand):
+
     """Print data usage."""
 
     name = 'summary'
@@ -710,6 +722,7 @@ class Summary(IntervalCommand):
 
 @register_command
 class Callback(Command):
+
     """Initiate callback."""
 
     name = 'callback'

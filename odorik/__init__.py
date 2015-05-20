@@ -37,10 +37,12 @@ USER_AGENT = 'python-odorik/{0}'.format(__version__)
 
 
 class OdorikException(Exception):
+
     """Generic error."""
 
 
 class Odorik(object):
+
     """Odorik API object."""
 
     def __init__(self, user='', password='', url=API_URL, config=None):

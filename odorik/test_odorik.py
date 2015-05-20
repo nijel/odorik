@@ -153,7 +153,9 @@ def register_uris():
 
 
 class OdorikTest(TestCase):
+
     """Testing of Odorik class."""
+
     @httpretty.activate
     def test_balance(self):
         """Test getting balance."""

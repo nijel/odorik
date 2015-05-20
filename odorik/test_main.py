@@ -58,7 +58,9 @@ def execute(args, binary=False, settings=None, stdout=None):
 
 
 class TestSettings(TestCase):
+
     """Test settings handling."""
+
     @httpretty.activate
     def test_commandline(self):
         """Configuration using commandline."""
@@ -124,6 +126,7 @@ class TestSettings(TestCase):
 
 
 class TestInteval(TestCase):
+
     """Test interval processing."""
 
     @httpretty.activate
@@ -180,6 +183,7 @@ class TestInteval(TestCase):
 
 
 class TestOutput(TestCase):
+
     """Test output formatting."""
 
     def test_version_text(self):
@@ -272,6 +276,7 @@ class TestOutput(TestCase):
 
 
 class TestCommands(TestCase):
+
     """Test command line interface."""
 
     def test_version(self):
@@ -422,6 +427,7 @@ class TestCommands(TestCase):
 
 
 class TestAPI(TestCase):
+
     """Test generic API support."""
 
     @httpretty.activate
