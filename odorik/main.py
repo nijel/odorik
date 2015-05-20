@@ -212,7 +212,10 @@ class Command(object):
     @classmethod
     def format_csv_value(cls, value):
         """Format value for rendering in CSV."""
-        return cls.format_value(value).encode('utf-8')
+        value = cls.format_value(value)
+        if sys.version_info < (3, 0):
+            return value.encode('utf-8')
+        return value
 
     def print_csv(self, value, header):
         """CSV print."""
