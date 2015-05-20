@@ -13,7 +13,7 @@ msgstr ""
 
 #: ../../index.rst:7
 msgid "Welcome to Odorik's documentation!"
-msgstr ""
+msgstr "Vítejte v dokumentaci pro Odorik!"
 
 #: ../../index.rst:9
 msgid ""
