@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: Odorik 0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-20 15:07+0200\n"
-"PO-Revision-Date: 2015-05-20 23:03+0200\n"
+"PO-Revision-Date: 2015-05-25 12:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
 "/documentation-python/cs/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.3\n"
 
 #: ../../python.rst:2
 msgid "Python API"
@@ -196,6 +196,9 @@ msgid ""
 " configuration file placed in XDG configuration path "
 "(:file:`~/.config/odorik` and :file:`/etc/xdg/odorik`)."
 msgstr ""
+"Načte nastavení z konfiguračního souboru. Pokud není zadána cesta, použije "
+"se soubor `odorik` umístěný v cestě XDG (:file:`~/.config/odorik` a "
+":file:`/etc/xdg/odorik`)."
 
 #: ../../python.rst:159
 msgid ":mod:`odorik.main`"
@@ -207,21 +210,25 @@ msgstr "vynutit změnu těchto nastavení"
 
 #: ../../python.rst:168
 msgid "stdout for printing output, uses ``sys.stdout`` as default"
-msgstr ""
+msgstr "výstup pro vypisování textu, pokud není zadáno použije ``sys.stdout``"
 
 #: ../../python.rst:170
 msgid "command line argumets to process, uses ``sys.args`` as default"
 msgstr ""
+"parametry z příkazové řádky pro zpracování, pokud není zadáno použije "
+"``sys.args``"
 
 #: ../../python.rst:173
 msgid "Main entry point for command line interface."
-msgstr ""
+msgstr "Hlavní funkce pro příkazovou řádku."
 
 #: ../../python.rst:177
 msgid ""
 "Decorator to register :class:`Command` class in main parser used by "
 ":func:`main`."
 msgstr ""
+"Dekorátor, který registruje třídu :class:`Command` pro zpracování v parseru "
+"funkce :func:`main`."
 
 #: ../../python.rst:181
 msgid ":class:`Command`"
