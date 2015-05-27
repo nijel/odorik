@@ -225,7 +225,9 @@ class Command(object):
         """Wrapper for getting calls summary."""
         result = cls.summary(calls, ('price', 'length'))
         result.update(
-            cls.summary_group(calls, ('length',), 'direction', ('in', 'out'))
+            cls.summary_group(
+                calls, ('length',), 'direction', ('in', 'out', 'redirected')
+            )
         )
         result['count'] = len(calls)
         result['count_in'] = cls.count_direction(calls, 'in')
