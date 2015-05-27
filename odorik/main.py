@@ -37,9 +37,18 @@ COMMANDS = {}
 SORT_ORDER = [
     'id',
     'public_number',
+    'count',
+    'count_in',
+    'count_out',
     'sms_count',
+    'sms_count_in',
+    'sms_count_out',
     'call_count',
+    'call_count_in',
+    'call_count_out',
     'call_length',
+    'call_length_in',
+    'call_length_out',
     'bytes_down',
     'bytes_up',
     'bytes_total',
@@ -47,6 +56,8 @@ SORT_ORDER = [
     'call_price',
     'sms_price',
     'length',
+    'length_in',
+    'length_out',
     'ringing_length',
     'price',
 ]
@@ -194,6 +205,56 @@ class Command(object):
             for field in fields:
                 result[field] += value[field]
         return result
+
+    @staticmethod
+    def summary_group(values, fields, group, groups):
+        """Calculate summary of values groupped by attribute."""
+        result = {}
+        for field in fields:
+            for group_name in groups:
+                result['{0}_{1}'.format(field, group_name)] = 0
+
+        for value in values:
+            group_name = value[group]
+            for field in fields:
+                result['{0}_{1}'.format(field, group_name)] += value[field]
+        return result
+
+    @classmethod
+    def calls_summary(cls, calls):
+        """Wrapper for getting calls summary."""
+        result = cls.summary(calls, ('price', 'length'))
+        result.update(
+            cls.summary_group(calls, ('length',), 'direction', ('in', 'out'))
+        )
+        result['count'] = len(calls)
+        result['count_in'] = cls.count_direction(calls, 'in')
+        result['count_out'] = cls.count_direction(calls, 'out')
+        return result
+
+    @classmethod
+    def sms_summary(cls, messages):
+        """Wrapper for getting sms summary."""
+        result = cls.summary(messages, ('price',))
+        result['count'] = len(messages)
+        result['count_in'] = cls.count_direction(messages, 'in')
+        result['count_out'] = cls.count_direction(messages, 'out')
+        return result
+
+    @classmethod
+    def data_summary(cls, data_usage):
+        """Wrapper for getting data summary."""
+        return cls.summary(
+            data_usage,
+            ('bytes_total', 'bytes_down', 'bytes_up', 'price')
+        )
+
+    @staticmethod
+    def count_direction(values, direction):
+        """Counts items with matching direction"""
+        return len(
+            [value for value in values if value['direction'] == direction]
+        )
 
     def println(self, line):
         """Print single line to output."""
@@ -530,12 +591,7 @@ class Calls(IntervalCommand):
         if self.args.list:
             self.print(calls)
         else:
-            self.print(
-                self.summary(
-                    calls,
-                    ('price', 'length', 'ringing_length')
-                )
-            )
+            self.print(self.calls_summary(calls))
 
 
 @register_command
@@ -565,12 +621,7 @@ class SMS(IntervalCommand):
         if self.args.list:
             self.print(sms)
         else:
-            self.print(
-                self.summary(
-                    sms,
-                    ('price',)
-                )
-            )
+            self.print(self.sms_summary(sms))
 
 
 @register_command
@@ -608,10 +659,7 @@ class MobileData(IntervalCommand):
         if self.args.list:
             return data_usage
         else:
-            return self.summary(
-                data_usage,
-                ('bytes_total', 'bytes_down', 'bytes_up', 'price')
-            )
+            return self.data_summary(data_usage)
 
     def run(self):
         """Main execution of the command."""
@@ -680,21 +728,21 @@ class Summary(IntervalCommand):
             to_date,
             line['public_number']
         )
-        messages_summary = self.summary(messages, ('price',))
-        calls_summary = self.summary(
-            calls,
-            ('price', 'length'),
-        )
-        data_summary = self.summary(
-            data_usage,
-            ('bytes_total', 'bytes_down', 'bytes_up', 'price')
-        )
+        messages_summary = self.sms_summary(messages)
+        calls_summary = self.calls_summary(calls)
+        data_summary = self.data_summary(data_usage)
         return {
             'public_number': line['public_number'],
             'id': line['id'],
-            'call_count': len(calls),
+            'call_count': calls_summary['count'],
+            'call_count_in': calls_summary['count_in'],
+            'call_count_out': calls_summary['count_out'],
             'call_length': calls_summary['length'],
-            'sms_count': len(messages),
+            'call_length_in': calls_summary['length_out'],
+            'call_length_out': calls_summary['length_in'],
+            'sms_count': messages_summary['count'],
+            'sms_count_in': messages_summary['count_in'],
+            'sms_count_out': messages_summary['count_out'],
             'bytes_total': data_summary['bytes_total'],
             'data_price': data_summary['price'],
             'call_price': calls_summary['price'],
