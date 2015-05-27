@@ -37,8 +37,9 @@ COMMANDS = {}
 SORT_ORDER = [
     'id',
     'public_number',
-    'call_count',
     'sms_count',
+    'call_count',
+    'call_length',
     'bytes_down',
     'bytes_up',
     'bytes_total',
@@ -692,6 +693,7 @@ class Summary(IntervalCommand):
             'public_number': line['public_number'],
             'id': line['id'],
             'call_count': len(calls),
+            'call_length': calls_summary['length'],
             'sms_count': len(messages),
             'bytes_total': data_summary['bytes_total'],
             'data_price': data_summary['price'],
