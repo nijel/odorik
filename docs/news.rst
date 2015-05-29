@@ -5,6 +5,7 @@ Changes
 ---
 
 * Documentation translated to Czech language.
+* More detailed summaries for calls and messages.
 
 0.4
 ---
