@@ -273,6 +273,8 @@ class Command(object):
             return '{0:.2f}'.format(value)
         elif isinstance(value, int):
             return '{0}'.format(value)
+        elif value is None:
+            return ''
         return value
 
     @classmethod
