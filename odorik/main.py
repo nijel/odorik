@@ -363,6 +363,8 @@ class Command(object):
         """Print value."""
         header = None
         if isinstance(value, list):
+            if len(value) == 0:
+                return
             header = sorted(value[0].keys(), key=sort_key)
 
         if self.args.format == 'json':
@@ -582,15 +584,31 @@ class Calls(IntervalCommand):
         parser = super(Calls, cls).add_parser(subparser)
         cls.add_list_option(parser)
         cls.add_line_option(parser)
+        parser.add_argument(
+            '--direction',
+            choices=('in', 'out', 'redirected'),
+            help='Direction of call',
+        )
+        parser.add_argument(
+            '--status',
+            choices=('answered', 'missed'),
+            help='Status of call',
+        )
         return parser
 
     def run(self):
         """Main execution of the command."""
         from_date, to_date = self.get_interval()
+        args = {}
+        if self.args.status:
+            args['status'] = self.args.status
+        if self.args.direction:
+            args['direction'] = self.args.direction
         calls = self.odorik.calls(
             from_date,
             to_date,
             self.resolve('lines', self.args.line),
+            **args
         )
         if self.args.list:
             self.print(calls)

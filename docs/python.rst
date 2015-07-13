@@ -95,7 +95,7 @@ Python API
 
         Initiates callback.
 
-    .. method:: calls(from_date, to_date, line=None):
+    .. method:: calls(from_date, to_date, line=None, status=None, direction=None):
 
         :param from_date: Starting date
         :type from_date: datetime.datetime
@@ -103,6 +103,10 @@ Python API
         :type to_date: datetime.datetime
         :param line: Line to use for listing
         :type line: string or None
+        :param status: Call status, one of 'answered', 'missed'
+        :type status: string
+        :param direction: Call direction, one of 'in', 'out', 'redirected'
+        :type direction: string
         :rtype: list
 
         Returns list of calls in given interval. Optionally filtered for given

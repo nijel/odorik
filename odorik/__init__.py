@@ -122,7 +122,7 @@ class Odorik(object):
         self._check_response(response)
         return response
 
-    def calls(self, from_date, to_date, line=None):
+    def calls(self, from_date, to_date, line=None, status=None, direction=None):
         """Return list of calls."""
         args = {
             'from': from_date.isoformat(),
@@ -130,6 +130,10 @@ class Odorik(object):
         }
         if line is not None:
             args['line'] = line
+        if status is not None:
+            args['status'] = status
+        if direction is not None:
+            args['direction'] = direction
         return self.get_json('calls.json', args)
 
     def sms(self, from_date, to_date, line=None):

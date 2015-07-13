@@ -347,6 +347,15 @@ class TestCommands(TestCase):
         self.assertIn('554.03', output)
 
     @httpretty.activate
+    def test_calls_filter(self):
+        """Test getting calls list."""
+        register_uris()
+        output = execute(
+            ['calls', '--list', '--direction', 'in', '--status', 'answered']
+        )
+        self.assertIn('554.03', output)
+
+    @httpretty.activate
     def test_calls_line(self):
         """Test getting calls summary for line."""
         register_uris()
