@@ -6,8 +6,7 @@ msgstr ""
 "POT-Creation-Date: 2015-05-20 15:07+0200\n"
 "PO-Revision-Date: 2015-05-20 16:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
-"/documentation-command/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/odorik/documentation-command/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -120,7 +119,7 @@ msgstr "Vypíše aktuální zůstatek."
 msgid "Prints mobile data usage."
 msgstr "Vypíše použití mobilních dat."
 
-#: ../../command.rst:75 ../../command.rst:89 ../../command.rst:99
+#: ../../command.rst:75 ../../command.rst:89 ../../command.rst:101
 msgid "It can list all individual records when ``--list`` is specified."
 msgstr "S parametrem ``--list`` vypíše i jednotlivé položky."
 
@@ -140,8 +139,8 @@ msgstr ""
 "Pokud použijete volbu ``--all``, program vypíše souhrn pro všechny linky na "
 "účtu."
 
-#: ../../command.rst:83 ../../command.rst:93 ../../command.rst:103
-#: ../../command.rst:127
+#: ../../command.rst:83 ../../command.rst:95 ../../command.rst:105
+#: ../../command.rst:129
 msgid "See :ref:`interval` for information how to specify date period."
 msgstr "Informace o zadání intervalu dat naleznete v :ref:`interval`."
 
@@ -149,19 +148,19 @@ msgstr "Informace o zadání intervalu dat naleznete v :ref:`interval`."
 msgid "Prints calls usage."
 msgstr "Vypíše hovory."
 
-#: ../../command.rst:91 ../../command.rst:101
+#: ../../command.rst:91 ../../command.rst:103
 msgid "The result can be also limited to given line by using ``--line``."
 msgstr "Výsledek může být také omezen na jednu linku použitím ``--line``."
 
-#: ../../command.rst:97
+#: ../../command.rst:99
 msgid "Prints SMS usage."
 msgstr "Vypíše SMS zprávy."
 
-#: ../../command.rst:107
+#: ../../command.rst:109
 msgid "Sends a SMS message."
 msgstr "Odešle SMS zprávu."
 
-#: ../../command.rst:109
+#: ../../command.rst:111
 msgid ""
 "You can specify sender number by ``--sender``, it has to be one of allowed "
 "values. By default ``5517`` is used."
@@ -169,15 +168,15 @@ msgstr ""
 "Číslo odesílatele můžete změnit pomocí ``--sender``. Musí se jednat o jednu "
 "z povolených hodnot. Jako výchozí se použije ``5517``."
 
-#: ../../command.rst:114
+#: ../../command.rst:116
 msgid "Initiates a callback."
 msgstr "Objedná zpětné volání."
 
-#: ../../command.rst:118
+#: ../../command.rst:120
 msgid "Prints infromation about lines."
 msgstr "Vypíše informace o linkách."
 
-#: ../../command.rst:120
+#: ../../command.rst:122
 msgid ""
 "With ``--generate-config`` it generates config file entries for line and "
 "phone number aliases, see :ref:`files`."
@@ -186,36 +185,36 @@ msgstr ""
 "konfiguračního souboru pro pojmenování linek a telefonních čísel, viz "
 ":ref:`files`."
 
-#: ../../command.rst:125
+#: ../../command.rst:127
 msgid "Prints summary information for all lines in current account."
 msgstr "Vypíše souhrnné informace o všech linkách pod účtem."
 
-#: ../../command.rst:132
+#: ../../command.rst:134
 msgid "Specifying date period"
 msgstr "Zadávání časového intervalu"
 
-#: ../../command.rst:134
+#: ../../command.rst:136
 msgid "You can specify date period for which many commands will be issued:"
 msgstr ""
 "Pro mnoho příkazů můžete zadat časový interval na který se budou aplikovat:"
 
-#: ../../command.rst:138
+#: ../../command.rst:140
 msgid "Prints information for current month. This is the default interval."
 msgstr "Vypíše informace pro tento měsíc. Jedná se o výchozí interval."
 
-#: ../../command.rst:142
+#: ../../command.rst:144
 msgid "Prints information for last month."
 msgstr "Vypíše informace pro minulý měsíc."
 
-#: ../../command.rst:146
+#: ../../command.rst:148
 msgid "Starting datetime."
 msgstr "Počáteční datum."
 
-#: ../../command.rst:150
+#: ../../command.rst:152
 msgid "Ending datetime. If not specified, current date is used."
 msgstr "Koncové datum. Pokud nebude zadáno použije se aktuální."
 
-#: ../../command.rst:152
+#: ../../command.rst:154
 msgid ""
 "All parameters accepting date can take almost any format of date or "
 "timestamp. Check `dateutil <http://labix.org/python-dateutil#head-"
@@ -224,30 +223,30 @@ msgid ""
 msgstr ""
 "Všechny volby zpracují datum nebo čas v téměř jakémkoliv formátu. V "
 "dokumentaci k `dateutil <http://labix.org/python-dateutil#head-"
-"b95ce2094d189a89f80f5ae52a05b4ab7b41af47>`_ naleznete podrobnější popis ("
-"obzvlášť popis pořadí roku, měsíce a dne)."
+"b95ce2094d189a89f80f5ae52a05b4ab7b41af47>`_ naleznete podrobnější popis "
+"(obzvlášť popis pořadí roku, měsíce a dne)."
 
-#: ../../command.rst:160
+#: ../../command.rst:162
 msgid "Files"
 msgstr "Soubory"
 
-#: ../../command.rst:162
+#: ../../command.rst:164
 msgid ":file:`~/.config/odorik`"
 msgstr ":file:`~/.config/odorik`"
 
-#: ../../command.rst:163
+#: ../../command.rst:165
 msgid "User configuration file"
 msgstr "Konfigurační soubor uživatele"
 
-#: ../../command.rst:165
+#: ../../command.rst:167
 msgid ":file:`/etc/xdg/odorik`"
 msgstr ":file:`/etc/xdg/odorik`"
 
-#: ../../command.rst:165
+#: ../../command.rst:167
 msgid "Global configration file"
 msgstr "Systémový konfigurační soubor"
 
-#: ../../command.rst:167
+#: ../../command.rst:169
 msgid ""
 "The program follows XDG specification, so you can adjust placement of config"
 " files by environment variables ``XDG_CONFIG_HOME`` or ``XDG_CONFIG_DIRS``."
@@ -256,11 +255,11 @@ msgstr ""
 "můžete ovlivnit proměnnými prostředí  ``XDG_CONFIG_HOME`` nebo "
 "``XDG_CONFIG_DIRS``."
 
-#: ../../command.rst:175
+#: ../../command.rst:177
 msgid "API user, can be either ID registered user or line ID."
 msgstr "API uživatel, může být buď ID uživatele nebo linky."
 
-#: ../../command.rst:179
+#: ../../command.rst:181
 msgid ""
 "API password. Use API password for per user access and line password (used "
 "for SIP as well) for line access."
@@ -268,11 +267,11 @@ msgstr ""
 "API heslo. Použijte API heslo pro uživatele nebo heslo linky (stejné jako "
 "pro SIP) pro přístup na linku."
 
-#: ../../command.rst:184
+#: ../../command.rst:186
 msgid "API server URL, defaults to ``https://www.odorik.cz/api/v1/``."
 msgstr "URL API serveru, výchozí je ``https://www.odorik.cz/api/v1/``."
 
-#: ../../command.rst:186
+#: ../../command.rst:188
 msgid ""
 "See `Autentizace Odorik API <http://www.odorik.cz/w/api#autentizace>`_ for "
 "more details on authentication."
@@ -280,63 +279,67 @@ msgstr ""
 "Více informací naleznete na wiki v sekci  `Autentizace Odorik API "
 "<http://www.odorik.cz/w/api#autentizace>`_."
 
-#: ../../command.rst:189
+#: ../../command.rst:191
 msgid "The configuration file is INI file, for example:"
 msgstr "Konfigurační soubor je ve formátu INI. Například může vypadat takto:"
 
-#: ../../command.rst:197
+#: ../../command.rst:199
 msgid "Additionally config file can include phone number and line aliases:"
 msgstr ""
 "Dále může konfigurační soubor obsahovat pojmenování pro telefonní čísla a "
 "linky:"
 
-#: ../../command.rst:209
+#: ../../command.rst:211
 msgid "Examples"
 msgstr "Příklady"
 
-#: ../../command.rst:211
+#: ../../command.rst:213
 msgid "Print current program version:"
 msgstr "Vypsat verzi programu:"
 
-#: ../../command.rst:218
+#: ../../command.rst:220
 msgid "Print current user balance:"
 msgstr "Vypsat aktuální zůstatek:"
 
-#: ../../command.rst:225
+#: ../../command.rst:227
 msgid "Prints current mobile data usage:"
 msgstr "Vypsat aktuální využití mobilních dat:"
 
-#: ../../command.rst:235
+#: ../../command.rst:237
 msgid "Sending message:"
 msgstr "Odeslání zprávy:"
 
-#: ../../command.rst:241
+#: ../../command.rst:243
 msgid "Initiating callback:"
 msgstr "Objednání zpětného volání:"
 
-#: ../../command.rst:247
+#: ../../command.rst:249
 msgid "Getting account summary:"
 msgstr "Výpis souhrnných informací o účtu:"
 
-#: ../../command.rst:274
+#: ../../command.rst:276
 msgid "Generic API usage:"
 msgstr "Obecné použití API:"
 
-#: ../../command.rst:281
+#: ../../command.rst:283
 msgid "Generic API POST:"
 msgstr "Obecné použití POST API:"
 
-#: ../../command.rst:287
+#: ../../command.rst:289
 msgid "Machine readable output formats:"
 msgstr "Strojově zpracovatelné výstupní formáty:"
 
-#: ../../command.rst:170
+#: ../../command.rst:172
 msgid ""
 "Following settings can be configured in the ``[odorik]`` section (you can "
 "customize this by :option:`--config-section`):"
 msgstr ""
 "Následující parametry mohou být nastaveny v sekci ``[odorik]`` (nebo vámi "
 "zadané pomocí volby :option:`--config-section`):"
+
+#: ../../command.rst:93
+msgid "You can additionally filter calls by ``--status`` or ``--direction``."
+msgstr ""
 
 #~ msgid ""
 #~ "Following settings can be configured in the ``[odorik]`` section (you can "
