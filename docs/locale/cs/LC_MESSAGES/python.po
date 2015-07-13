@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: Odorik 0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-20 15:07+0200\n"
-"PO-Revision-Date: 2015-05-25 12:02+0200\n"
+"PO-Revision-Date: 2015-07-13 10:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/odorik/documentation-python/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
+"/documentation-python/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.3\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: ../../python.rst:2
 msgid "Python API"
@@ -223,11 +224,11 @@ msgstr "Hlavní třída pro spouštění příkazů."
 
 #: ../../python.rst:106
 msgid "Call status, one of 'answered', 'missed'"
-msgstr ""
+msgstr "Stav hovoru, jedno z 'answered', 'missed'"
 
 #: ../../python.rst:108
 msgid "Call direction, one of 'in', 'out', 'redirected'"
-msgstr ""
+msgstr "Směr hovoru, jedno z 'in', 'out', 'redirected'"
 
 #: ../../python.rst:40 ../../python.rst:82 ../../python.rst:94
 msgid "string"
