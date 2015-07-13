@@ -6,8 +6,7 @@ msgstr ""
 "POT-Creation-Date: 2015-05-20 15:07+0200\n"
 "PO-Revision-Date: 2015-05-25 12:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
-"/documentation-python/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/odorik/documentation-python/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,7 +53,8 @@ msgstr "Objekt s nastaveními, přepíše jakékoliv jiné parametry."
 #: ../../python.rst:32
 msgid "Access class to the API, define user, password and optionally API URL."
 msgstr ""
-"Hlavní třída pro přístup k API. Zadejte uživatele, heslo a volitelně URL API."
+"Hlavní třída pro přístup k API. Zadejte uživatele, heslo a volitelně URL "
+"API."
 
 #: ../../python.rst:36 ../../python.rst:46
 msgid "Request path"
@@ -64,17 +64,9 @@ msgstr "Cesta požadavku"
 msgid "Optional request parameters"
 msgstr "Volitelné parametry požadavku"
 
-#: ../../python.rst:40 ../../python.rst:82 ../../python.rst:94
-msgid "string"
-msgstr "řetězec"
-
 #: ../../python.rst:42
 msgid "Performs single API GET call."
 msgstr "Provede jeden GET API požadavek."
-
-#: ../../python.rst:50
-msgid "object"
-msgstr "objekt"
 
 #: ../../python.rst:52
 msgid ""
@@ -83,30 +75,21 @@ msgstr ""
 "Provede jeden GET API požadavek a zpracuje odpověď ve formátu JSON včetně "
 "případného ošetření chyb."
 
-#: ../../python.rst:57
-msgid "float"
-msgstr "desetinné číslo"
-
 #: ../../python.rst:59
 msgid "Returns current balance."
 msgstr "Vrátí aktuální zůstatek."
 
-#: ../../python.rst:63 ../../python.rst:100 ../../python.rst:113
+#: ../../python.rst:63 ../../python.rst:100 ../../python.rst:117
 msgid "Starting date"
 msgstr "Počáteční datum"
 
-#: ../../python.rst:65 ../../python.rst:102 ../../python.rst:115
+#: ../../python.rst:65 ../../python.rst:102 ../../python.rst:119
 msgid "Ending date"
 msgstr "Koncové datum"
 
 #: ../../python.rst:67
 msgid "Phone number in form of 00420789123456"
 msgstr "Telefonní číslo ve tvaru 00420789123456"
-
-#: ../../python.rst:69 ../../python.rst:106 ../../python.rst:119
-#: ../../python.rst:126
-msgid "list"
-msgstr "seznam"
 
 #: ../../python.rst:71
 msgid ""
@@ -148,49 +131,49 @@ msgstr "Jakou linku použít pro vyúčtování."
 msgid "Initiates callback."
 msgstr "Objedná zpětné volání."
 
-#: ../../python.rst:104 ../../python.rst:117
+#: ../../python.rst:104 ../../python.rst:121
 msgid "Line to use for listing"
 msgstr "Jakou linku použít pro výpis"
 
-#: ../../python.rst:108
+#: ../../python.rst:112
 msgid ""
 "Returns list of calls in given interval. Optionally filtered for given line."
 msgstr ""
 "Vrátí seznam hovorů v zadaném časovém intervalu. Volitelně může být "
 "filtrován pro zadanou linku."
 
-#: ../../python.rst:121
+#: ../../python.rst:125
 msgid ""
 "Returns list of sms in given interval. Optionally filtered for given line."
 msgstr ""
 "Vrátí seznam SMS v zadaném časovém intervalu. Volitelně může být filtrován "
 "pro zadanou linku."
 
-#: ../../python.rst:128
+#: ../../python.rst:132
 msgid "Returns list of dictionaries with information about lines."
 msgstr "Vrátí seznam slovníků s informacemi o linkách."
 
-#: ../../python.rst:132
+#: ../../python.rst:136
 msgid ":mod:`odorik.config`"
 msgstr ":mod:`odorik.config`"
 
-#: ../../python.rst:138
+#: ../../python.rst:142
 msgid ":class:`OdorikConfig`"
 msgstr ":class:`OdorikConfig`"
 
-#: ../../python.rst:142
+#: ../../python.rst:146
 msgid "Configuration section to use"
 msgstr "Jakou sekci konfiguračního použít"
 
-#: ../../python.rst:145
+#: ../../python.rst:149
 msgid "Configuration file parser following XDG specification."
 msgstr "Zpracování konfiguračního souboru podle specifikace XDG."
 
-#: ../../python.rst:150
+#: ../../python.rst:154
 msgid "Path where to load configuration."
 msgstr "Cesta k souboru s konfigurací."
 
-#: ../../python.rst:153
+#: ../../python.rst:157
 msgid ""
 "Loads configuration from a file, if none is specified it loads from `odorik`"
 " configuration file placed in XDG configuration path "
@@ -200,29 +183,29 @@ msgstr ""
 "se soubor `odorik` umístěný v cestě XDG (:file:`~/.config/odorik` a "
 ":file:`/etc/xdg/odorik`)."
 
-#: ../../python.rst:159
+#: ../../python.rst:163
 msgid ":mod:`odorik.main`"
 msgstr ":mod:`odorik.main`"
 
-#: ../../python.rst:166
+#: ../../python.rst:170
 msgid "settings to override"
 msgstr "vynutit změnu těchto nastavení"
 
-#: ../../python.rst:168
+#: ../../python.rst:172
 msgid "stdout for printing output, uses ``sys.stdout`` as default"
 msgstr "výstup pro vypisování textu, pokud není zadáno použije ``sys.stdout``"
 
-#: ../../python.rst:170
+#: ../../python.rst:174
 msgid "command line argumets to process, uses ``sys.args`` as default"
 msgstr ""
 "parametry z příkazové řádky pro zpracování, pokud není zadáno použije "
 "``sys.args``"
 
-#: ../../python.rst:173
+#: ../../python.rst:177
 msgid "Main entry point for command line interface."
 msgstr "Hlavní funkce pro příkazovou řádku."
 
-#: ../../python.rst:177
+#: ../../python.rst:181
 msgid ""
 "Decorator to register :class:`Command` class in main parser used by "
 ":func:`main`."
@@ -230,10 +213,35 @@ msgstr ""
 "Dekorátor, který registruje třídu :class:`Command` pro zpracování v parseru "
 "funkce :func:`main`."
 
-#: ../../python.rst:181
+#: ../../python.rst:185
 msgid ":class:`Command`"
 msgstr ":class:`Command`"
 
-#: ../../python.rst:185
+#: ../../python.rst:189
 msgid "Main class for invoking commands."
 msgstr "Hlavní třída pro spouštění příkazů."
+
+#: ../../python.rst:106
+msgid "Call status, one of 'answered', 'missed'"
+msgstr ""
+
+#: ../../python.rst:108
+msgid "Call direction, one of 'in', 'out', 'redirected'"
+msgstr ""
+
+#: ../../python.rst:40 ../../python.rst:82 ../../python.rst:94
+msgid "string"
+msgstr "řetězec"
+
+#: ../../python.rst:50
+msgid "object"
+msgstr "objekt"
+
+#: ../../python.rst:57
+msgid "float"
+msgstr "desetinné číslo"
+
+#: ../../python.rst:69 ../../python.rst:110 ../../python.rst:123
+#: ../../python.rst:130
+msgid "list"
+msgstr "seznam"
