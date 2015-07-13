@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: Odorik 0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-20 15:07+0200\n"
-"PO-Revision-Date: 2015-05-20 16:33+0200\n"
+"PO-Revision-Date: 2015-07-13 10:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/odorik/documentation-command/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
+"/documentation-command/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 #: ../../command.rst:2
 msgid "Odorik command line interface"
@@ -339,7 +340,7 @@ msgstr ""
 
 #: ../../command.rst:93
 msgid "You can additionally filter calls by ``--status`` or ``--direction``."
-msgstr ""
+msgstr "Hovory dále můžete filtrovat pomocí ``--status`` nebo ``--direction``."
 
 #~ msgid ""
 #~ "Following settings can be configured in the ``[odorik]`` section (you can "
