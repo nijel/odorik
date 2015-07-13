@@ -82,13 +82,15 @@ Currently following subcommands are available:
 
     See :ref:`interval` for information how to specify date period.
 
-.. option:: calls [--list] [--line LINE] [DATE PERIOD]
+.. option:: calls [--list] [--line LINE] [--direction {in,out,redirected}] [--status {answered,missed}] [DATE PERIOD]
 
     Prints calls usage.
 
     It can list all individual records when ``--list`` is specified.
 
     The result can be also limited to given line by using ``--line``.
+
+    You can additionally filter calls by ``--status`` or ``--direction``.
 
     See :ref:`interval` for information how to specify date period.
 
