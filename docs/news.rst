@@ -6,6 +6,7 @@ Changes
 
 * Documentation translated to Czech language.
 * More detailed summaries for calls and messages.
+* Added options for filtering calls by status and direction.
 
 0.4
 ---
