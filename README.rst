@@ -24,7 +24,7 @@ Python module for Odorik API
 Documentation
 -------------
 
-See http://odorik.readthedocs.org/en/latest/ for module documentation.
+See http://odorik.readthedocs.io/en/latest/ for module documentation.
 
 See http://www.odorik.cz/w/api for API documentation.
 
@@ -75,4 +75,4 @@ The module comes with handy command line utility::
     price: 2.20
 
 
-See http://odorik.readthedocs.org/en/latest/command.html for more information.
+See http://odorik.readthedocs.io/en/latest/command.html for more information.
