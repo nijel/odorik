@@ -5,6 +5,10 @@ Python module for Odorik API
     :target: https://travis-ci.org/nijel/odorik
     :alt: Build Status
 
+.. image:: https://ci.appveyor.com/api/projects/status/opljwukflxucyrfx/branch/master?svg=true
+    :alt: Build status
+    :target: https://ci.appveyor.com/project/nijel/odorik/branch/master
+
 .. image:: https://landscape.io/github/nijel/odorik/master/landscape.svg?style=flat
     :target: https://landscape.io/github/nijel/odorik/master
     :alt: Code Health
