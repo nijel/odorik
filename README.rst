@@ -13,6 +13,9 @@ Python module for Odorik API
     :target: https://landscape.io/github/nijel/odorik/master
     :alt: Code Health
 
+.. image:: https://api.codacy.com/project/badge/Grade/14a6d6258e234787b8cd05cf5a8035ca
+    :target: https://www.codacy.com/app/nijel/odorik
+
 .. image:: http://codecov.io/github/nijel/odorik/coverage.svg?branch=master
     :target: http://codecov.io/github/nijel/odorik?branch=master
     :alt: Code coverage

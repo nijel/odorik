@@ -16,6 +16,7 @@ script:
   - py.test --cov=odorik
 after_script:
   - codecov
+  - codacy-coverage
 # trigger Buildtime Trend Service to parse Travis CI log
 notifications:
   webhooks:
