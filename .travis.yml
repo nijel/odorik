@@ -6,8 +6,12 @@ python:
   - "3.5"
   - "3.6"
   - "3.7"
-  - "pypy"
-  - "pypy3"
+matrix:
+  include:
+  - dist: trusty
+    python: "pypy"
+  - dist: trusty
+    python: "pypy3"
 # commands to install dependencies
 install: 
   - pip install -r requirements.txt
