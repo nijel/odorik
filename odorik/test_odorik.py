@@ -206,7 +206,7 @@ class OdorikTest(TestCase):
     def test_sms_send(self):
         """Test sending SMS."""
         register_uris()
-        self.assertEquals(
+        self.assertEqual(
             Odorik().send_sms(
                 '00420789123456',
                 'text'
@@ -230,7 +230,7 @@ class OdorikTest(TestCase):
     def test_callback(self):
         """Test callback."""
         register_uris()
-        self.assertEquals(
+        self.assertEqual(
             Odorik().callback(
                 '00420789123456',
                 '800123456'
@@ -242,7 +242,7 @@ class OdorikTest(TestCase):
     def test_callback_line(self):
         """Test callback."""
         register_uris()
-        self.assertEquals(
+        self.assertEqual(
             Odorik().callback(
                 '00420789123456',
                 '800123456',
@@ -255,7 +255,7 @@ class OdorikTest(TestCase):
     def test_calls(self):
         """Test calls."""
         register_uris()
-        self.assertEquals(
+        self.assertEqual(
             len(Odorik().calls(
                 datetime.datetime.now(),
                 datetime.datetime.now(),
@@ -267,7 +267,7 @@ class OdorikTest(TestCase):
     def test_calls_line(self):
         """Test calls."""
         register_uris()
-        self.assertEquals(
+        self.assertEqual(
             len(Odorik().calls(
                 datetime.datetime.now(),
                 datetime.datetime.now(),
@@ -280,7 +280,7 @@ class OdorikTest(TestCase):
     def test_sms(self):
         """Test sms."""
         register_uris()
-        self.assertEquals(
+        self.assertEqual(
             len(Odorik().sms(
                 datetime.datetime.now(),
                 datetime.datetime.now(),
@@ -292,7 +292,7 @@ class OdorikTest(TestCase):
     def test_sms_line(self):
         """Test sms."""
         register_uris()
-        self.assertEquals(
+        self.assertEqual(
             len(Odorik().sms(
                 datetime.datetime.now(),
                 datetime.datetime.now(),

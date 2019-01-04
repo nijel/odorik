@@ -392,7 +392,7 @@ class TestCommands(TestCase):
             '00420789123456',
             'text'
         ])
-        self.assertEquals('', output)
+        self.assertEqual('', output)
 
     @httpretty.activate
     def test_send_sms_invalid(self):
@@ -411,7 +411,7 @@ class TestCommands(TestCase):
         output = execute([
             'callback', '00420789123456', '800123456'
         ])
-        self.assertEquals('', output)
+        self.assertEqual('', output)
 
     @httpretty.activate
     def test_summary(self):
