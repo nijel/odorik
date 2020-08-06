@@ -1,19 +1,19 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Odorik 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-20 15:07+0200\n"
+"POT-Creation-Date: 2020-08-06 09:00+0200\n"
 "PO-Revision-Date: 2015-07-13 10:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language: cs\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
 "/documentation-python/cs/>\n"
-"Language: cs\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"Generated-By: Babel 2.8.0\n"
 
 #: ../../python.rst:2
 msgid "Python API"
@@ -34,6 +34,10 @@ msgstr "Základní třída pro výjimky."
 #: ../../python.rst:19
 msgid ":class:`Odorik`"
 msgstr ":class:`Odorik`"
+
+#: ../../python.rst
+msgid "Parameters"
+msgstr ""
 
 #: ../../python.rst:23
 msgid "User ID"
@@ -65,16 +69,21 @@ msgstr "Cesta požadavku"
 msgid "Optional request parameters"
 msgstr "Volitelné parametry požadavku"
 
+#: ../../python.rst
+msgid "Return type"
+msgstr ""
+
 #: ../../python.rst:42
 msgid "Performs single API GET call."
 msgstr "Provede jeden GET API požadavek."
 
 #: ../../python.rst:52
 msgid ""
-"Performs single API GET call and parses JSON reply including error handling."
+"Performs single API GET call and parses JSON reply including error "
+"handling."
 msgstr ""
-"Provede jeden GET API požadavek a zpracuje odpověď ve formátu JSON včetně "
-"případného ošetření chyb."
+"Provede jeden GET API požadavek a zpracuje odpověď ve formátu JSON včetně"
+" případného ošetření chyb."
 
 #: ../../python.rst:59
 msgid "Returns current balance."
@@ -94,11 +103,11 @@ msgstr "Telefonní číslo ve tvaru 00420789123456"
 
 #: ../../python.rst:71
 msgid ""
-"Returns mobile data usage list in given interval. Optionally filtered for "
-"given number."
+"Returns mobile data usage list in given interval. Optionally filtered for"
+" given number."
 msgstr ""
-"Vrátí využití dat v zadaném časovém intervalu. Volitelně může být filtrován "
-"pro zadanou linku."
+"Vrátí využití dat v zadaném časovém intervalu. Volitelně může být "
+"filtrován pro zadanou linku."
 
 #: ../../python.rst:76
 msgid "Number where to sent SMS."
@@ -136,19 +145,27 @@ msgstr "Objedná zpětné volání."
 msgid "Line to use for listing"
 msgstr "Jakou linku použít pro výpis"
 
+#: ../../python.rst:106
+msgid "Call status, one of 'answered', 'missed'"
+msgstr "Stav hovoru, jedno z 'answered', 'missed'"
+
+#: ../../python.rst:108
+msgid "Call direction, one of 'in', 'out', 'redirected'"
+msgstr "Směr hovoru, jedno z 'in', 'out', 'redirected'"
+
 #: ../../python.rst:112
 msgid ""
-"Returns list of calls in given interval. Optionally filtered for given line."
+"Returns list of calls in given interval. Optionally filtered for given "
+"line."
 msgstr ""
 "Vrátí seznam hovorů v zadaném časovém intervalu. Volitelně může být "
 "filtrován pro zadanou linku."
 
 #: ../../python.rst:125
-msgid ""
-"Returns list of sms in given interval. Optionally filtered for given line."
+msgid "Returns list of sms in given interval. Optionally filtered for given line."
 msgstr ""
-"Vrátí seznam SMS v zadaném časovém intervalu. Volitelně může být filtrován "
-"pro zadanou linku."
+"Vrátí seznam SMS v zadaném časovém intervalu. Volitelně může být "
+"filtrován pro zadanou linku."
 
 #: ../../python.rst:132
 msgid "Returns list of dictionaries with information about lines."
@@ -176,13 +193,13 @@ msgstr "Cesta k souboru s konfigurací."
 
 #: ../../python.rst:157
 msgid ""
-"Loads configuration from a file, if none is specified it loads from `odorik`"
-" configuration file placed in XDG configuration path "
+"Loads configuration from a file, if none is specified it loads from "
+"`odorik` configuration file placed in XDG configuration path "
 "(:file:`~/.config/odorik` and :file:`/etc/xdg/odorik`)."
 msgstr ""
-"Načte nastavení z konfiguračního souboru. Pokud není zadána cesta, použije "
-"se soubor `odorik` umístěný v cestě XDG (:file:`~/.config/odorik` a "
-":file:`/etc/xdg/odorik`)."
+"Načte nastavení z konfiguračního souboru. Pokud není zadána cesta, "
+"použije se soubor `odorik` umístěný v cestě XDG (:file:`~/.config/odorik`"
+" a :file:`/etc/xdg/odorik`)."
 
 #: ../../python.rst:163
 msgid ":mod:`odorik.main`"
@@ -211,8 +228,8 @@ msgid ""
 "Decorator to register :class:`Command` class in main parser used by "
 ":func:`main`."
 msgstr ""
-"Dekorátor, který registruje třídu :class:`Command` pro zpracování v parseru "
-"funkce :func:`main`."
+"Dekorátor, který registruje třídu :class:`Command` pro zpracování v "
+"parseru funkce :func:`main`."
 
 #: ../../python.rst:185
 msgid ":class:`Command`"
@@ -222,27 +239,15 @@ msgstr ":class:`Command`"
 msgid "Main class for invoking commands."
 msgstr "Hlavní třída pro spouštění příkazů."
 
-#: ../../python.rst:106
-msgid "Call status, one of 'answered', 'missed'"
-msgstr "Stav hovoru, jedno z 'answered', 'missed'"
+#~ msgid "string"
+#~ msgstr "řetězec"
 
-#: ../../python.rst:108
-msgid "Call direction, one of 'in', 'out', 'redirected'"
-msgstr "Směr hovoru, jedno z 'in', 'out', 'redirected'"
+#~ msgid "object"
+#~ msgstr "objekt"
 
-#: ../../python.rst:40 ../../python.rst:82 ../../python.rst:94
-msgid "string"
-msgstr "řetězec"
+#~ msgid "float"
+#~ msgstr "desetinné číslo"
 
-#: ../../python.rst:50
-msgid "object"
-msgstr "objekt"
+#~ msgid "list"
+#~ msgstr "seznam"
 
-#: ../../python.rst:57
-msgid "float"
-msgstr "desetinné číslo"
-
-#: ../../python.rst:69 ../../python.rst:110 ../../python.rst:123
-#: ../../python.rst:130
-msgid "list"
-msgstr "seznam"
