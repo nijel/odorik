@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: Odorik 0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-06 09:00+0200\n"
-"PO-Revision-Date: 2015-07-13 10:51+0200\n"
+"PO-Revision-Date: 2020-08-07 07:32+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/odorik/"
+"documentation-python/cs/>\n"
 "Language: cs\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/odorik"
-"/documentation-python/cs/>\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2-dev\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../python.rst:2
@@ -37,7 +38,7 @@ msgstr ":class:`Odorik`"
 
 #: ../../python.rst
 msgid "Parameters"
-msgstr ""
+msgstr "Parametry"
 
 #: ../../python.rst:23
 msgid "User ID"
@@ -71,7 +72,7 @@ msgstr "Volitelné parametry požadavku"
 
 #: ../../python.rst
 msgid "Return type"
-msgstr ""
+msgstr "Návratový typ"
 
 #: ../../python.rst:42
 msgid "Performs single API GET call."
@@ -250,4 +251,3 @@ msgstr "Hlavní třída pro spouštění příkazů."
 
 #~ msgid "list"
 #~ msgstr "seznam"
-
